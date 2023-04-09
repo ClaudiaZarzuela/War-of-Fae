@@ -145,8 +145,18 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Cartel2.png" />
     <Content Include="Assets\CartelInventario.png" />
     <Content Include="Assets\CartelPrincipal.png" />
+    <Content Include="Assets\dragon.png" />
+    <Content Include="Assets\Fondo Completo.png" />
+    <Content Include="Assets\Fondo.png" />
+    <Content Include="Assets\Fondo1.png" />
+    <Content Include="Assets\FondoCompleto.png" />
+    <Content Include="Assets\Grass.png" />
+    <Content Include="Assets\Hada1.png" />
+    <Content Include="Assets\Hada2.png" />
+    <Content Include="Assets\Huevos.png" />
     <Content Include="Assets\MainMenuBackGround.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

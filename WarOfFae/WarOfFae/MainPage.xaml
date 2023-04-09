@@ -7,20 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
-        <!--<Image Source= "Assets/MainMenuBackGround.png" Stretch="Fill" />-->
-        <StackPanel Orientation="Vertical" Margin="1052,10,256,0">
-            <Image Height="476" Width="768" Source="/Assets/CartelPrincipal.png" Margin="-35,-170,0,0"/>
-            <Rectangle Width="400" Height="200" Fill="SandyBrown" Margin="25" />
-            <Rectangle Width="400" Height="200" Fill="SandyBrown"/>
+
+    <Grid Name="myGird"  RequestedTheme="Dark" >
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Fondo.png" Opacity="0.985" ></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" >
+            <Image Height="288" Width="376" Source="/Assets/CartelPrincipal.png" />
         </StackPanel>
-        <Button x:Name="Inventario_Boton" Margin="387,810,0,0" VerticalAlignment="Top" FontFamily="Curlz MT" FontSize="38" FontWeight="Bold" Height="270" Width="254" Click="Inventario_Boton_Click" FontStyle="Normal" Foreground="White" CharacterSpacing="2" RenderTransformOrigin="0.459,1.2">
+        <Button x:Name="Inventario_Boton" VerticalAlignment="Bottom" Height="188" Width="171" Grid.Row="1" HorizontalAlignment="Right">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/CartelInventario.png" Stretch="UniformToFill"/>
             </Button.Background>
-            <TextBlock Margin="-2,-71,1,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" Height="53" FontWeight="Bold"><Run Text="INVENTORY"/><LineBreak/><Run/></TextBlock>
+            <!--<TextBlock TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" Height="53" FontWeight="Bold"><Run Text="INVENTORY"/><LineBreak/><Run/></TextBlock>-->
         </Button>
-
     </Grid>
+
+
 
 </Page>
