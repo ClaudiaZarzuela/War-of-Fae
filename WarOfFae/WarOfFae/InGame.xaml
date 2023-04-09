@@ -9,6 +9,35 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="317*" />
+            <ColumnDefinition Width="700*" />
+            <ColumnDefinition Width="483*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Image Source="Assets/Tabla.png" Margin="-14,-370,680,115" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.ColumnSpan="2">
+            <Image.RenderTransform>
+                <CompositeTransform Rotation="-90.339"/>
+            </Image.RenderTransform>
+        </Image>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+            <Image Source="Assets/Settings.png"  HorizontalAlignment="Left" Margin="20" Height="78" Width="105"></Image>
+            <Button Content="1" HorizontalAlignment="Center" Margin="25"></Button>
+            <Button Content="2" HorizontalAlignment="Center" Margin="25"></Button>
+            <Button Content="3" HorizontalAlignment="Center" Margin="25"></Button>
+            <Image Source="Assets/InfoCard.png" Height="305" Width="222" Margin="50"></Image>
+            <TextBlock  Text="Your turn!" Height="78" Width="132" TextAlignment="Center"/>
+        </StackPanel>
+        <Image Grid.Column="1" Source="Assets/Mapa.png" ></Image>
+        <Button Background="Aquamarine"  Grid.Column="1" Content=" " Margin="315,736,0,0" VerticalAlignment="Top" Height="81" Width="89"/>
+        <Image Source="Assets/Banshee.png" Grid.Column="1" Margin="332,605,314,54"></Image>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <Image Source="Assets/Dead1.png" Margin="40"></Image>
+        </StackPanel>
     </Grid>
 </Page>
