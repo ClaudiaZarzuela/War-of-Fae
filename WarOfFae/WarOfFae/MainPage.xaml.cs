@@ -26,5 +26,15 @@ namespace WarOfFae
         {
             this.InitializeComponent();
         }
+
+        private void Inventario_Boton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
