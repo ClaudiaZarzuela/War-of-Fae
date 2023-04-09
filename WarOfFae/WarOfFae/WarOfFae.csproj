@@ -145,9 +145,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Ajustes.png" />
     <Content Include="Assets\Cartel2.png" />
+    <Content Include="Assets\CartelDuo.png" />
     <Content Include="Assets\CartelInventario.png" />
     <Content Include="Assets\CartelPrincipal.png" />
+    <Content Include="Assets\CartelSolo.png" />
     <Content Include="Assets\dragon.png" />
     <Content Include="Assets\Fondo Completo.png" />
     <Content Include="Assets\Fondo.png" />
