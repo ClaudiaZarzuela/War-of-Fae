@@ -26,5 +26,19 @@ namespace WarOfFae
         {
             this.InitializeComponent();
         }
+
+        private void Back_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                // If there's a page in the "backstack," we can call GoBack().
+                Frame.GoBack();
+            }
+        }
+
+        private void MainMenu_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }

@@ -14,14 +14,71 @@
             <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="317*" />
-            <ColumnDefinition Width="700*" />
-            <ColumnDefinition Width="483*" />
+            <ColumnDefinition Width="509*" />
+            <ColumnDefinition Width="510*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="53*" />
+            <RowDefinition Height="447*"/>
         </Grid.RowDefinitions>
 
-        
+        <StackPanel Grid.Row="1"  HorizontalAlignment="Center"  VerticalAlignment="Center"  >
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button Content="POWERUP1" Height="90" Width="370" ></Button>
+                <Image Source="Assets/Money.png" Height="55" Width="47"></Image>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button Content="POWERUP1" Height="90" Width="370" ></Button>
+                <Image Source="Assets/Money.png" Height="55" Width="47"></Image>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button Content="POWERUP1" Height="90" Width="370" ></Button>
+                <Image Source="Assets/Money.png" Height="55" Width="47"></Image>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button Content="POWERUP1" Height="90" Width="370" ></Button>
+                <Image Source="Assets/Money.png" Height="55" Width="47"></Image>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button Content="POWERUP1" Height="90" Width="370" ></Button>
+                <Image Source="Assets/Money.png" Height="55" Width="47"></Image>
+            </StackPanel>
+
+
+        </StackPanel>
+        <Image Source="Assets/Tabla.png" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></Image>
+        <TextBlock Text="Info sobre el powerup" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
+        <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="80">
+            <TextBlock Text="Elementals" TextAlignment="Center"></TextBlock>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
+                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
