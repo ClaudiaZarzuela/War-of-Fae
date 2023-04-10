@@ -9,6 +9,109 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Pre Game Background.png"></ImageBrush>
+            <!--<ImageBrush ImageSource="Assets/Referencia Pre Game.png"></ImageBrush>-->
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*" />
+            <ColumnDefinition Width="238*" />
+            <ColumnDefinition Width="121*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"></RowDefinition>
+            <RowDefinition Height="109*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="255" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue"></Rectangle>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="390" Grid.Row="1" >
+            <Image Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
+            <Border Background="Thistle" Width="210" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, 30">
+                <StackPanel>
+                    <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="35" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                    <TextBlock x:Name="Descripcion" Text="can kill THE GOVERNOR" FontSize="19" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid BorderBrush="White" BorderThickness="3">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
+                    </Grid.Background>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="458*"/>
+                        <RowDefinition Height="77*"/>
+                        <RowDefinition Height="77*"/>
+                        <RowDefinition Height="77*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Rectangle Grid.Row="1" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="1" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
+
+                    <Rectangle Grid.Row="2" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="2" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
+
+                    <Rectangle Grid.Row="3" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    <Rectangle Grid.Row="3" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
+                </Grid>
+            </Border>
+            <Border Height="60" Width="574" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="0,20">
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    <Button Style="{StaticResource Mapa_Line}"></Button>
+                    
+                </StackPanel>
+
+            </Border>
+        </StackPanel>
+
 
     </Grid>
 </Page>

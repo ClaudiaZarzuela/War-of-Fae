@@ -138,6 +138,7 @@
       <DependentUpon>PreGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -146,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ajustes.png" />
+    <Content Include="Assets\banshee.png" />
     <Content Include="Assets\Cartel2.png" />
     <Content Include="Assets\CartelDuo.png" />
     <Content Include="Assets\CartelInventario.png" />
@@ -161,6 +163,9 @@
     <Content Include="Assets\Hada2.png" />
     <Content Include="Assets\Huevos.png" />
     <Content Include="Assets\MainMenuBackGround.png" />
+    <Content Include="Assets\mapa.png" />
+    <Content Include="Assets\Pre Game Background.png" />
+    <Content Include="Assets\Referencia Pre Game.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
