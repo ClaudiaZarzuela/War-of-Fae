@@ -28,5 +28,13 @@ namespace WarOfFae
         {
             this.InitializeComponent();
         }
+
+        private void Back_Boton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
     }
 }

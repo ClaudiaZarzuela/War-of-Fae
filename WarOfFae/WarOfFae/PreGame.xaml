@@ -19,137 +19,200 @@
             <ColumnDefinition Width="403*" />
         </Grid.ColumnDefinitions>
 
+        <Viewbox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="12,0,0,0" >
+            <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="380" VerticalAlignment="Center" Width="245" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue" ></Rectangle>
+        </Viewbox>
+        <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
+            <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
+                <Image Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
+                <Border Background="Thistle" Width="200" Height="80" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
+                    <StackPanel>
+                        <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                        <TextBlock x:Name="Descripcion" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Viewbox>
 
-        <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="380" VerticalAlignment="Center" Width="245" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue" Margin="12,0,0,0"></Rectangle>
-        <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="380" Grid.Row="1" HorizontalAlignment="Left" Margin="40,0,0,0" Width="200">
-            <Image Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
-            <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, 30">
-                <StackPanel>
-                    <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
-                    <TextBlock x:Name="Descripcion" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+        <Viewbox Grid.Column="1" Grid.Row="1"  Margin="2,0,0,0">
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <Rectangle Height="50"></Rectangle>
+                <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Grid BorderBrush="White" BorderThickness="3">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="458*"/>
+                            <RowDefinition Height="77*"/>
+                            <RowDefinition Height="77*"/>
+                            <RowDefinition Height="77*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="2,0,0,0">
-            <Rectangle Height="50"></Rectangle>
-            <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Grid BorderBrush="White" BorderThickness="3">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
-                    </Grid.Background>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="458*"/>
-                        <RowDefinition Height="77*"/>
-                        <RowDefinition Height="77*"/>
-                        <RowDefinition Height="77*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Row="1" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="1" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
 
-                    <Rectangle Grid.Row="1" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="1" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="2" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
 
-                    <Rectangle Grid.Row="2" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="2" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
+                        <Rectangle Grid.Row="3" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
+                    </Grid>
+                </Border>
+                <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 1.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 2.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 3.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 4.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 5.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 6.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 7.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 8.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 9.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 10.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 11.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
+                        <Button Style="{StaticResource Mapa_Line}">
+                            <Image Source="Assets/Personaje 12.png" Height="51" Margin="-14,-5,-14,-5"/>
+                        </Button>
 
-                    <Rectangle Grid.Row="3" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    <Rectangle Grid.Row="3" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
-                </Grid>
-            </Border>
-            <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="0,10">
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 1.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 2.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 3.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 4.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 5.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 6.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 7.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 8.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 9.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 10.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 11.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
-                    <Button Style="{StaticResource Mapa_Line}">
-                        <Image Source="Assets/Personaje 12.png" Height="51" Margin="-14,-5,-14,-5"/>
-                    </Button>
+                    </StackPanel>
+                </Border>
 
-                </StackPanel>
-            </Border>
+                <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
+                <Button HorizontalAlignment="Center" Width="135" Height="62" Margin="20">
+                    <Image  Source="Assets/Start.png" Width="250" Height="69" Margin="-12,-8" ></Image>
+                </Button>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox Grid.Column="1"  VerticalAlignment="Top" Margin="0,40" Width="20" Height="1">
+            <Image VerticalAlignment="Top" Source="Assets/MAP.png" Width="20" Height="1" ></Image>
+        </Viewbox>
 
-            <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
-            <Button HorizontalAlignment="Center" Width="135" Height="62" Margin="20">
-                <Image  Source="Assets/Start.png" Width="250" Height="69" Margin="-12,-8" ></Image>
+        <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" MaxHeight="80" MaxWidth="80" >
+            <Button x:Name="Ajustes_Boton"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+                <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
             </Button>
-        </StackPanel>
-        <Image VerticalAlignment="Top" Grid.Column="1" Source="Assets/MAP.png" Width="250" Height="100" Margin="0,10" ></Image>
-        <Button x:Name="Ajustes_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80">
-            <Button.Background>
-                <SolidColorBrush Opacity="0"/>
-            </Button.Background>
-            <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
-        </Button>
-        <Button x:Name="Back_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Height="60" Width="130">
-            <Button.Background>
-                <SolidColorBrush Opacity="0"/>
-            </Button.Background>
-            <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,-7" Width="144"/>
-        </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Height="60" Width="130">
+            <Button x:Name="Back_Boton"  Click="Back_Boton_Click" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Height="60" Width="130">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+                <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,-7" Width="144"/>
+            </Button>
+        </Viewbox>
+
+        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 100,0,0" Height="200">
+            <Border HorizontalAlignment="Right" VerticalAlignment="Top" Height="200">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
+                </Border.Background>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+                        <Button Content="Fuego" Background="CadetBlue" BorderBrush="White" BorderThickness="2"></Button>
+                        <Button Content="Agua" Background="Teal" BorderBrush="White" BorderThickness="2"></Button>
+                        <Button Content="Tierra"  Background="CadetBlue" BorderBrush="White" BorderThickness="2"></Button>
+                        <Button Content="Aire" Background="CadetBlue" BorderBrush="White" BorderThickness="2"></Button>
+                    </StackPanel>
+
+                    <TextBlock Text="ELEMENT" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,10"></TextBlock>
+                    <TextBlock Text="WATER" FontFamily="Curlz MT" Foreground="LightBlue" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    <Button Content="Snorkel" Background="LightBlue" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="170" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="20" FontWeight="Bold"  Margin="0,5"></Button>
+                </StackPanel>
+
+            </Border>
+        </Viewbox>
+        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 325,0,0"  Height="300" Width="210">
+
+            <Border  Height="300" Width="210">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
+                </Border.Background>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="POWER UPS" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,15"></TextBlock>
+                    <Button Content="Magic Jump" Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="25" FontWeight="Bold"  Margin="0,5"></Button>
+                    <Button Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5"></Button>
+                    <!--<ListView  x:Name="MyScroll"  Background="MediumPurple" Width="195" Height="25" BorderThickness="1" BorderBrush="White" >
+                        
+                    </ListView>-->
+                    <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" 
+                              ScrollViewer.VerticalScrollMode="Disabled"  Width="195" Height="100"  BorderThickness="1" BorderBrush="White">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Background="Transparent" Orientation="Horizontal">
+                                   
+                                </StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </StackPanel>
+               
+            </Border>
+        </Viewbox>
+
+
     </Grid>
 </Page>
