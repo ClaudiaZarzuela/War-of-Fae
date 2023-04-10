@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ajustes.png" />
+    <Content Include="Assets\back.png" />
     <Content Include="Assets\banshee.png" />
     <Content Include="Assets\Cartel2.png" />
     <Content Include="Assets\CartelDuo.png" />
@@ -163,9 +164,23 @@
     <Content Include="Assets\Hada2.png" />
     <Content Include="Assets\Huevos.png" />
     <Content Include="Assets\MainMenuBackGround.png" />
+    <Content Include="Assets\MAP.png" />
     <Content Include="Assets\mapa.png" />
+    <Content Include="Assets\Personaje 1.png" />
+    <Content Include="Assets\Personaje 10.png" />
+    <Content Include="Assets\Personaje 11.png" />
+    <Content Include="Assets\Personaje 12.png" />
+    <Content Include="Assets\Personaje 2.png" />
+    <Content Include="Assets\Personaje 3.png" />
+    <Content Include="Assets\Personaje 4.png" />
+    <Content Include="Assets\Personaje 5.png" />
+    <Content Include="Assets\Personaje 6.png" />
+    <Content Include="Assets\Personaje 7.png" />
+    <Content Include="Assets\Personaje 8.png" />
+    <Content Include="Assets\Personaje 9.png" />
     <Content Include="Assets\Pre Game Background.png" />
     <Content Include="Assets\Referencia Pre Game.png" />
+    <Content Include="Assets\Start.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

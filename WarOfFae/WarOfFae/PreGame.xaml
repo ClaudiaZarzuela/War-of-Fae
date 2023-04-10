@@ -14,32 +14,31 @@
             <!--<ImageBrush ImageSource="Assets/Referencia Pre Game.png"></ImageBrush>-->
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="121*" />
-            <ColumnDefinition Width="238*" />
-            <ColumnDefinition Width="121*" />
+            <ColumnDefinition Width="403*" />
+            <ColumnDefinition Width="1114*" />
+            <ColumnDefinition Width="403*" />
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="11*"></RowDefinition>
-            <RowDefinition Height="109*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="255" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue"></Rectangle>
-        <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="390" Grid.Row="1" >
+
+
+        <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="380" VerticalAlignment="Center" Width="245" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue" Margin="12,0,0,0"></Rectangle>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="380" Grid.Row="1" HorizontalAlignment="Left" Margin="40,0,0,0" Width="200">
             <Image Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
-            <Border Background="Thistle" Width="210" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, 30">
+            <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, 30">
                 <StackPanel>
-                    <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="35" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
-                    <TextBlock x:Name="Descripcion" Text="can kill THE GOVERNOR" FontSize="19" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                    <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                    <TextBlock x:Name="Descripcion" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
                 </StackPanel>
             </Border>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="2,0,0,0">
+            <Rectangle Height="50"></Rectangle>
             <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <Grid BorderBrush="White" BorderThickness="3">
                     <Grid.Background>
                         <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
                     </Grid.Background>
-                    <Grid.RowDefinitions >
+                    <Grid.RowDefinitions>
                         <RowDefinition Height="458*"/>
                         <RowDefinition Height="77*"/>
                         <RowDefinition Height="77*"/>
@@ -92,26 +91,65 @@
                     <Rectangle Grid.Row="3" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
                 </Grid>
             </Border>
-            <Border Height="60" Width="574" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="0,20">
+            <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="0,10">
                 <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    <Button Style="{StaticResource Mapa_Line}"></Button>
-                    
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 1.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 2.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 3.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 4.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 5.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 6.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 7.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 8.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 9.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 10.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 11.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+                    <Button Style="{StaticResource Mapa_Line}">
+                        <Image Source="Assets/Personaje 12.png" Height="51" Margin="-14,-5,-14,-5"/>
+                    </Button>
+
                 </StackPanel>
-
             </Border>
+
+            <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
+            <Button HorizontalAlignment="Center" Width="135" Height="62" Margin="20">
+                <Image  Source="Assets/Start.png" Width="250" Height="69" Margin="-12,-8" ></Image>
+            </Button>
         </StackPanel>
-
-
+        <Image VerticalAlignment="Top" Grid.Column="1" Source="Assets/MAP.png" Width="250" Height="100" Margin="0,10" ></Image>
+        <Button x:Name="Ajustes_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80">
+            <Button.Background>
+                <SolidColorBrush Opacity="0"/>
+            </Button.Background>
+            <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
+        </Button>
+        <Button x:Name="Back_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Height="60" Width="130">
+            <Button.Background>
+                <SolidColorBrush Opacity="0"/>
+            </Button.Background>
+            <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,-7" Width="144"/>
+        </Button>
     </Grid>
 </Page>
