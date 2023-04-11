@@ -61,9 +61,8 @@
 
 
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            
-        <Image Source="Assets/infoCard2.png" Height="349" Width="707" ></Image>
+        <Image Source="Assets/Tabla.png" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></Image>
+        <TextBlock Text="Info sobre el powerup" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="80">
             <TextBlock Text="Elementals" TextAlignment="Center"></TextBlock>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -80,7 +79,6 @@
                     <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
                 </Button>
             </StackPanel>
-        </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
