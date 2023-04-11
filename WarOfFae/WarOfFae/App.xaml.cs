@@ -66,7 +66,11 @@ namespace WarOfFae
                     // Cuando no se restaura la pila de navegación, navegar a la primera página,
                     // configurando la nueva página pasándole la información requerida como
                     //parámetro de navegación
+<<<<<<< Updated upstream
                     rootFrame.Navigate(typeof(PreGame), e.Arguments);
+=======
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+>>>>>>> Stashed changes
                 }
                 // Asegurarse de que la ventana actual está activa.
                 Window.Current.Activate();

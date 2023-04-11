@@ -8,54 +8,54 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Viewbox Stretch="Fill">
+        <Grid Name="myGird"  RequestedTheme="Dark" >
 
-    <Grid Name="myGird"  RequestedTheme="Dark" >
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/Fondo.png"></ImageBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="713*" />
+                <ColumnDefinition Width="262*" />
+                <ColumnDefinition Width="715*" />
+                <ColumnDefinition Width="230*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="133*" />
+                <RowDefinition Height="47*" />
+            </Grid.RowDefinitions>
 
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/Fondo.png"></ImageBrush>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="713*" />
-            <ColumnDefinition Width="262*" />
-            <ColumnDefinition Width="715*" />
-            <ColumnDefinition Width="230*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="133*" />
-            <RowDefinition Height="47*" />
-        </Grid.RowDefinitions>
+            <StackPanel x:Name = "Botones" Grid.Column ="2" Margin="2,0,0,0">
+                <Rectangle HorizontalAlignment="Center" Height="165"></Rectangle>
+                <Button x:Name="Boton1" HorizontalAlignment="Center" Height="160" Width="351" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Solo_Button">
+                    <Image Source="/Assets/CartelSolo.png" HorizontalAlignment="Center" Margin="0,-18,0,0" Width="331" Height="176" VerticalAlignment="Top"/>
+                </Button>
+                <Button x:Name="Boton2" HorizontalAlignment="Center" Height="135" Width="325" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" >
+                    <Image Source="/Assets/CartelDuo.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1,-35,0,0" Height="288" Width="303"></Image>
+                </Button>
 
-        <StackPanel x:Name = "Botones" Grid.Column ="2" Margin="2,0,0,0">
-            <Rectangle HorizontalAlignment="Center" Height="165"></Rectangle>
-            <Button x:Name="Boton1" HorizontalAlignment="Center" Height="160" Width="351" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Solo_Button">
-                <Image Source="/Assets/CartelSolo.png" HorizontalAlignment="Center" Margin="0,-18,0,0" Width="331" Height="176" VerticalAlignment="Top"/>
+            </StackPanel>
+
+            <Image  Source="/Assets/CartelPrincipal.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="370" Width="492"/>
+
+            <Button x:Name="Inventario_Boton" VerticalAlignment="Bottom" Height="188" Width="171" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="0" Margin="0,0,29,0" BorderBrush="Transparent" Background="Transparent" Click="Inventario_Boton_Click" >
+                <Image Source="/Assets/CartelInventario.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
             </Button>
-            <Button x:Name="Boton2" HorizontalAlignment="Center" Height="135" Width="325" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" >
-                <Image Source="/Assets/CartelDuo.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1,-35,0,0" Height="288" Width="303"></Image>
+            <Button x:Name="Ajustes_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80" Click="Ajustes_Boton_Click">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+                <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
             </Button>
 
-        </StackPanel>
-
-        <Image  Source="/Assets/CartelPrincipal.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="370" Width="492"/>
-
-        <Button x:Name="Inventario_Boton" VerticalAlignment="Bottom" Height="188" Width="171" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="0" Margin="0,0,29,0" BorderBrush="Transparent" Background="Transparent" >
-            <Image Source="/Assets/CartelInventario.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
-        </Button>
-        <Button x:Name="Ajustes_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80">
-            <Button.Background>
-                <SolidColorBrush Opacity="0"/>
-            </Button.Background>
-            <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
-        </Button>
-
-        <Image  Source="/Assets/Grass.png" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364"/>
-        <Image  Source="/Assets/Grass.png" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364" Grid.ColumnSpan="2" Margin="0,0,252,0"/>
-        <Image  Source="/Assets/Grass.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364" Grid.ColumnSpan="2" Margin="0,0,18,0"/>
-        <Image  Source="/Assets/Grass.png" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364"/>
-        <Image  Source="/Assets/Grass.png" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364" Margin="2,0,0,0"/>
-        <Image  Source="/Assets/Grass.png" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364"/>
-    </Grid>
-
+            <Image  Source="/Assets/Grass.png" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364"/>
+            <Image  Source="/Assets/Grass.png" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364" Grid.ColumnSpan="2" Margin="0,0,252,0"/>
+            <Image  Source="/Assets/Grass.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364" Grid.ColumnSpan="2" Margin="0,0,18,0"/>
+            <Image  Source="/Assets/Grass.png" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364"/>
+            <Image  Source="/Assets/Grass.png" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364" Margin="2,0,0,0"/>
+            <Image  Source="/Assets/Grass.png" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Height="82" Width="364"/>
+        </Grid>
+    </Viewbox>
 
 
 </Page>

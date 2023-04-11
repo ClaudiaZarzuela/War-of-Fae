@@ -7,25 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/Pre Game Background.png"></ImageBrush>
+                <!--<ImageBrush ImageSource="Assets/Referencia Pre Game.png"></ImageBrush>-->
+            </Grid.Background>
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/Pre Game Background.png"></ImageBrush>
-            <!--<ImageBrush ImageSource="Assets/Referencia Pre Game.png"></ImageBrush>-->
-        </Grid.Background>
-        
-        <Image  Source="/Assets/CartelPrincipalOpciones.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="170" Width="292"/>
-        
-        <Viewbox>
-            <StackPanel Orientation="Horizontal">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            </Grid>
-            <StackPanel Orientation="Vertical" Width="640">
+            <Image  Source="/Assets/CartelPrincipalOpciones.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="170" Width="292"/>
+
+            <Viewbox>
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <StackPanel Orientation="Vertical" Width="640">
                         <Border Margin="100 100 100 0" Height="200" Width="375">
                             <Border.Background>
                                 <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
@@ -41,9 +41,9 @@
                             </Border.Background>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="GAMEPLAY" Foreground="White" FontSize="60" HorizontalAlignment="Center" Margin="20 20 20 40"/>
-                            <CheckBox Foreground="#FFFCFAFA" Content="Tutorial Help" FontSize="30" HorizontalAlignment="Center" VerticalContentAlignment="Top" IsChecked="True" FontFamily="Segoe UI" >
-                               
-                            </CheckBox>
+                                <CheckBox Foreground="#FFFCFAFA" Content="Tutorial Help" FontSize="30" HorizontalAlignment="Center" VerticalContentAlignment="Top" IsChecked="True" FontFamily="Segoe UI" >
+
+                                </CheckBox>
                                 <CheckBox Foreground="White" Content="BiggerFont Tt" FontSize="30" HorizontalAlignment="Center" />
 
                             </StackPanel>
@@ -70,10 +70,10 @@
 
                     <StackPanel  Grid.Column="2" Grid.Row="2" Orientation="Vertical" Width="640">
                         <Border Margin="50 100 50 10" Height="300"  Width="540">
-                        <Border.Background>
-                            <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
-                        </Border.Background>
-                        <StackPanel Orientation="Vertical">
+                            <Border.Background>
+                                <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                            </Border.Background>
+                            <StackPanel Orientation="Vertical">
                                 <TextBlock Text="VIDEO" Foreground="White" FontSize="60" HorizontalAlignment="Center" Margin="20 20 20 40"/>
                                 <CheckBox Foreground="White" Content="Colorblind mode" FontSize="30" HorizontalAlignment="Center" Margin="0 -15 0 0"/>
                                 <CheckBox Foreground="White" Content="Fullscreen" FontSize="30" HorizontalAlignment="Left" Margin="150 20 20 20" IsChecked="True"/>
@@ -98,11 +98,12 @@
                     </StackPanel>
                 </StackPanel>
             </Viewbox>
-        <Button x:Name="Back_Boton"  HorizontalAlignment="Left" VerticalAlignment="Bottom"  Height="60" Width="130">
-            <Button.Background>
-                <SolidColorBrush Opacity="0"/>
-            </Button.Background>
-            <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,-7" Width="144"/>
-        </Button>
-    </Grid>
+            <Button x:Name="Back_Boton"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Height="60" Margin="0,0,1790,0" Click="Back_Boton_Click">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+                <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,0" Width="144" Height="60" VerticalAlignment="Top"/>
+            </Button>
+        </Grid>
+    </Viewbox>
 </Page>
