@@ -27,11 +27,19 @@
                 </Button.Background>
                 <Image Source="/Assets/Settings.png" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,1,0,-9" Width="79"/>
             </Button>
-            <Button Content="1" HorizontalAlignment="Center" Margin="25"></Button>
-            <Button Content="2" HorizontalAlignment="Center" Margin="25"></Button>
-            <Button Content="3" HorizontalAlignment="Center" Margin="25"></Button>
-            <Image Source="Assets/InfoCard.png" Height="324" Width="199" Margin="50"  Stretch="UniformToFill"  ></Image>
-            <Button Content="Your turn!" Background="Coral" Height="78" Width="132" HorizontalAlignment="Center"></Button>
+            <Border   Height="280" Width="93">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Tabla.png" Stretch="Fill"></ImageBrush>
+                </Border.Background>
+                <StackPanel VerticalAlignment="Center">
+                    <Button Content="1" HorizontalAlignment="Center"  Margin="20" Background="Violet"></Button>
+                    <Button Content="2" HorizontalAlignment="Center" Margin="20"  Background="Violet"></Button>
+                    <Button Content="3" HorizontalAlignment="Center"  Margin="20"  Background="Violet"></Button>
+                </StackPanel>
+
+            </Border>
+            <Image Source="Assets/InfoCard.png" Height="263" Width="163"  Stretch="UniformToFill"  ></Image>
+            <Button Content="Your turn!" Background="Coral" Height="78" Width="132" Margin="20" HorizontalAlignment="Center"></Button>
 
         </StackPanel>
         <Image Grid.Column="1" Source="Assets/Mapa.png" ></Image>
@@ -42,8 +50,30 @@
             <Image Source="Assets/Banshee.png" HorizontalAlignment="Center"/>
         </Button>
         <StackPanel Grid.Column="2" VerticalAlignment="Center">
-            <Image Source="Assets/Dead1.png" Margin="40"></Image>
-            <Image Source="Assets/Dead2.png" Margin="40"></Image>
+            <TextBlock Text="Enemy lost"  HorizontalAlignment="Center"></TextBlock>
+            <Image Source="Assets/Dead1.png" Margin="10"></Image>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Border  Height="48" Width="93">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                </Border.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Money:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="50" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Border>
+                <Border  Height="48" Width="93" Margin="20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Time:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="60" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <TextBlock Text="You lost" HorizontalAlignment="Center"></TextBlock>
+            <Image Source="Assets/Dead2.png" Margin="10"></Image>
         </StackPanel>
     </Grid>
 </Page>

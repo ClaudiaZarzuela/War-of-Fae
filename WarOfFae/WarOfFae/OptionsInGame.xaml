@@ -13,8 +13,6 @@
             <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="301*"></RowDefinition>
-            <RowDefinition Height="699*"></RowDefinition>
         </Grid.RowDefinitions>
 
 
@@ -34,7 +32,7 @@
 
 
         </StackPanel>
-        <Image Source="Assets/Cartel2.png" Height="494" VerticalAlignment="Center"  />
-        <TextBlock Text="Ajustes"  TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="44"/>
+        <Image  Source="/Assets/CartelPrincipalOpciones.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="170" Width="292"/>
+     
     </Grid>
 </Page>

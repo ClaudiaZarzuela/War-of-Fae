@@ -18,11 +18,17 @@
             <ColumnDefinition Width="510*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="53*" />
-            <RowDefinition Height="447*"/>
+            <RowDefinition Height="181*" />
+            <RowDefinition Height="819*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1"  HorizontalAlignment="Center"  VerticalAlignment="Center"  >
+        <Border Margin="328,36,231,10">
+            <Border.Background>
+                <ImageBrush ImageSource="Assets/Tabla.png" Stretch="Fill"></ImageBrush>
+            </Border.Background>
+            <TextBlock Text="Inventory" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Border>
+        <StackPanel Grid.Row="1"  HorizontalAlignment="Center"  VerticalAlignment="Center" Height="568" Width="538"  >
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
                 <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
                     <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
@@ -61,9 +67,16 @@
 
 
         </StackPanel>
-        <Image Source="Assets/Tabla.png" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"></Image>
-        <TextBlock Text="Info sobre el powerup" Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
-        <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="80">
+
+        <Border Grid.Row="1" Grid.Column="1" Height="200" Width="600" VerticalAlignment="Top" Margin="90">
+            <Border.Background>
+                <ImageBrush ImageSource="Assets/Panel.png"></ImageBrush>
+            </Border.Background>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <TextBlock Text="Info sobre el powerup"  VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Border>
+        <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"  Height="133" Margin="50">
             <TextBlock Text="Elementals" TextAlignment="Center"></TextBlock>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >

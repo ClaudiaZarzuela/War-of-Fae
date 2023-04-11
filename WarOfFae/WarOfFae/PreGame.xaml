@@ -198,6 +198,7 @@
                     <!--<ListView  x:Name="MyScroll"  Background="MediumPurple" Width="195" Height="25" BorderThickness="1" BorderBrush="White" >
                         
                     </ListView>-->
+                    
                     <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" 
                               ScrollViewer.VerticalScrollMode="Disabled"  Width="195" Height="100"  BorderThickness="1" BorderBrush="White">
                         <ListView.ItemsPanel>
