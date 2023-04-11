@@ -153,7 +153,6 @@
     <Content Include="Assets\CartelDuo.png" />
     <Content Include="Assets\CartelInventario.png" />
     <Content Include="Assets\CartelPrincipal.png" />
-    <Content Include="Assets\CartelPrincipalOpciones.png" />
     <Content Include="Assets\CartelSolo.png" />
     <Content Include="Assets\dragon.png" />
     <Content Include="Assets\Fondo Completo.png" />
@@ -167,8 +166,6 @@
     <Content Include="Assets\MainMenuBackGround.png" />
     <Content Include="Assets\MAP.png" />
     <Content Include="Assets\mapa.png" />
-    <Content Include="Assets\Panel.png" />
-    <Content Include="Assets\PanelGrande.png" />
     <Content Include="Assets\Personaje 1.png" />
     <Content Include="Assets\Personaje 10.png" />
     <Content Include="Assets\Personaje 11.png" />
