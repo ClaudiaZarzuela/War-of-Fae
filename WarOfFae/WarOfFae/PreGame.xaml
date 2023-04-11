@@ -191,26 +191,31 @@
                 <Border.Background>
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
                 </Border.Background>
-                <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical" >
                     <TextBlock Text="POWER UPS" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,15"></TextBlock>
                     <Button Content="Magic Jump" Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="25" FontWeight="Bold"  Margin="0,5"></Button>
                     <Button Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5"></Button>
-                    <!--<ListView  x:Name="MyScroll"  Background="MediumPurple" Width="195" Height="25" BorderThickness="1" BorderBrush="White" >
-                        
-                    </ListView>-->
-                    
-                    <ListView ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" 
-                              ScrollViewer.VerticalScrollMode="Disabled"  Width="195" Height="100"  BorderThickness="1" BorderBrush="White">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Background="Transparent" Orientation="Horizontal">
-                                   
-                                </StackPanel>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                    </ListView>
+                    <Border Margin="5, 20"  BorderBrush="Purple" BorderThickness="2">
+                        <StackPanel Background="Transparent" Orientation="Horizontal" >
+                            <Rectangle Width="10"  Fill="Purple"></Rectangle>
+                            <Button Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" Width="50" Height="50" Margin="2,2,0,2">
+                                <Image Source="Assets/escudo.png" ></Image>
+                            </Button>
+                            <Button Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" Width="50" Height="50" Margin="4,0,0,0">
+                                <Image Source="Assets/corazon.png" ></Image>
+                            </Button>
+                            <Button Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" Width="50" Height="50" Margin="4,0,0,0">
+                                <Image Source="Assets/speed.png" ></Image>
+                            </Button>
+                            <Button Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" Width="50" Height="50" Margin="4,0,0,0">
+                                <Image Source="Assets/stop.png" ></Image>
+                            </Button>
+
+                        </StackPanel>
+                    </Border>
+
                 </StackPanel>
-               
+
             </Border>
         </Viewbox>
 
