@@ -9,6 +9,32 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="301*"></RowDefinition>
+            <RowDefinition Height="699*"></RowDefinition>
+        </Grid.RowDefinitions>
 
+
+        <Image Source="Assets/Tabla2.png" Grid.Row="1" Height="662" Width="1083" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Height="247" Width="300">
+            <TextBlock  Text="Music Volume" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="87"/>
+            <Slider  HorizontalAlignment="Center"  Margin="0,2,0,0" VerticalAlignment="Center" Width="300" Height="33"/>
+            <TextBlock  Text="Sound Fx" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="57"/>
+            <Slider  HorizontalAlignment="Center"   Margin="0,2,0,0" VerticalAlignment="Center" Width="300" Height="33"/>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+                <CheckBox Content="Vibration"   />
+                <Button   Content="Main Menu" Click="MainMenu_OnClick"/>
+            </StackPanel>
+            <Button Content="Restart"  Margin="20" HorizontalAlignment="Center" />
+            <Button Content="Back To Game"  HorizontalAlignment="Center" Click="Back_OnClick" />
+
+
+        </StackPanel>
+        <Image Source="Assets/Cartel2.png" Height="494" VerticalAlignment="Center"  />
+        <TextBlock Text="Ajustes"  TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="44"/>
     </Grid>
 </Page>

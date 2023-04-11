@@ -9,6 +9,41 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="317*" />
+            <ColumnDefinition Width="700*" />
+            <ColumnDefinition Width="483*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+            <Button x:Name="Ajustes_Boton"  Click="Ajustes_OnClick" Height="100" Width="100" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="0" Margin="10"  >
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+                <Image Source="/Assets/Settings.png" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,1,0,-9" Width="79"/>
+            </Button>
+            <Button Content="1" HorizontalAlignment="Center" Margin="25"></Button>
+            <Button Content="2" HorizontalAlignment="Center" Margin="25"></Button>
+            <Button Content="3" HorizontalAlignment="Center" Margin="25"></Button>
+            <Image Source="Assets/InfoCard.png" Height="324" Width="199" Margin="50"  Stretch="UniformToFill"  ></Image>
+            <Button Content="Your turn!" Background="Coral" Height="78" Width="132" HorizontalAlignment="Center"></Button>
 
+        </StackPanel>
+        <Image Grid.Column="1" Source="Assets/Mapa.png" ></Image>
+        <Button  VerticalAlignment="Center" Height="96" Width="94" BorderBrush="GreenYellow" BorderThickness="10" HorizontalAlignment="Center" Grid.Column="1" >
+            <Button.Background>
+                <SolidColorBrush Opacity="0"/>
+            </Button.Background>
+            <Image Source="Assets/Banshee.png" HorizontalAlignment="Center"/>
+        </Button>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <Image Source="Assets/Dead1.png" Margin="40"></Image>
+            <Image Source="Assets/Dead2.png" Margin="40"></Image>
+        </StackPanel>
     </Grid>
 </Page>

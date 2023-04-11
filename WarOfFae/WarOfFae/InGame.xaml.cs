@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,11 @@ namespace WarOfFae
         public InGame()
         {
             this.InitializeComponent();
+        }
+
+        private void Ajustes_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(OptionsInGame));
         }
     }
 }
