@@ -26,6 +26,9 @@ namespace WarOfFae
     public sealed partial class PreGame : Page
     {
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
+        public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
+        bool pressedPowerUp1 = false;
+        bool pressedPowerUp2 = false;
 
         public PreGame()
         {
@@ -53,12 +56,41 @@ namespace WarOfFae
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            //ViewPowerUp o =  as ViewPowerUp;
-            
-           // PowerUp1.Content = o.Explicacion.ToString();
+            ViewPowerUp o = ImageFlipView.SelectedItem as ViewPowerUp;
+
+            if(PowerUp1.Content.ToString() == "Empty" || pressedPowerUp1)
+            {
+                if (o.Explicacion.ToString() != PowerUp2.Content.ToString())
+                {
+                     PowerUp1.Content = o.Explicacion.ToString();
+                     PowerUp1.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
+                     PowerUp1.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                }
+                else
+                {
+                    var messageDialog = new MessageDialog("Power Up already chosen");
+                    await messageDialog.ShowAsync();
+                }
+
+            }
            
+            else if(PowerUp2.Content.ToString() == "Empty" || pressedPowerUp2)
+            {
+                if (o.Explicacion.ToString() != PowerUp1.Content.ToString())
+                {
+                    PowerUp2.Content = o.Explicacion.ToString();
+                    PowerUp2.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
+                    PowerUp2.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                }
+                else
+                {
+                    var messageDialog = new MessageDialog("Power Up already chosen");
+                    await messageDialog.ShowAsync();
+                }
+            }
+
         }
 
         private void FuegoButton_Click(object sender, RoutedEventArgs e)
@@ -146,11 +178,49 @@ namespace WarOfFae
                     await messageDialog3.ShowAsync();
                     break;
             }
-           
+       
         }
-        private void CommandInvokedHandler(IUICommand command)
+
+        private void PowerUp_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            
+            if ((button.Name == "PowerUp1" && pressedPowerUp1) || (button.Name == "PowerUp2" && pressedPowerUp2))
+            {
+                button.BorderBrush = new SolidColorBrush(Windows.UI.Colors.DarkBlue);
+                button.BorderThickness = new Thickness(1);
+                if (button.Name == "PowerUp1")
+                    pressedPowerUp1 = false;
+                else
+                    pressedPowerUp2 = false;
+            }
+
+            else
+            {
+                if (button.Name == "PowerUp1" && !pressedPowerUp1)
+                {
+                    pressedPowerUp1 = true;
+                    pressedPowerUp2 = false;
+                    PowerUp2.BorderBrush = new SolidColorBrush(Windows.UI.Colors.DarkBlue);
+                    PowerUp2.BorderThickness = new Thickness(1);
+                    button.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Yellow);
+                    button.BorderThickness = new Thickness(3);
+                }
+                else if(button.Name == "PowerUp2" && !pressedPowerUp2)
+                {
+                    pressedPowerUp1 = false;
+                    pressedPowerUp2 = true;
+                    PowerUp1.BorderBrush = new SolidColorBrush(Windows.UI.Colors.DarkBlue);
+                    PowerUp1.BorderThickness = new Thickness(1);
+                    button.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Yellow);
+                    button.BorderThickness = new Thickness(3);
+                }
+              
+               
+            }
            
+            
         }
+
     }
 }

@@ -10,13 +10,19 @@
     <Page.Resources>
         <DataTemplate x:Key="ImageGridView_DefaultItemTemplate"
                       x:DataType="local:ViewPowerUp">
-           
+
             <Grid Height="100">
                 <Button Height="100" Click="Button_Click">
                     <Image Source="{x:Bind Imagen}"></Image>
                 </Button>
             </Grid>
+        </DataTemplate>
 
+        <DataTemplate x:Key="PersonajeView_DefaultItemTemplate"
+                     x:DataType="local:ViewPersonajes">
+            <Button Style="{StaticResource Mapa_Line}" Height="51" Margin="-14,-5,-14,-5">
+                <Image Source="{x:Bind Imagen}"></Image>
+            </Button>
         </DataTemplate>
     </Page.Resources>
     <Viewbox Stretch="Fill">
@@ -31,7 +37,7 @@
             <ColumnDefinition Width="403*" />
         </Grid.ColumnDefinitions>
 
-        <Viewbox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="12,0,0,0" >
+        <Viewbox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="0,0,10,0" >
             <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="380" VerticalAlignment="Center" Width="245" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue" ></Rectangle>
         </Viewbox>
         <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
@@ -107,9 +113,9 @@
                         <Rectangle Grid.Row="3" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
                     </Grid>
                 </Border>
-                <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="0,10">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource Mapa_Line}">
+                <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="10,10">
+                       <GridView ItemsSource= "{x:Bind ListaPersonajes}"  ItemTemplate="{StaticResource PersonajeView_DefaultItemTemplate}">
+                        <!--<Button Style="{StaticResource Mapa_Line}">
                             <Image Source="Assets/Personaje 1.png" Height="51" Margin="-14,-5,-14,-5"/>
                         </Button>
                         <Button Style="{StaticResource Mapa_Line}">
@@ -144,9 +150,9 @@
                         </Button>
                         <Button Style="{StaticResource Mapa_Line}">
                             <Image Source="Assets/Personaje 12.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
+                        </Button>-->
 
-                    </StackPanel>
+                    </GridView>
                 </Border>
 
                 <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
@@ -177,7 +183,7 @@
             </Button>
        
 
-        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 100,0,0" >
+        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 80,5,0" >
             <Border HorizontalAlignment="Right" VerticalAlignment="Top" Height="200">
                 <Border.Background>
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
@@ -192,23 +198,25 @@
 
                     <TextBlock Text="ELEMENT" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,10"></TextBlock>
                     <TextBlock Name="Elemento" Text="WATER" FontFamily="Curlz MT" Foreground="LightBlue" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    <Button  Name="PowerElement" Content="Snorkel" Background="LightBlue" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="170" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="20" FontWeight="Bold"  Margin="0,5" Click="PowerElement_Click"></Button>
+                        <Button  Name="PowerElement" Content="TSUNAMI" Background="LightBlue" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="170" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="20" FontWeight="Bold"  Margin="0,5" Click="PowerElement_Click"></Button>
                 </StackPanel>
 
             </Border>
         </Viewbox>
-        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,300,0,0"  Height="300" Width="210">
+            
+            
+        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,280,0,0"  Height="300" Width="210">
 
             <Border>
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
                     </Border.Background>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="POWER UPS" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,15"></TextBlock>
-                        <Button Name="PowerUp1" Content="Magic Jump" Background="Thistle" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="25" FontWeight="Bold"  Margin="0,5" ></Button>
-                        <Button Name="PowerUp2"  Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5"></Button>
-                        <FlipView x:Name="ImageFlipView" Width="100" Height="100" Background="Thistle"  BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUps}"   ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" >
-                            <!--<Button Height="100">
+                        <TextBlock Text="POWER UPS" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="20,15"></TextBlock>
+                        <Button Name="PowerUp1"  Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5" Click="PowerUp_Click"></Button>
+                        <Button Name="PowerUp2"  Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5" Click="PowerUp_Click"></Button>
+                        <FlipView x:Name="ImageFlipView" Width="100" Height="100" Background="Thistle"  BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUps}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
+                            <Button Height="100">
                                 <Image Source="Assets/escudo.png" ></Image>
                             </Button>
                             <Button Height="100">
@@ -219,9 +227,9 @@
                             </Button>
                             <Button Height="100">
                                 <Image Source="Assets/stop.png" ></Image>
-                            </Button>-->
+                            </Button>
                         </FlipView>
-                       
+                        <Border Height="25"></Border>
 
                     </StackPanel>
                 </Border>

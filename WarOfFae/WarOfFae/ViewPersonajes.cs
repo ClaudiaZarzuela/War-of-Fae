@@ -9,21 +9,20 @@ using Windows.UI.Xaml.Media;
 namespace WarOfFae
 {
 
-    public class ViewPowerUp : PowerUps
+    public class ViewPersonajes : Personajes
     {
         public Image Img;
         public ContentControl CCImg;
-        public ViewPowerUp(PowerUps dron)
+        public ViewPersonajes(Personajes dron)
         {
             Id = dron.Id;
             Nombre = dron.Nombre;
             Imagen = dron.Imagen;
             Explicacion = dron.Explicacion;
-            Estado = dron.Estado;
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + dron.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));
-          
+
         }
     }
 }

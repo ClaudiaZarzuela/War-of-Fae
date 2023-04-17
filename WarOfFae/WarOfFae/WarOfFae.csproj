@@ -134,11 +134,13 @@
     <Compile Include="OptionsInGame.xaml.cs">
       <DependentUpon>OptionsInGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Personajes.cs" />
     <Compile Include="PowerUps.cs" />
     <Compile Include="PreGame.xaml.cs">
       <DependentUpon>PreGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewPersonajes.cs" />
     <Compile Include="ViewPowerUp.cs" />
   </ItemGroup>
   <ItemGroup>

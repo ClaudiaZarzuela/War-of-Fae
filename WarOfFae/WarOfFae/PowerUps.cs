@@ -28,7 +28,7 @@ namespace WarOfFae
                 Id = 1,
                 Nombre = "Dron2",
                 Imagen = "Assets/escudo.png" ,
-                Explicacion = @"Explicación Dron2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id facilisis lectus. Cras nec convallis ante, quis pulvinar tellus. Integer dictum accumsan pulvinar. Pellentesque eget enim sodales sapien vestibulum consequat. Maecenas eu sapien ac urna aliquam dictum. Nullam eget mattis metus. Donec pharetra, tellus in mattis tincidunt, magna ipsum gravida nibh, vitae lobortis ante odio vel quam.",
+                Explicacion = "Unbreakable Shield",
                 Estado = PowerUps.estados.Aterrizado,
              },
              new PowerUps()
@@ -36,7 +36,7 @@ namespace WarOfFae
                 Id = 2,
                 Nombre = "Dron2",
                 Imagen = "Assets/corazon.png" ,
-                Explicacion = @"Explicación Dron2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id facilisis lectus. Cras nec convallis ante, quis pulvinar tellus. Integer dictum accumsan pulvinar. Pellentesque eget enim sodales sapien vestibulum consequat. Maecenas eu sapien ac urna aliquam dictum. Nullam eget mattis metus. Donec pharetra, tellus in mattis tincidunt, magna ipsum gravida nibh, vitae lobortis ante odio vel quam.",
+                 Explicacion = "Healing Power",
                 Estado = PowerUps.estados.Aterrizado,
                
              },
@@ -45,7 +45,7 @@ namespace WarOfFae
                 Id = 3,
                 Nombre = "Dron2",
                 Imagen = "Assets/speed.png",
-                Explicacion = @"Explicación Dron2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id facilisis lectus. Cras nec convallis ante, quis pulvinar tellus. Integer dictum accumsan pulvinar. Pellentesque eget enim sodales sapien vestibulum consequat. Maecenas eu sapien ac urna aliquam dictum. Nullam eget mattis metus. Donec pharetra, tellus in mattis tincidunt, magna ipsum gravida nibh, vitae lobortis ante odio vel quam.",
+                 Explicacion = "Super Speed",
                 Estado = PowerUps.estados.Aterrizado,
 
              },
@@ -54,7 +54,7 @@ namespace WarOfFae
                 Id = 4,
                 Nombre = "Dron2",
                 Imagen ="Assets/stop.png" ,
-                Explicacion = @"Explicación Dron2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id facilisis lectus. Cras nec convallis ante, quis pulvinar tellus. Integer dictum accumsan pulvinar. Pellentesque eget enim sodales sapien vestibulum consequat. Maecenas eu sapien ac urna aliquam dictum. Nullam eget mattis metus. Donec pharetra, tellus in mattis tincidunt, magna ipsum gravida nibh, vitae lobortis ante odio vel quam.",
+                 Explicacion = "HeartStopper",
                 Estado = PowerUps.estados.Aterrizado,
 
              },
