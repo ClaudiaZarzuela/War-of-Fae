@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,34 @@ namespace WarOfFae
     /// </summary>
     public sealed partial class Inventory : Page
     {
+        public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
+        public string Info = " ";
         public Inventory()
         {
             this.InitializeComponent();
+            Info = "Info sobre el powerup";
         }
+
+        private void Back_OnClick(object sender, RoutedEventArgs e)
+        {
+            if(Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // Cosntruye las listas de ModelView a partir de la lista Modelo 
+            if (ListaPowerUps != null)
+            {
+                foreach (PowerUps dron in Model.GetAllDrones())
+                {
+                    ViewPowerUp VMitem = new ViewPowerUp(dron);
+                    ListaPowerUps.Add(VMitem);
+                }
+            }
+            base.OnNavigatedTo(e);
+        }
+
     }
 }

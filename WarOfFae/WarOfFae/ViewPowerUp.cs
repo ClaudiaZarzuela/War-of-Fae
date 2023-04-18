@@ -20,6 +20,7 @@ namespace WarOfFae
             Imagen = dron.Imagen;
             Explicacion = dron.Explicacion;
             Estado = dron.Estado;
+            Precio= dron.Precio;
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + dron.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));

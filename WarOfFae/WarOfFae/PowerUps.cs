@@ -16,6 +16,7 @@ namespace WarOfFae
         //public Image Img;
         public string Explicacion { get; set; }
         public estados Estado { get; set; }
+        public int Precio { get; set; }
 
         public PowerUps() { }
     }
@@ -30,6 +31,7 @@ namespace WarOfFae
                 Imagen = "Assets/escudo.png" ,
                 Explicacion = "Unbreakable Shield",
                 Estado = PowerUps.estados.Aterrizado,
+                Precio=10,
              },
              new PowerUps()
             {
@@ -38,8 +40,9 @@ namespace WarOfFae
                 Imagen = "Assets/corazon.png" ,
                  Explicacion = "Healing Power",
                 Estado = PowerUps.estados.Aterrizado,
-               
-             },
+                Precio=20,
+
+    },
               new PowerUps()
             {
                 Id = 3,
@@ -47,6 +50,7 @@ namespace WarOfFae
                 Imagen = "Assets/speed.png",
                  Explicacion = "Super Speed",
                 Estado = PowerUps.estados.Aterrizado,
+                Precio=30,
 
              },
                new PowerUps()
@@ -56,6 +60,7 @@ namespace WarOfFae
                 Imagen ="Assets/stop.png" ,
                  Explicacion = "HeartStopper",
                 Estado = PowerUps.estados.Aterrizado,
+                Precio=40,
 
              },
 

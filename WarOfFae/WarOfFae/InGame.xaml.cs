@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,6 +24,8 @@ namespace WarOfFae
     /// </summary>
     public sealed partial class InGame : Page
     {
+        public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
+        public string Turn = "Your ";
         public InGame()
         {
             this.InitializeComponent();

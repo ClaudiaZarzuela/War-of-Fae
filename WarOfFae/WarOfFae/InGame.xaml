@@ -38,8 +38,28 @@
                 </StackPanel>
 
             </Border>
-            <Image Source="Assets/InfoCard.png" Height="263" Width="163"  Stretch="UniformToFill"  ></Image>
-            <Button Content="Your turn!" Background="Coral" Height="78" Width="132" Margin="20" HorizontalAlignment="Center"></Button>
+            
+            <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
+                    <Image  Name="Imagen_Personaje" Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
+                    <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
+                        <StackPanel>
+                            <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                            <TextBlock x:Name="Descripcion1" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                            <TextBlock x:Name="Descripcion2" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Viewbox>
+            <Border  Height="48" Width="93">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                </Border.Background>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{x:Bind Turn}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text="Turn!" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </Border>
 
         </StackPanel>
         <Image Grid.Column="1" Source="Assets/Mapa.png" ></Image>
