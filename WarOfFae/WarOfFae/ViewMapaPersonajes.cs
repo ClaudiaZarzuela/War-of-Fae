@@ -8,17 +8,14 @@ using Windows.UI.Xaml.Media;
 
 namespace WarOfFae
 {
-    public class ViewPersonajes : Personajes
+    public class ViewMapaPersonajes : MapaConPersonajes
     {
         public Image Img;
         public ContentControl CCImg;
-        public ViewPersonajes(Personajes dron)
+        public ViewMapaPersonajes(MapaConPersonajes dron)
         {
             Id = dron.Id;
-            Nombre = dron.Nombre;
             Imagen = dron.Imagen;
-            Explicacion1 = dron.Explicacion1;
-            Explicacion2 = dron.Explicacion2;
             Img = new Image();
             string s = System.IO.Directory.GetCurrentDirectory() + "\\" + dron.Imagen;
             Img.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(s));

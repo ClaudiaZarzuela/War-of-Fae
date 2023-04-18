@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,6 +29,9 @@ namespace WarOfFae
     {
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
         public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
+        public ObservableCollection<ViewMapaPersonajes> ListaPersonajesMapa { get; } = new ObservableCollection<ViewMapaPersonajes>();
+
+        ViewPersonajes p; 
         bool pressedPowerUp1 = false;
         bool pressedPowerUp2 = false;
 
@@ -39,14 +44,37 @@ namespace WarOfFae
         {
             // Cosntruye las listas de ModelView a partir de la lista Modelo 
             if (ListaPowerUps != null)
+            {
                 foreach (PowerUps dron in Model.GetAllDrones())
                 {
                     ViewPowerUp VMitem = new ViewPowerUp(dron);
                     ListaPowerUps.Add(VMitem);
                 }
+            }
+           
+            if (ListaPersonajes != null)
+            {
+                foreach (Personajes dron1 in Model1.GetAllDrones())
+                {
+                    ViewPersonajes VMitem1 = new ViewPersonajes(dron1);
+                    ListaPersonajes.Add(VMitem1);
+                }
+
+            }
+            if (ListaPersonajesMapa != null)
+            {
+                foreach (MapaConPersonajes dron2 in Model2.GetAllDrones())
+                {
+                    ViewMapaPersonajes VMitem2 = new ViewMapaPersonajes(dron2);
+                    ListaPersonajesMapa.Add(VMitem2);
+                }
+
+            }
+
 
             base.OnNavigatedTo(e);
         }
+        
 
         private void Back_Boton_Click(object sender, RoutedEventArgs e)
         {
@@ -92,7 +120,7 @@ namespace WarOfFae
             }
 
         }
-
+       
         private void FuegoButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -222,5 +250,43 @@ namespace WarOfFae
             
         }
 
+        private void GridViewPersonajes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ViewPersonajes o = e.ClickedItem as ViewPersonajes;
+          
+            Imagen_Personaje.Source = o.Img.Source;
+            Puntos.Text = o.Nombre;
+            Descripcion1.Text = o.Explicacion1;
+            Descripcion2.Text = o.Explicacion2;
+        }
+
+        private void GridViewPersonajes_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        {
+            ViewPersonajes Item = e.Items[0] as ViewPersonajes; 
+            e.Data.SetText(Item.Id.ToString()); 
+            e.Data.RequestedOperation = DataPackageOperation.Move;
+            Imagen_Personaje.Source = Item.Img.Source;
+            Puntos.Text = Item.Nombre;
+            Descripcion1.Text = Item.Explicacion1;
+            Descripcion2.Text = Item.Explicacion2;
+        }
+
+        private void MiCanvas_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
+        }
+
+        private async void MiCanvas_Drop(object sender, DragEventArgs e)
+        {
+            var id = await e.DataView.GetTextAsync();
+            ViewPersonajes O = ListaPersonajes.ElementAt(Int32.Parse(id)) as ViewPersonajes;
+            Windows.UI.Xaml.Controls.Border o = e.OriginalSource as Windows.UI.Xaml.Controls.Border;
+            ViewMapaPersonajes u = o.DataContext as ViewMapaPersonajes;
+            u.Imagen = O.Imagen;
+            u.Img.Source= O.Img.Source;
+            //u.Id = O.Id;
+
+
+        }
     }
 }

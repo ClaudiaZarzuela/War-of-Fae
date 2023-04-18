@@ -20,17 +20,31 @@
 
         <DataTemplate x:Key="PersonajeView_DefaultItemTemplate"
                      x:DataType="local:ViewPersonajes">
-            <Button Style="{StaticResource Mapa_Line}" Height="51" Margin="-14,-5,-14,-5">
-                <Image Source="{x:Bind Imagen}"></Image>
-            </Button>
+
+            <Border Style="{StaticResource Mapa_Line}" Height="56" Width="53" Margin="0.8,0,-4.5,0" >
+                <Border.Background>
+                    <ImageBrush ImageSource="{x:Bind Imagen}" Stretch="UniformToFill"></ImageBrush>
+                </Border.Background>
+            </Border>
         </DataTemplate>
+
+        <DataTemplate x:Key="MapaView_DefaultItemTemplate" x:DataType="local:ViewMapaPersonajes">
+
+            <Border  Height="56" Width="51.5" Margin="0.5,2,0,0" DragOver="MiCanvas_DragOver" Drop="MiCanvas_Drop" AllowDrop="True">
+                <Border.Background>
+                    <ImageBrush ImageSource="{x:Bind Imagen}" Stretch="UniformToFill"></ImageBrush>
+                </Border.Background>
+            </Border>
+        </DataTemplate>
+
+
+
     </Page.Resources>
     <Viewbox Stretch="Fill">
         <Grid >
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/Pre Game Background.png"></ImageBrush>
-            <!--<ImageBrush ImageSource="Assets/Referencia Pre Game.png"></ImageBrush>-->
-        </Grid.Background>
+                <ImageBrush ImageSource="Assets/Pre Game Background.png"></ImageBrush>
+            </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="403*" />
             <ColumnDefinition Width="1114*" />
@@ -42,11 +56,12 @@
         </Viewbox>
         <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
             <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
-                <Image Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
-                <Border Background="Thistle" Width="200" Height="80" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
+                <Image  Name="Imagen_Personaje" Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
+                <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
                     <StackPanel>
                         <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
-                        <TextBlock x:Name="Descripcion" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                        <TextBlock x:Name="Descripcion1" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                        <TextBlock x:Name="Descripcion2" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
                     </StackPanel>
                 </Border>
             </StackPanel>
@@ -56,103 +71,15 @@
             <StackPanel Grid.Column="1" Grid.Row="1">
                 <Rectangle Height="50"></Rectangle>
                 <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Grid BorderBrush="White" BorderThickness="3">
-                        <Grid.Background>
+                        <Canvas>
+                        <Canvas.Background>
                             <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
-                        </Grid.Background>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="458*"/>
-                            <RowDefinition Height="77*"/>
-                            <RowDefinition Height="77*"/>
-                            <RowDefinition Height="77*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Rectangle Grid.Row="1" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="1" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
-
-                        <Rectangle Grid.Row="2" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="2" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
-
-                        <Rectangle Grid.Row="3" Grid.Column="0"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="1"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="2"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="3"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="4"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="5"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="6"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="7"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="8"  StrokeThickness="1" Stroke="White"></Rectangle>
-                        <Rectangle Grid.Row="3" Grid.Column="9"  StrokeThickness="1" Stroke="White"></Rectangle>
-                    </Grid>
+                        </Canvas.Background>
+                            <GridView  Margin="0,272" Height="185" Width="560" Name="GridViewMapa" ItemsSource= "{x:Bind ListaPersonajesMapa}"  ItemTemplate="{StaticResource MapaView_DefaultItemTemplate}" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" IsItemClickEnabled="True" ></GridView>
+                        </Canvas>
                 </Border>
                 <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="10,10">
-                       <GridView ItemsSource= "{x:Bind ListaPersonajes}"  ItemTemplate="{StaticResource PersonajeView_DefaultItemTemplate}">
-                        <!--<Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 1.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 2.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 3.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 4.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 5.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 6.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 7.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 8.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 9.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 10.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 11.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>
-                        <Button Style="{StaticResource Mapa_Line}">
-                            <Image Source="Assets/Personaje 12.png" Height="51" Margin="-14,-5,-14,-5"/>
-                        </Button>-->
-
-                    </GridView>
+                        <GridView Name="GridViewPersonajes" ItemsSource= "{x:Bind ListaPersonajes}"  ItemTemplate="{StaticResource PersonajeView_DefaultItemTemplate}" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White" IsItemClickEnabled="True" ItemClick="GridViewPersonajes_ItemClick" CanDragItems="True" DragItemsStarting="GridViewPersonajes_DragItemsStarting"></GridView>
                 </Border>
 
                 <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
@@ -216,18 +143,6 @@
                         <Button Name="PowerUp1"  Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5" Click="PowerUp_Click"></Button>
                         <Button Name="PowerUp2"  Content="Empty" Background="MediumPurple" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="195" CornerRadius="7" FontFamily="Curlz MT" Foreground="White" FontSize="25" FontWeight="Bold"  Margin="0,5" Click="PowerUp_Click"></Button>
                         <FlipView x:Name="ImageFlipView" Width="100" Height="100" Background="Thistle"  BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUps}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}">
-                            <Button Height="100">
-                                <Image Source="Assets/escudo.png" ></Image>
-                            </Button>
-                            <Button Height="100">
-                                <Image Source="Assets/corazon.png" ></Image>
-                            </Button>
-                            <Button Height="100">
-                                <Image Source="Assets/speed.png"></Image>
-                            </Button>
-                            <Button Height="100">
-                                <Image Source="Assets/stop.png" ></Image>
-                            </Button>
                         </FlipView>
                         <Border Height="25"></Border>
 

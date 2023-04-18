@@ -128,6 +128,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapaConPersonajes.cs" />
     <Compile Include="Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
@@ -140,6 +141,7 @@
       <DependentUpon>PreGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewMapaPersonajes.cs" />
     <Compile Include="ViewPersonajes.cs" />
     <Compile Include="ViewPowerUp.cs" />
   </ItemGroup>
