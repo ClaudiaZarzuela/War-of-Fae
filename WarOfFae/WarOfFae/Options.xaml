@@ -58,7 +58,10 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="SOUND" Foreground="White" FontSize="60" HorizontalAlignment="Center" Margin="20 20 20 40"/>
                                 <TextBlock Text="Music" Foreground="Black" FontSize="30" HorizontalAlignment="Center"/>
-                                <Slider Margin="50 0 50 50" Value="50" Foreground="Violet"/>
+                                <StackPanel Orientation="Horizontal" Margin="60 0 50 50" HorizontalAlignment="Center">
+                                    <Slider Value="50" Foreground="Violet" Width="396" VerticalAlignment="Center" ValueChanged="Slider_ValueChanged"/>
+                                    <TextBlock Name="volume" Text="{x:Bind Music,Mode=TwoWay}" Margin="20,0,0,0"  Width="80" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFF9F8F8" FontSize="40" TextAlignment="Left"></TextBlock>
+                                </StackPanel>
                                 <TextBlock Text="Effects Volume" Foreground="Black" FontSize="30" HorizontalAlignment="Center"/>
                                 <Slider Margin="50 0" Value="50" Foreground="Violet"/>
                                 <CheckBox Foreground="White" Content="Mute all" FontSize="30" HorizontalAlignment="Left" Margin="50 30 10 0"/>

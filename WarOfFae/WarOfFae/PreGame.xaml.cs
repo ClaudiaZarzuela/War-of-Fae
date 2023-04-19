@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,11 +26,14 @@ namespace WarOfFae
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class PreGame : Page
+    public sealed partial class PreGame : Page, INotifyPropertyChanged
     {
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
         public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
         public ObservableCollection<ViewMapaPersonajes> ListaPersonajesMapa { get; } = new ObservableCollection<ViewMapaPersonajes>();
+        public event PropertyChangedEventHandler PropertyChanged;
+       
+
 
         ViewPersonajes p; 
         bool pressedPowerUp1 = false;
@@ -290,12 +294,8 @@ namespace WarOfFae
             var id = await e.DataView.GetTextAsync();
             ViewPersonajes O = ListaPersonajes.ElementAt(Int32.Parse(id)) as ViewPersonajes;
             Windows.UI.Xaml.Controls.Border o = e.OriginalSource as Windows.UI.Xaml.Controls.Border;
-            ViewMapaPersonajes u = o.DataContext as ViewMapaPersonajes;
-            u.Imagen = O.Imagen;
-            u.Img.Source= O.Img.Source;
-            //u.Id = O.Id;
-
-
+            ImageBrush u = o.Background as ImageBrush;
+            u.ImageSource = O.Img.Source;
         }
     }
 }

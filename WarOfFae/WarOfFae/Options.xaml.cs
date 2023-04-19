@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,8 +21,10 @@ namespace WarOfFae
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class Options : Page
+    public sealed partial class Options : Page, INotifyPropertyChanged
     {
+        string Music = "50";
+        public event PropertyChangedEventHandler PropertyChanged;
         public Options()
         {
             this.InitializeComponent();
@@ -33,6 +36,15 @@ namespace WarOfFae
             {
                 Frame.GoBack();
             }
+        }
+
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = string.Format("{0}", e.NewValue);
+            Music = msg;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
+            //Slider o = sender as Slider;
+            //Music.Text = o.Value.ToString();
         }
     }
 }
