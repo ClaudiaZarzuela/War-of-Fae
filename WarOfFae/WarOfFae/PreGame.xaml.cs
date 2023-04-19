@@ -84,6 +84,15 @@ namespace WarOfFae
             }
         }
 
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InGame));
+        }
+        private void AjustesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(OptionsInGame));
+        }
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             ViewPowerUp o = ImageFlipView.SelectedItem as ViewPowerUp;

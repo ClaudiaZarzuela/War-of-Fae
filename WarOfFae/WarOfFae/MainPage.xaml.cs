@@ -31,6 +31,10 @@ namespace WarOfFae
         {
             Frame.Navigate(typeof(PreGame));
         }
+        private void Duo_Button(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(PreGame));
+        }
 
         private void Inventario_Boton_Click(object sender, RoutedEventArgs e)
         {

@@ -30,7 +30,7 @@
                 <Button x:Name="Boton1" HorizontalAlignment="Center" Height="160" Width="351" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Solo_Button">
                     <Image Source="/Assets/CartelSolo.png" HorizontalAlignment="Center" Margin="0,-18,0,0" Width="331" Height="176" VerticalAlignment="Top"/>
                 </Button>
-                <Button x:Name="Boton2" HorizontalAlignment="Center" Height="135" Width="325" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" >
+                <Button x:Name="Boton2" HorizontalAlignment="Center" Height="135" Width="325" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Duo_Button">
                     <Image Source="/Assets/CartelDuo.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1,-35,0,0" Height="288" Width="303"></Image>
                 </Button>
 

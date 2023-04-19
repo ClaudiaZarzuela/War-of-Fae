@@ -36,105 +36,102 @@
                 </Border.Background>
             </Border>
         </DataTemplate>
-
-
-
     </Page.Resources>
     <Viewbox Stretch="Fill">
         <Grid >
-        <Grid.Background>
+            <Grid.Background>
                 <ImageBrush ImageSource="Assets/Pre Game Background.png"></ImageBrush>
             </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="403*" />
-            <ColumnDefinition Width="1114*" />
-            <ColumnDefinition Width="403*" />
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="403*" />
+                <ColumnDefinition Width="1114*" />
+                <ColumnDefinition Width="403*" />
+            </Grid.ColumnDefinitions>
 
-        <Viewbox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="0,0,10,0" >
-            <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="380" VerticalAlignment="Center" Width="245" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue" ></Rectangle>
-        </Viewbox>
-        <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
-            <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
-                <Image  Name="Imagen_Personaje" Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
-                <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
-                    <StackPanel>
-                        <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
-                        <TextBlock x:Name="Descripcion1" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                        <TextBlock x:Name="Descripcion2" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-        </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="0,0,10,0" >
+                <Rectangle Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Height="380" VerticalAlignment="Center" Width="245" Fill="MediumPurple" StrokeThickness="4" Stroke="DarkBlue" ></Rectangle>
+            </Viewbox>
+            <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="10, 0, 20, 0" >
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
+                    <Image  Name="Imagen_Personaje" Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
+                    <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
+                        <StackPanel>
+                            <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                            <TextBlock x:Name="Descripcion1" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                            <TextBlock x:Name="Descripcion2" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Viewbox>
 
-        <Viewbox Grid.Column="1" Grid.Row="1"  Margin="2,0,0,0">
-            <StackPanel Grid.Column="1" Grid.Row="1">
-                <Rectangle Height="50"></Rectangle>
-                <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Viewbox Grid.Column="1" Grid.Row="1"  Margin="2,0,0,0">
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    <Rectangle Height="50"></Rectangle>
+                    <Border Height="457" Width="555" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <Canvas>
-                        <Canvas.Background>
-                            <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
-                        </Canvas.Background>
-                            <GridView  Margin="0,272" Height="185" Width="560" Name="GridViewMapa" ItemsSource= "{x:Bind ListaPersonajesMapa}"  ItemTemplate="{StaticResource MapaView_DefaultItemTemplate}" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" IsItemClickEnabled="True" ></GridView>
+                            <Canvas.Background>
+                                <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
+                            </Canvas.Background>
+                            <GridView  Margin="0,272" Height="185" Width="560" Name="GridViewMapa" ItemsSource= "{x:Bind ListaPersonajesMapa}"  ItemTemplate="{StaticResource MapaView_DefaultItemTemplate}" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" IsItemClickEnabled="True"></GridView>
                         </Canvas>
-                </Border>
-                <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="10,10">
+                    </Border>
+                    <Border Height="60" Width="650" BorderBrush="White" BorderThickness="3" HorizontalAlignment="Center" Margin="10,10">
                         <GridView Name="GridViewPersonajes" ItemsSource= "{x:Bind ListaPersonajes}"  ItemTemplate="{StaticResource PersonajeView_DefaultItemTemplate}" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White" IsItemClickEnabled="True" ItemClick="GridViewPersonajes_ItemClick" CanDragItems="True" DragItemsStarting="GridViewPersonajes_DragItemsStarting"></GridView>
-                </Border>
+                    </Border>
 
-                <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
-                <Button HorizontalAlignment="Center" Width="135" Height="62" Margin="20">
-                    <Image  Source="Assets/Start.png" Width="250" Height="69" Margin="-12,-8" ></Image>
+                    <TextBlock HorizontalAlignment="Center" FontFamily="Curlz MT" Foreground="#FFFAF7F7" FontSize="22" Text="0      6       4      2       2       3       2       2      1       1       5       1" Margin="-15"></TextBlock>
+                    <Button HorizontalAlignment="Center" Width="135" Height="62" Margin="20" Click="StartButton_Click">
+                        <Image  Source="Assets/Start.png" Height="69" Margin="-31,-10,-34,-10" />
+                    </Button>
+                </StackPanel>
+            </Viewbox>
+            <Viewbox Grid.Column="1"  VerticalAlignment="Top" Margin="0, 10" Width="200" Height="100" >
+                <Image VerticalAlignment="Top" Source="Assets/MAP.png" Width="20" Height="10" ></Image>
+            </Viewbox>
+
+            <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" MaxHeight="80" MaxWidth="80" >
+                <Button x:Name="Ajustes_Boton"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80" Click="AjustesButton_Click">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                    <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
                 </Button>
-            </StackPanel>
-        </Viewbox>
-        <Viewbox Grid.Column="1"  VerticalAlignment="Top" Margin="0,40" Width="20" Height="1">
-            <Image VerticalAlignment="Top" Source="Assets/MAP.png" Width="20" Height="1" ></Image>
-        </Viewbox>
+            </Viewbox>
 
-        <Viewbox Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" MaxHeight="80" MaxWidth="80" >
-            <Button x:Name="Ajustes_Boton"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80">
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <Image  Source="/Assets/Ajustes.png"  Stretch="UniformToFill" HorizontalAlignment="Center"/>
-            </Button>
-        </Viewbox>
 
-      
             <Button x:Name="Back_Boton"  Click="Back_Boton_Click" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Height="60" Width="130">
                 <Button.Background>
                     <SolidColorBrush Opacity="0"/>
                 </Button.Background>
                 <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,-7" Width="144"/>
             </Button>
-       
 
-        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 80,5,0" >
-            <Border HorizontalAlignment="Right" VerticalAlignment="Top" Height="200">
-                <Border.Background>
-                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
-                </Border.Background>
-                <StackPanel Orientation="Vertical">
-                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
-                        <Button Name="Fire" Content="Fire" Background="CadetBlue" BorderBrush="White" BorderThickness="2" Click="FuegoButton_Click"></Button>
-                        <Button Name="Water" Content="Water" Background="Teal" BorderBrush="White" BorderThickness="2" Click="AguaButton_Click"></Button>
-                        <Button Name="Earth" Content="Earth"  Background="CadetBlue" BorderBrush="White" BorderThickness="2" Click="TierraButton_Click"></Button>
-                        <Button Name="Air" Content="Air" Background="CadetBlue" BorderBrush="White" BorderThickness="2" Click="AireButton_Click"></Button>
+
+            <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 80,5,0" >
+                <Border HorizontalAlignment="Right" VerticalAlignment="Top" Height="200">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+                            <Button Name="Fire" Content="Fire" Background="CadetBlue" BorderBrush="White" BorderThickness="2" Click="FuegoButton_Click"></Button>
+                            <Button Name="Water" Content="Water" Background="Teal" BorderBrush="White" BorderThickness="2" Click="AguaButton_Click"></Button>
+                            <Button Name="Earth" Content="Earth"  Background="CadetBlue" BorderBrush="White" BorderThickness="2" Click="TierraButton_Click"></Button>
+                            <Button Name="Air" Content="Air" Background="CadetBlue" BorderBrush="White" BorderThickness="2" Click="AireButton_Click"></Button>
+                        </StackPanel>
+
+                        <TextBlock Text="ELEMENT" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,10"></TextBlock>
+                        <TextBlock Name="Elemento" Text="WATER" FontFamily="Curlz MT" Foreground="LightBlue" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <Button  Name="PowerElement" Content="TSUNAMI" Background="LightBlue" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="170" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="20" FontWeight="Bold"  Margin="0,5" Click="PowerElement_Click"></Button>
                     </StackPanel>
 
-                    <TextBlock Text="ELEMENT" FontFamily="Curlz MT" Foreground="#FFFDFAFA" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,10"></TextBlock>
-                    <TextBlock Name="Elemento" Text="WATER" FontFamily="Curlz MT" Foreground="LightBlue" FontSize="36" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                        <Button  Name="PowerElement" Content="TSUNAMI" Background="LightBlue" BorderBrush="DarkBlue" BorderThickness="1" HorizontalAlignment="Center" Width="170" CornerRadius="7" FontFamily="Curlz MT" Foreground="DarkBlue" FontSize="20" FontWeight="Bold"  Margin="0,5" Click="PowerElement_Click"></Button>
-                </StackPanel>
+                </Border>
+            </Viewbox>
 
-            </Border>
-        </Viewbox>
-            
-            
-        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,280,0,0"  Height="300" Width="210">
 
-            <Border>
+            <Viewbox HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,280,0,0"  Height="300" Width="210">
+
+                <Border>
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Panel.png" Stretch="UniformToFill"></ImageBrush>
                     </Border.Background>
@@ -148,9 +145,9 @@
 
                     </StackPanel>
                 </Border>
-        </Viewbox>
+            </Viewbox>
 
 
-    </Grid>
+        </Grid>
     </Viewbox>
 </Page>
