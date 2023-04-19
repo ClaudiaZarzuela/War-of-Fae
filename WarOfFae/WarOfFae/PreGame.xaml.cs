@@ -35,9 +35,13 @@ namespace WarOfFae
        
 
 
+        public ObservableCollection<ViewPowerUp> ListaPowerUpsElegidos { get; }=new ObservableCollection<ViewPowerUp>();
+        public ObservableCollection<ViewPowerUp> ListaPowerUpsElems { get; } = new ObservableCollection<ViewPowerUp>();
+
         ViewPersonajes p; 
-        bool pressedPowerUp1 = false;
-        bool pressedPowerUp2 = false;
+        bool pressedPowerUp1 = false; int pressedPowerUp1Id= 0;
+        bool pressedPowerUp2 = false; int pressedPowerUp2Id =1;
+        int pressedEl = 1; //ids: aire agua fuego tierra
 
         public PreGame()
         {
@@ -55,7 +59,14 @@ namespace WarOfFae
                     ListaPowerUps.Add(VMitem);
                 }
             }
-           
+            if (ListaPowerUpsElems != null)
+            {
+                foreach (PowerUps dron in Model.GetAllDrones2())
+                {
+                    ViewPowerUp VMitem = new ViewPowerUp(dron);
+                    ListaPowerUpsElems.Add(VMitem);
+                }
+            }
             if (ListaPersonajes != null)
             {
                 foreach (Personajes dron1 in Model1.GetAllDrones())
@@ -74,6 +85,7 @@ namespace WarOfFae
                 }
 
             }
+      
 
 
             base.OnNavigatedTo(e);
@@ -90,7 +102,10 @@ namespace WarOfFae
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(InGame));
+            ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
+            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
+            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
+            Frame.Navigate(typeof(InGame), ListaPowerUpsElegidos);
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -108,6 +123,7 @@ namespace WarOfFae
                      PowerUp1.Content = o.Explicacion.ToString();
                      PowerUp1.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
                      PowerUp1.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                     pressedPowerUp1Id = o.Id;
                 }
                 else
                 {
@@ -124,6 +140,7 @@ namespace WarOfFae
                     PowerUp2.Content = o.Explicacion.ToString();
                     PowerUp2.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
                     PowerUp2.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                    pressedPowerUp2Id = o.Id;
                 }
                 else
                 {
@@ -149,6 +166,7 @@ namespace WarOfFae
 
             Elemento.Foreground = new SolidColorBrush(Windows.UI.Colors.OrangeRed);
             Elemento.Text = "FIRE";
+            pressedEl = 2;
         } 
         private void AguaButton_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +182,7 @@ namespace WarOfFae
 
             Elemento.Foreground = new SolidColorBrush(Windows.UI.Colors.LightBlue);
             Elemento.Text = "WATER";
+            pressedEl = 1;
         } 
         private void TierraButton_Click(object sender, RoutedEventArgs e)
         {
@@ -179,6 +198,7 @@ namespace WarOfFae
 
             Elemento.Foreground = new SolidColorBrush(Windows.UI.Colors.LightGreen);
             Elemento.Text = "EARTH";
+            pressedEl = 3;
         }
         private void AireButton_Click(object sender, RoutedEventArgs e)
         {
@@ -194,6 +214,7 @@ namespace WarOfFae
 
             Elemento.Foreground = new SolidColorBrush(Windows.UI.Colors.Yellow);
             Elemento.Text = "AIR";
+            pressedEl =0;
         }
 
         private async void PowerElement_Click(object sender, RoutedEventArgs e)
