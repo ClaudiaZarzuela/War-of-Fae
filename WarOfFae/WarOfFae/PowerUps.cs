@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.WiFi;
+using Windows.Media.Devices;
 
 namespace WarOfFae
 {
@@ -67,16 +69,61 @@ namespace WarOfFae
 
 
           };
-
-
+        public static List<PowerUps> Drones2 = new List<PowerUps>()
+        {
+            //lista de powerups d elemento
+            new PowerUps()
+            {
+                Id = 0,
+                Nombre = "Air",
+                Imagen = "Assets/air.png" ,
+                Explicacion = "Tornado",
+                Estado = PowerUps.estados.Aterrizado,
+                Precio=0,
+             },
+             new PowerUps()
+            {
+                Id = 1,
+                Nombre = "Water",
+                Imagen = "Assets/water.png" ,
+                Explicacion = "Tsunami",
+                Estado = PowerUps.estados.Aterrizado,
+                Precio=0,
+             },
+              new PowerUps()
+            {
+                Id = 2,
+                Nombre = "Fire",
+                Imagen = "Assets/fire.png" ,
+                Explicacion = "Magma",
+                Estado = PowerUps.estados.Aterrizado,
+                Precio=0,
+             },
+               new PowerUps()
+            {
+                Id = 3,
+                Nombre = "Earth",
+                Imagen = "Assets/earth.png" ,
+                Explicacion = "Earthquake",
+                Estado = PowerUps.estados.Aterrizado,
+                Precio=0,
+             },
+        };
         public static IList<PowerUps> GetAllDrones()
         {
             return Drones;
+        }
+        public static IList<PowerUps> GetAllDrones2()
+        {
+            return Drones2;
         }
 
         public static PowerUps GetDronById(int id)
         {
             return Drones[id];
         }
+       
+            
+        
     }
 }

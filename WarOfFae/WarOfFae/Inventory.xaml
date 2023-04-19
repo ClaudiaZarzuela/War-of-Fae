@@ -11,7 +11,7 @@
     <Page.Resources>
         <DataTemplate x:Key="ImageGridView_DefaultItemTemplate"
                       x:DataType="local:PowerUps">
-            <Grid  Margin="8">
+            <Grid  Margin="8" Width="600">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -20,15 +20,29 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Image Source="{x:Bind Imagen}" VerticalAlignment="Center"  Width="{Binding Value, ElementName=ImageSlider}"/>
+                <Image Source="{x:Bind Imagen}" VerticalAlignment="Center"  Width="{Binding Value, ElementName=ImageSlider}" Height="60"/>
                 <TextBlock Text="{x:Bind Explicacion}" FontSize="{Binding Value, ElementName=FontSlider}" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBlock Text="{x:Bind Precio}" FontSize="{Binding Value, ElementName=FontSlider}" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right"/>
-                <Image Source="Assets/Money.png"  VerticalAlignment="Center" Width="{Binding Value, ElementName=ImageSlider}" Grid.Column="3" HorizontalAlignment="Right" />
+                <Image Source="Assets/Money.png"  VerticalAlignment="Center" Width="{Binding Value, ElementName=ImageSlider}" Grid.Column="3" HorizontalAlignment="Right" Height="20"  />
           
             </Grid>
 
         </DataTemplate>
+        <DataTemplate x:Key="ImageGridView_DefaultItemTemplate2"
+                      x:DataType="local:PowerUps">
+            <Grid  Margin="8" Height="100" Width="120">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="{x:Bind Imagen}" VerticalAlignment="Center"  Width="{Binding Value, ElementName=ImageSlider}"/>
+                <TextBlock Text="{x:Bind Nombre}" FontSize="{Binding Value, ElementName=FontSlider}" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+
+        </DataTemplate>
     </Page.Resources>
+    <Viewbox Stretch="Fill">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
@@ -41,7 +55,7 @@
             <RowDefinition Height="181*" />
             <RowDefinition Height="819*"/>
         </Grid.RowDefinitions>
-
+            
         <Button x:Name="Back_Boton"  Click="Back_OnClick" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="0" Height="60" Width="130">
             <Button.Background>
                 <SolidColorBrush Opacity="0"/>
@@ -49,7 +63,7 @@
             <Image  Source="/Assets/back.png" HorizontalAlignment="Center" Margin="0,-6,0,-7" Width="144"/>
         </Button>
 
-        <Border Margin="328,36,231,10">
+        <Border Height="30" Width="200" >
             <Border.Background>
                 <ImageBrush ImageSource="Assets/Tabla.png" Stretch="Fill"></ImageBrush>
             </Border.Background>
@@ -64,25 +78,14 @@
                 <ImageBrush ImageSource="Assets/Panel.png"></ImageBrush>
             </Border.Background>
             <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBlock Text="{x:Bind Info}"   VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                <TextBlock Text="{x:Bind Info}"  Margin="90"  VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
             </StackPanel>
         </Border>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"  Height="133" Margin="50">
             <TextBlock Text="Elementals" TextAlignment="Center"></TextBlock>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
-                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
-                </Button>
-                <Button VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
-                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
-                </Button>
-                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
-                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
-                </Button>
-                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="Right" >
-                    <Image Source="/Assets/P.png" Stretch="UniformToFill" HorizontalAlignment="Center"  Width="100" Height="100"/>
-                </Button>
+                <GridView  x:Name="ImageGridView2" Grid.Row="1" Background="Thistle"   ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElem}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate2}" Height="200" Width="600"  />
+               
             </StackPanel>
-        </StackPanel>
     </Grid>
+        </Viewbox>
 </Page>

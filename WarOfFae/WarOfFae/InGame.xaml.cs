@@ -25,6 +25,9 @@ namespace WarOfFae
     public sealed partial class InGame : Page
     {
         public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
+        public ObservableCollection<ViewPowerUp> ListaPowerUpsElegidos { get; } = new ObservableCollection<ViewPowerUp>();
+        public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
+
         public string Turn = "Your ";
         public InGame()
         {
@@ -34,6 +37,22 @@ namespace WarOfFae
         private void Ajustes_OnClick(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(OptionsInGame));
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e?.Parameter is ObservableCollection<ViewPowerUp> pList)
+            {
+               for(int i=0; i<pList.Count; i++)
+               {
+                    ListaPowerUpsElegidos.Add(pList[i]); 
+               }
+            }
+            base.OnNavigatedTo(e);
+        }
+
+        private void ImageGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

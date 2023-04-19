@@ -7,7 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="ImageGridView_DefaultItemTemplate"
+                      x:DataType="local:PowerUps">
+            <Grid>
+                <Border Background="Thistle" BorderBrush="DarkBlue" BorderThickness="2" Margin="15">
+                    <StackPanel>
+                        <Image Source="{x:Bind Imagen}" VerticalAlignment="Center"  Margin="10" Width="{Binding Value, ElementName=ImageSlider}" Height="30"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
 
+        </DataTemplate>
+    </Page.Resources>
+    <Viewbox Stretch="Fill">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
@@ -27,17 +40,13 @@
                 </Button.Background>
                 <Image Source="/Assets/Settings.png" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,1,0,-9" Width="79"/>
             </Button>
-            <Border   Height="280" Width="93">
-                <Border.Background>
-                    <ImageBrush ImageSource="Assets/Tabla.png" Stretch="Fill"></ImageBrush>
-                </Border.Background>
-                <StackPanel VerticalAlignment="Center">
-                    <Button Content="1" HorizontalAlignment="Center"  Margin="20" Background="Violet"></Button>
-                    <Button Content="2" HorizontalAlignment="Center" Margin="20"  Background="Violet"></Button>
-                    <Button Content="3" HorizontalAlignment="Center"  Margin="20"  Background="Violet"></Button>
-                </StackPanel>
+                <Border   Height="280" Width="93" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                    </Border.Background>
+                    <GridView  ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" SelectionChanged="ImageGridView_SelectionChanged"  />
 
-            </Border>
+                </Border>
             
             <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
                 <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
@@ -51,7 +60,7 @@
                     </Border>
                 </StackPanel>
             </Viewbox>
-            <Border  Height="48" Width="93">
+            <Border  Height="48" Width="93" Margin="20">
                 <Border.Background>
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                 </Border.Background>
@@ -96,4 +105,5 @@
             <Image Source="Assets/Dead2.png" Margin="10"></Image>
         </StackPanel>
     </Grid>
+    </Viewbox>
 </Page>

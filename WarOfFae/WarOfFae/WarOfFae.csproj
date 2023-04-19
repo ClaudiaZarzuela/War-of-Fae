@@ -151,6 +151,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\air.png" />
     <Content Include="Assets\Ajustes.png" />
     <Content Include="Assets\back.png" />
     <Content Include="Assets\banshee.png" />
@@ -167,7 +168,9 @@
     <Content Include="Assets\Dead1.png" />
     <Content Include="Assets\Dead2.png" />
     <Content Include="Assets\dragon.png" />
+    <Content Include="Assets\earth.png" />
     <Content Include="Assets\escudo.png" />
+    <Content Include="Assets\fire.png" />
     <Content Include="Assets\Fondo Completo.png" />
     <Content Include="Assets\Fondo.png" />
     <Content Include="Assets\Fondo1.png" />
@@ -206,6 +209,7 @@
     <Content Include="Assets\stop.png" />
     <Content Include="Assets\Tabla.png" />
     <Content Include="Assets\Tabla2.png" />
+    <Content Include="Assets\water.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -24,6 +24,7 @@ namespace WarOfFae
     public sealed partial class Inventory : Page
     {
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
+        public ObservableCollection<ViewPowerUp> ListaPowerUpsElem { get; } = new ObservableCollection<ViewPowerUp>();
         public string Info = " ";
         public Inventory()
         {
@@ -47,6 +48,14 @@ namespace WarOfFae
                 {
                     ViewPowerUp VMitem = new ViewPowerUp(dron);
                     ListaPowerUps.Add(VMitem);
+                }
+            }
+            if (ListaPowerUps != null)
+            {
+                foreach (PowerUps dron in Model.GetAllDrones2())
+                {
+                    ViewPowerUp VMitem = new ViewPowerUp(dron);
+                    ListaPowerUpsElem.Add(VMitem);
                 }
             }
             base.OnNavigatedTo(e);
