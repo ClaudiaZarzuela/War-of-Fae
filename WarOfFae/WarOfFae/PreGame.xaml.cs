@@ -273,15 +273,24 @@ namespace WarOfFae
             Descripcion2.Text = o.Explicacion2;
         }
 
-        private void GridViewPersonajes_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        private async void GridViewPersonajes_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
             ViewPersonajes Item = e.Items[0] as ViewPersonajes; 
-            e.Data.SetText(Item.Id.ToString()); 
-            e.Data.RequestedOperation = DataPackageOperation.Move;
-            Imagen_Personaje.Source = Item.Img.Source;
-            Puntos.Text = Item.Nombre;
-            Descripcion1.Text = Item.Explicacion1;
-            Descripcion2.Text = Item.Explicacion2;
+            e.Data.SetText(Item.Id.ToString());
+
+            if (CambiarNumeroPersonaje(Item.Id))
+            {
+                e.Data.RequestedOperation = DataPackageOperation.Move;
+                Imagen_Personaje.Source = Item.Img.Source;
+                Puntos.Text = Item.Nombre;
+                Descripcion1.Text = Item.Explicacion1;
+                Descripcion2.Text = Item.Explicacion2;
+            }
+            else
+            {
+                var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
+                await messageDialog2.ShowAsync();
+            }
         }
 
         private void MiCanvas_DragOver(object sender, DragEventArgs e)
@@ -296,6 +305,31 @@ namespace WarOfFae
             Windows.UI.Xaml.Controls.Border o = e.OriginalSource as Windows.UI.Xaml.Controls.Border;
             ImageBrush u = o.Background as ImageBrush;
             u.ImageSource = O.Img.Source;
+        }
+        private bool CambiarNumeroPersonaje(int num)
+        {
+            bool sePuede = true;
+            TextBlock p = null;
+            switch (num)
+            {
+                case 0: p =P0 ; break;
+                case 1: p =P1 ; break;
+                case 2: p =P2 ; break;
+                case 3: p =P3 ; break;
+                case 4: p =P4 ; break;
+                case 5: p =P5 ; break;
+                case 6: p =P6 ; break;
+                case 7: p =P7 ; break;
+                case 8: p =P8 ; break;
+                case 9: p =P9 ; break;
+                case 10: p =P10 ; break;
+                case 11: p =P11 ; break;
+            }
+            if(p.Text == "0") sePuede = false;
+            --num;
+            if(num >0)
+                p.Text = num.ToString();
+            return sePuede;
         }
     }
 }
