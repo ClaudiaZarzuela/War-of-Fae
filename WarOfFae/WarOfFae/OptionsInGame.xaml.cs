@@ -40,5 +40,10 @@ namespace WarOfFae
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+        private void Restart_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(PreGame));
+        }
     }
 }

@@ -61,5 +61,17 @@ namespace WarOfFae
             base.OnNavigatedTo(e);
         }
 
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            /*
+            //ViewPowerups o = e.ClickedItem as ViewPersonajes;
+            ViewPowerUp p=
+
+            Imagen_Personaje.Source = o.Img.Source;
+            Puntos.Text = o.Nombre;
+            Descripcion1.Text = o.Explicacion1;
+            Descripcion2.Text = o.Explicacion2;
+            */
+        }
     }
 }

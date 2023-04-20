@@ -28,7 +28,7 @@
                 <CheckBox  IsTabStop="True" TabIndex="2" Content="Vibration" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20"  />
                 <Button   Content="Main Menu" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="3" Click="MainMenu_OnClick"/>
             </StackPanel>
-            <Button Content="Restart" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="4" Margin="20" HorizontalAlignment="Center" />
+                <Button Content="Restart" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="4" Margin="20" HorizontalAlignment="Center" Click="Restart_OnClick" />
             <Button Content="Back To Game" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="5" HorizontalAlignment="Center" Click="Back_OnClick" />
 
 

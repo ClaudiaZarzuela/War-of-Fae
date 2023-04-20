@@ -32,7 +32,7 @@ namespace WarOfFae
         public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
         public ObservableCollection<ViewMapaPersonajes> ListaPersonajesMapa { get; } = new ObservableCollection<ViewMapaPersonajes>();
         public event PropertyChangedEventHandler PropertyChanged;
-       
+        
 
 
         public ObservableCollection<ViewPowerUp> ListaPowerUpsElegidos { get; }=new ObservableCollection<ViewPowerUp>();
@@ -105,6 +105,8 @@ namespace WarOfFae
             ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
             ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
             ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
+
+
             Frame.Navigate(typeof(InGame), ListaPowerUpsElegidos);
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
@@ -321,6 +323,7 @@ namespace WarOfFae
 
         private async void MiCanvas_Drop(object sender, DragEventArgs e)
         {
+            
             var id = await e.DataView.GetTextAsync();
             ViewPersonajes O = ListaPersonajes.ElementAt(Int32.Parse(id)) as ViewPersonajes;
             ViewMapaPersonajes U = ListaPersonajesMapa.ElementAt(Int32.Parse(id)) as ViewMapaPersonajes;

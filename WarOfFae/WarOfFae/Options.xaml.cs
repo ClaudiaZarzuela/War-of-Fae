@@ -28,6 +28,7 @@ namespace WarOfFae
         string Music = "50";
         string Music2 = "50";
         public event PropertyChangedEventHandler PropertyChanged;
+        string LanguageImage = "Assets/UK.png";
         public Options()
         {
             this.InitializeComponent();
@@ -60,12 +61,13 @@ namespace WarOfFae
             string o = u.Content.ToString();
             switch (o)
             {
-                case "English(UK)": ImageLenguaje.Source = new BitmapImage(new Uri(@"Assets/UK.png")); break;
-                case "German": ImageLenguaje.Source = new BitmapImage(new Uri("Assets/germany.png")); break;
-                case "Spanish(ES)": ImageLenguaje.Source = new BitmapImage(new Uri("Assets/spain.png")); break;
+                
+                case "English(UK)": LanguageImage = "Assets/UK.png"; break;
+                case "German": LanguageImage = "Assets/germany.png"; break;
+                case "Spanish(ES)": LanguageImage = "Assets/spain.png"; break;
+                
             }
-       
-           
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LanguageImage)));
         }
     }
 }
