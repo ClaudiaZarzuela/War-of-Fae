@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -21,11 +22,14 @@ namespace WarOfFae
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class Inventory : Page
+    public sealed partial class Inventory : Page, INotifyPropertyChanged
     {
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
         public ObservableCollection<ViewPowerUp> ListaPowerUpsElem { get; } = new ObservableCollection<ViewPowerUp>();
         public string Info = " ";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Inventory()
         {
             this.InitializeComponent();
@@ -63,15 +67,12 @@ namespace WarOfFae
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            /*
-            //ViewPowerups o = e.ClickedItem as ViewPersonajes;
-            ViewPowerUp p=
 
-            Imagen_Personaje.Source = o.Img.Source;
-            Puntos.Text = o.Nombre;
-            Descripcion1.Text = o.Explicacion1;
-            Descripcion2.Text = o.Explicacion2;
-            */
+            //ViewPowerups o = e.ClickedItem as ViewPersonajes;
+            ViewPowerUp p = e.ClickedItem as ViewPowerUp;
+            Info = p.Explicacion;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Info)));
+
         }
     }
 }

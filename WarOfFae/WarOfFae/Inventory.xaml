@@ -84,21 +84,21 @@
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/PanelGrande.png" ></ImageBrush>
                     </Border.Background>
-                    <GridView x:Name="ImageGridView" Grid.Row="1" Background="Thistle"  BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUps}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" Height="410" Width="700" />
+                    <GridView x:Name="ImageGridView" IsItemClickEnabled="True" ItemClick="GridView_ItemClick" Grid.Row="1" Background="Thistle"  BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUps}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" Height="410" Width="700" />
                     
-                </Border>
+                </Border> 
                 <StackPanel Orientation="Vertical" >
                     <Border Grid.Row="1" Height="200" Width="600" VerticalAlignment="Top" Margin="150,90">
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Panel.png"></ImageBrush>
                     </Border.Background>
                     <StackPanel Grid.Row="1" Grid.Column="1">
-                            <TextBlock Text="{x:Bind Info}"  Style="{StaticResource Text}" FontFamily="Curlz MT" FontSize="40" Margin="70"  VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                            <TextBlock Text="{x:Bind Info, Mode=OneWay}"  Style="{StaticResource Text}" FontFamily="Curlz MT" FontSize="40" Margin="70"  VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
                     </StackPanel>
                     </Border>
                     <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"  Height="180" Margin="-80">
                         <TextBlock  Style="{StaticResource Text}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="30" Text="Elementals" Width="00" TextAlignment="Center"></TextBlock>
-                        <GridView  x:Name="ImageGridView2"  Background="Thistle"   ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElem}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate2}" Height="140" Width="580"  />
+                        <GridView  x:Name="ImageGridView2" IsItemClickEnabled="True" ItemClick="GridView_ItemClick" Background="Thistle"   ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="MediumPurple" BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElem}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate2}" Height="140" Width="580"  />
 
                     </StackPanel>
                 </StackPanel>
