@@ -28,7 +28,7 @@ namespace WarOfFae
         {
             new PowerUps()
             {
-                Id = 1,
+                Id = 0,
                 Nombre = "Dron2",
                 Imagen = "Assets/escudo.png" ,
                 Explicacion = "Unbreakable Shield",
@@ -37,7 +37,7 @@ namespace WarOfFae
              },
              new PowerUps()
             {
-                Id = 2,
+                Id = 1,
                 Nombre = "Dron2",
                 Imagen = "Assets/corazon.png" ,
                  Explicacion = "Healing Power",
@@ -47,7 +47,7 @@ namespace WarOfFae
     },
               new PowerUps()
             {
-                Id = 3,
+                Id = 2,
                 Nombre = "Dron2",
                 Imagen = "Assets/speed.png",
                  Explicacion = "Super Speed",
@@ -57,7 +57,7 @@ namespace WarOfFae
              },
                new PowerUps()
             {
-                Id = 4,
+                Id = 3,
                 Nombre = "Dron2",
                 Imagen ="Assets/stop.png" ,
                  Explicacion = "HeartStopper",
