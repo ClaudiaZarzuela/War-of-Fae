@@ -323,9 +323,12 @@ namespace WarOfFae
         {
             var id = await e.DataView.GetTextAsync();
             ViewPersonajes O = ListaPersonajes.ElementAt(Int32.Parse(id)) as ViewPersonajes;
+            ViewMapaPersonajes U = ListaPersonajesMapa.ElementAt(Int32.Parse(id)) as ViewMapaPersonajes;
+            U.Imagen = O.Imagen;
             Windows.UI.Xaml.Controls.Border o = e.OriginalSource as Windows.UI.Xaml.Controls.Border;
             ImageBrush u = o.Background as ImageBrush;
             u.ImageSource = O.Img.Source;
+            
         }
         private bool CambiarNumeroPersonaje(int num)
         {

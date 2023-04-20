@@ -41,7 +41,7 @@
                             </Border.Background>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="GAMEPLAY" Style="{StaticResource Text}"  FontSize="60" Margin="20 20 20 40" />
-                                <CheckBox  Style="{StaticResource CheckBox}" Foreground="White" Content="Tutorial Help" FontSize="30" HorizontalAlignment="Center" VerticalContentAlignment="Top" IsChecked="True" FontFamily="Segoe UI" >
+                                <CheckBox  Style="{StaticResource CheckBox}" Foreground="White" Content="Tutorial Help" FontSize="30" HorizontalAlignment="Center" VerticalContentAlignment="Top" IsChecked="True">
 
                                 </CheckBox>
                                 <CheckBox Style="{StaticResource CheckBox}" Foreground="White" Content="BiggerFont Tt" FontSize="30" HorizontalAlignment="Center" />
@@ -57,12 +57,12 @@
                             </Border.Background>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource Text}" Text="SOUND" FontSize="60" HorizontalAlignment="Center" Margin="20 20 20 40"/>
-                                <TextBlock Text="Music"  Style="{StaticResource Text}" Foreground="Black" FontSize="30" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Music"  Style="{StaticResource Text}"  Foreground="White" FontSize="30" HorizontalAlignment="Center"/>
                                 <StackPanel Orientation="Horizontal" Margin="60 0 50 50" HorizontalAlignment="Center">
                                     <Slider Value="50" Foreground="Violet" Width="396" VerticalAlignment="Center" ValueChanged="Slider_ValueChanged"/>
                                     <TextBlock Name="volume" Text="{x:Bind Music,Mode=TwoWay}" Margin="20,0,0,0"  Width="80" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFF9F8F8" FontSize="35" TextAlignment="Left"></TextBlock>
                                 </StackPanel>
-                                <TextBlock  Style="{StaticResource Text}" Text="Effects Volume" Foreground="Black" FontSize="30" HorizontalAlignment="Center"/>
+                                <TextBlock    Foreground="White" Style="{StaticResource Text}" Text="Effects Volume"  FontSize="30" HorizontalAlignment="Center"/>
                                 <StackPanel Orientation="Horizontal" Margin="60 0 50 50" HorizontalAlignment="Center">
                                     <Slider Value="50" Foreground="Violet" Width="396" VerticalAlignment="Center" ValueChanged="Slider2_ValueChanged"/>
                                     <TextBlock Name="volume2" Text="{x:Bind Music2,Mode=TwoWay}" Margin="20,0,0,0"  Width="80" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFF9F8F8" FontSize="35" TextAlignment="Left"></TextBlock>
@@ -92,11 +92,12 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="LANGUAGE" Style="{StaticResource Text}" FontSize="60" Margin="20"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <Rectangle Fill="White" Height="90" Width="160" Margin="100 30 30 30"/>
-                                    <ComboBox VerticalAlignment="Center" Margin="30 0 0 0" Width="120" Background="White" Foreground="Black">
-                                        <ComboBoxItem Content="English(UK)"/>
-                                        <ComboBoxItem Content="English(US)"/>
-                                        <ComboBoxItem Content="Español(ES)"/>
+                                    <Image Name ="ImageLenguaje" Height="90" Width="180" Margin="60 30 30 30" Source="Assets/UK.png" Stretch="UniformToFill">
+                                    </Image>
+                                    <ComboBox  Name="Languaje" VerticalAlignment="Center" Margin="20 0 0 0" Width="190" Background="White" Foreground="Black" SelectionChanged="ComboBox_SelectionChanged">
+                                        <ComboBoxItem Content="English(UK)" />
+                                        <ComboBoxItem Content="German" IsSelected="True"/>
+                                        <ComboBoxItem Content="Spanish(ES)"/>
                                     </ComboBox>
                                 </StackPanel>
                             </StackPanel>

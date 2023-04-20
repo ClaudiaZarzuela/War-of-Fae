@@ -19,7 +19,7 @@ namespace WarOfFae
            new MapaConPersonajes()
            {
                Id = 1,
-             Imagen ="Assets/StoreLogo.png" ,
+               Imagen ="Assets/StoreLogo.png" ,
            },
             new MapaConPersonajes()
            {

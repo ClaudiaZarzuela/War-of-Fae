@@ -175,6 +175,7 @@
     <Content Include="Assets\Fondo.png" />
     <Content Include="Assets\Fondo1.png" />
     <Content Include="Assets\FondoCompleto.png" />
+    <Content Include="Assets\germany.png" />
     <Content Include="Assets\Grass.png" />
     <Content Include="Assets\Hada1.png" />
     <Content Include="Assets\Hada2.png" />
@@ -200,6 +201,7 @@
     <Content Include="Assets\Personaje 9.png" />
     <Content Include="Assets\Pre Game Background.png" />
     <Content Include="Assets\Referencia Pre Game.png" />
+    <Content Include="Assets\spain.png" />
     <Content Include="Assets\speed.png" />
     <Content Include="Assets\Start.png" />
     <Content Include="Assets\Mapa.png" />
@@ -209,6 +211,7 @@
     <Content Include="Assets\stop.png" />
     <Content Include="Assets\Tabla.png" />
     <Content Include="Assets\Tabla2.png" />
+    <Content Include="Assets\UK.png" />
     <Content Include="Assets\water.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
