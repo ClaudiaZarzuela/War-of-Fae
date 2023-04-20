@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Viewbox Stretch="Fill">
+        
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
@@ -18,21 +19,22 @@
 
         <Image Source="Assets/Tabla2.png" Grid.Row="1" Height="662" Width="1083" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Height="247" Width="300">
-            <TextBlock  Text="Music Volume" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="87"/>
-            <Slider  HorizontalAlignment="Center"  Margin="0,2,0,0" VerticalAlignment="Center" Width="300" Height="33"/>
-            <TextBlock  Text="Sound Fx" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="57"/>
-            <Slider  HorizontalAlignment="Center"   Margin="0,2,0,0" VerticalAlignment="Center" Width="300" Height="33"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <TextBlock   Text="Music Volume" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            <Slider  IsTabStop="True" TabIndex="0" HorizontalAlignment="Center"  Margin="0,2,0,0" VerticalAlignment="Center" Width="300" Height="33"/>
+            <TextBlock  Text="Sound Fx" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Slider  IsTabStop="True" TabIndex="1" HorizontalAlignment="Center"   Margin="0,2,0,0" VerticalAlignment="Center" Width="300" Height="33"/>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
-                <CheckBox Content="Vibration"   />
-                <Button   Content="Main Menu" Click="MainMenu_OnClick"/>
+                <CheckBox  IsTabStop="True" TabIndex="2" Content="Vibration" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20"  />
+                <Button   Content="Main Menu" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="3" Click="MainMenu_OnClick"/>
             </StackPanel>
-            <Button Content="Restart"  Margin="20" HorizontalAlignment="Center" />
-            <Button Content="Back To Game"  HorizontalAlignment="Center" Click="Back_OnClick" />
+            <Button Content="Restart" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="4" Margin="20" HorizontalAlignment="Center" />
+            <Button Content="Back To Game" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" IsTabStop="True" TabIndex="5" HorizontalAlignment="Center" Click="Back_OnClick" />
 
 
         </StackPanel>
         <Image  Source="/Assets/CartelPrincipalOpciones.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="170" Width="292"/>
      
     </Grid>
+    </Viewbox>
 </Page>

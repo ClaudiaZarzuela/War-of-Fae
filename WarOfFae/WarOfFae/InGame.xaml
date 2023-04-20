@@ -34,7 +34,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-            <Button x:Name="Ajustes_Boton"  Click="Ajustes_OnClick" Height="100" Width="100" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="0" Margin="10"  >
+                <Button x:Name="Ajustes_Boton"  IsTabStop="True" TabIndex="2" Click="Ajustes_OnClick" Height="100" Width="100" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="0" Margin="10"  >
                 <Button.Background>
                     <SolidColorBrush Opacity="0"/>
                 </Button.Background>
@@ -44,7 +44,7 @@
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                     </Border.Background>
-                    <GridView  ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" SelectionChanged="ImageGridView_SelectionChanged"  />
+                    <GridView IsTabStop="True" TabIndex="0" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" SelectionChanged="ImageGridView_SelectionChanged"  />
 
                 </Border>
             
@@ -65,21 +65,21 @@
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock Text="{x:Bind Turn}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    <TextBlock Text="Turn!" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{x:Bind Turn}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                 </StackPanel>
             </Border>
 
         </StackPanel>
         <Image Grid.Column="1" Source="Assets/Mapa.png" ></Image>
-        <Button  VerticalAlignment="Center" Height="96" Width="94" BorderBrush="GreenYellow" BorderThickness="10" HorizontalAlignment="Center" Grid.Column="1" >
+            <Button IsTabStop="True" TabIndex="1" VerticalAlignment="Center" Height="96" Width="94" BorderBrush="GreenYellow" BorderThickness="10" HorizontalAlignment="Center" Grid.Column="1" >
             <Button.Background>
                 <SolidColorBrush Opacity="0"/>
             </Button.Background>
             <Image Source="Assets/Banshee.png" HorizontalAlignment="Center"/>
         </Button>
         <StackPanel Grid.Column="2" VerticalAlignment="Center">
-            <TextBlock Text="Enemy lost"  HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="Enemy lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
             <Image Source="Assets/Dead1.png" Margin="10"></Image>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Border  Height="48" Width="93">
@@ -87,8 +87,8 @@
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                 </Border.Background>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="Money:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock Text="50" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" Text="Money:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" Text="50" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                 </Border>
                 <Border  Height="48" Width="93" Margin="20">
@@ -96,12 +96,12 @@
                         <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                     </Border.Background>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="Time:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock Text="60" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock Text="Time:" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock Text="60" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                 </Border>
             </StackPanel>
-            <TextBlock Text="You lost" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="You lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
             <Image Source="Assets/Dead2.png" Margin="10"></Image>
         </StackPanel>
     </Grid>
