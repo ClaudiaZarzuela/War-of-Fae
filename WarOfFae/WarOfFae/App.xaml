@@ -19,5 +19,17 @@
             <Setter Property="FontSize" Value="22"/>
             <Setter Property="Margin" Value="15, 0, 25, 0"/>
         </Style>
+        <Style x:Key ="Text" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Curlz MT"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
+        <Style x:Key ="CheckBox" TargetType="CheckBox">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Curlz MT"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="22"/>
+        </Style>
     </Application.Resources>
 </Application>

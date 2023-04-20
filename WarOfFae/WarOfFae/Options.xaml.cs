@@ -24,6 +24,7 @@ namespace WarOfFae
     public sealed partial class Options : Page, INotifyPropertyChanged
     {
         string Music = "50";
+        string Music2 = "50";
         public event PropertyChangedEventHandler PropertyChanged;
         public Options()
         {
@@ -43,8 +44,12 @@ namespace WarOfFae
             string msg = string.Format("{0}", e.NewValue);
             Music = msg;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
-            //Slider o = sender as Slider;
-            //Music.Text = o.Value.ToString();
+        }
+        private void Slider2_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            string msg = string.Format("{0}", e.NewValue);
+            Music2 = msg;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music2)));
         }
     }
 }
