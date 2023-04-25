@@ -33,6 +33,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
             </Grid.RowDefinitions>
+
+
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
                 <Button x:Name="Ajustes_Boton"  IsTabStop="True" TabIndex="2" Click="Ajustes_OnClick" Height="100" Width="100" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="0" Margin="10"  >
                     <Button.Background>
@@ -60,17 +62,22 @@
                         </Border>
                     </StackPanel>
                 </Viewbox>
-                <Border  Height="71" Width="142" Margin="20">
-                    <Border.Background>
-                        <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
-                    </Border.Background>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="{x:Bind Turn, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock Text=" Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                </Border>
-
             </StackPanel>
+            <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0"></Rectangle>
+            <Image Name="Flecha" Source="Assets/Back2.png" RenderTransformOrigin="0.5,0.5" Width="150" VerticalAlignment="Bottom" Margin="0,125" Opacity="1">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="270"/>
+                </Image.RenderTransform>
+            </Image>
+            <Border  Height="71" Width="142" Margin="20" VerticalAlignment="Bottom">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                </Border.Background>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{x:Bind Turn, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Text=" Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </Border>
             <Border Height="457"  Width="555" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" IsTapEnabled="True">
                 <Canvas>
                     <Canvas.Background>
@@ -106,6 +113,8 @@
                 <TextBlock Text="You lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
                 <Image Source="Assets/Dead2.png" Margin="10"></Image>
             </StackPanel>
+            <Rectangle Name="Rectangulo2" Fill="Black" Grid.Column="1" Opacity="0"></Rectangle>
+            <Rectangle  Name="Rectangulo3" Fill="Black" Grid.Column="2" Opacity="0"></Rectangle>
         </Grid>
     </Viewbox>
 </Page>
