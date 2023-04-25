@@ -41,9 +41,7 @@ namespace WarOfFae
         //Timer
         public string Time => (30-Stopwatch_timer.Elapsed.Seconds).ToString();
         private DispatcherTimer _timer;
-        private DispatcherTimer _timerRect;
         private Stopwatch Stopwatch_timer;
-        private Stopwatch Stopwatch_timerRect;
         public event PropertyChangedEventHandler PropertyChanged;
 
         //Mapa
@@ -102,40 +100,18 @@ namespace WarOfFae
             }
             //time
             _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
-            _timerRect = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
 
             _timer.Tick += (sender, o) =>
             { PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Time))); 
                 if (Stopwatch_timer.Elapsed.Seconds >= 30) 
-                {
-                    Flecha.Opacity = 1;
-                    Rectangulo1.Opacity = 0.5;
-                    Rectangulo2.Opacity = 0.5;
-                    Rectangulo3.Opacity = 0.5;
-                    Stopwatch_timer.Restart(); 
+                { Stopwatch_timer.Restart(); 
                     if (Turn == turn[0]) { Turn = turn[1]; } 
                     else { Turn = turn[0]; }
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Turn)));
                 } 
-              
-            };
-            _timerRect.Tick += (sender, o) =>
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Time)));
-                if (Stopwatch_timerRect.Elapsed.Seconds >= 31)
-                {
-                    Flecha.Opacity = 0;
-                    Rectangulo1.Opacity = 0;
-                    Rectangulo2.Opacity = 0;
-                    Rectangulo3.Opacity = 0;
-                    Stopwatch_timerRect.Restart();
-                }
-
             };
             _timer.Start();
-            _timerRect.Start();
             Stopwatch_timer = new Stopwatch(); Stopwatch_timer.Start();
-            Stopwatch_timerRect = new Stopwatch(); Stopwatch_timerRect.Start();
         }
 
         private void Ajustes_OnClick(object sender, RoutedEventArgs e)

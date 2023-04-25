@@ -34,7 +34,7 @@ namespace WarOfFae
             this.InitializeComponent();
             player = new MediaPlayer();
             music = new MediaPlayer();
-            startMusic();
+            //startMusic();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -64,12 +64,12 @@ namespace WarOfFae
             player.Source = MediaSource.CreateFromStorageFile(file);
 
             player.Play();
-            Frame.Navigate(typeof(PreGame), volumeMusic);
+            Frame.Navigate(typeof(PreGame));
             music.Pause();
         }
         private void Duo_Button(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(PreGame), volumeMusic);
+            Frame.Navigate(typeof(PreGame));
             music.Pause();
         }
 
