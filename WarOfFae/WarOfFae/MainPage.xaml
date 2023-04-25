@@ -8,9 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    
+
     <Viewbox Stretch="Fill">
-        <Grid Name="myGird"  RequestedTheme="Dark">
+        <Grid Name="myGird"  RequestedTheme="Dark" >
 
             <Grid.Background>
                 <ImageBrush ImageSource="Assets/Fondo.png"></ImageBrush>
@@ -26,14 +26,14 @@
                 <RowDefinition Height="47*" />
             </Grid.RowDefinitions>
 
-            <StackPanel x:Name = "Botones" Grid.Column ="2" Margin="2,0,0,0" IsTapEnabled="True">
+            <StackPanel x:Name = "Botones" Grid.Column ="2" Margin="2,0,0,0" XYFocusKeyboardNavigation="Enabled">
                 <Rectangle HorizontalAlignment="Center" Height="165"></Rectangle>
 
-                <Button x:Name="Boton1" HorizontalAlignment="Center" Height="160" Width="351" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Solo_Button">
+                <Button x:Name="Boton1" HorizontalAlignment="Center" Height="160" Width="351" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Solo_Button" TabIndex="0" IsTabStop="True">
                     <Image Source="/Assets/CartelSolo.png" HorizontalAlignment="Center" Margin="0,-18,0,0" Width="331" Height="176" VerticalAlignment="Top"/>
                 </Button>
 
-                <Button x:Name="Boton2" HorizontalAlignment="Center" Height="135" Width="325" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Duo_Button">
+                <Button x:Name="Boton2" HorizontalAlignment="Center" Height="135" Width="325" Background="{x:Null}" BackgroundSizing="OuterBorderEdge" Click="Duo_Button" TabIndex="1" IsTabStop="True" >
                     <Image Source="/Assets/CartelDuo.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="1,-15,0,0" Height="288" Width="303"></Image>
                 </Button>
 
@@ -41,10 +41,10 @@
 
             <Image  Source="/Assets/CartelPrincipal.png" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="370" Width="492"/>
 
-            <Button  x:Name="Inventario_Boton" VerticalAlignment="Bottom" Height="188" Width="171" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="0" Margin="0,0,29,0" Click="Inventario_Boton_Click" TabIndex="1" IsTabStop="True" Foreground="Transparent" Background="Transparent">
+            <Button x:Name="Inventario_Boton" VerticalAlignment="Bottom" Height="188" Width="171" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="0" Margin="0,0,29,0" Click="Inventario_Boton_Click" TabIndex="2" Foreground="Transparent" Background="Transparent">
                 <Image Source="/Assets/CartelInventario.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
             </Button>
-            <Button x:Name="Ajustes_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80" Click="Ajustes_Boton_Click" TabIndex="2" IsTabStop="True">
+            <Button x:Name="Ajustes_Boton" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Height="80" Width="80" Click="Ajustes_Boton_Click" TabIndex="3" >
                 <Button.Background>
                     <SolidColorBrush Opacity="0"/>
                 </Button.Background>
@@ -60,5 +60,5 @@
         </Grid>
     </Viewbox>
 
-   
+
 </Page>

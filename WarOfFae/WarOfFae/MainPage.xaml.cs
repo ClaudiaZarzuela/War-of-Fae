@@ -34,7 +34,7 @@ namespace WarOfFae
             this.InitializeComponent();
             player = new MediaPlayer();
             music = new MediaPlayer();
-            startMusic();
+            //startMusic();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
