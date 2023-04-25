@@ -59,7 +59,7 @@
                                 <TextBlock Style="{StaticResource Text}" Text="SOUND" FontSize="60" HorizontalAlignment="Center" Margin="20 20 20 40"/>
                                 <TextBlock Text="Music"  Style="{StaticResource Text}"  Foreground="White" FontSize="30" HorizontalAlignment="Center"/>
                                 <StackPanel Orientation="Horizontal" Margin="60 0 50 50" HorizontalAlignment="Center">
-                                    <Slider Value="50" Foreground="Violet" Width="396" VerticalAlignment="Center" ValueChanged="Slider_ValueChanged"/>
+                                    <Slider Value="100" Foreground="Violet" Width="396" VerticalAlignment="Center" ValueChanged="Slider_ValueChanged" Name="MusicSlider"/>
                                     <TextBlock Name="volume" Text="{x:Bind Music,Mode=TwoWay}" Margin="20,0,0,0"  Width="80" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFF9F8F8" FontSize="35" TextAlignment="Left"></TextBlock>
                                 </StackPanel>
                                 <TextBlock    Foreground="White" Style="{StaticResource Text}" Text="Effects Volume"  FontSize="30" HorizontalAlignment="Center"/>
