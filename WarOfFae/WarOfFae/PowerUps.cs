@@ -29,18 +29,18 @@ namespace WarOfFae
             new PowerUps()
             {
                 Id = 0,
-                Nombre = "Dron2",
+                Nombre = "Unbreakable Shield",
                 Imagen = "Assets/escudo.png" ,
-                Explicacion = "Unbreakable Shield",
+                Explicacion = "Stops every attack to one character for 2 turns",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=10,
              },
              new PowerUps()
             {
                 Id = 1,
-                Nombre = "Dron2",
+                Nombre = "Healing Power",
                 Imagen = "Assets/corazon.png" ,
-                 Explicacion = "Healing Power",
+                 Explicacion = "Gives you the ability to bring back a member of your troops",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=20,
 
@@ -48,9 +48,9 @@ namespace WarOfFae
               new PowerUps()
             {
                 Id = 2,
-                Nombre = "Dron2",
+                Nombre = "Super Speed",
                 Imagen = "Assets/speed.png",
-                 Explicacion = "Super Speed",
+                 Explicacion = "You can move a character two squares at a time",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=30,
 
@@ -58,9 +58,9 @@ namespace WarOfFae
                new PowerUps()
             {
                 Id = 3,
-                Nombre = "Dron2",
+                Nombre = "HeartStopper",
                 Imagen ="Assets/stop.png" ,
-                 Explicacion = "HeartStopper",
+                 Explicacion = "You can kill an enemy diagonally",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=40,
 
@@ -77,7 +77,7 @@ namespace WarOfFae
                 Id = 0,
                 Nombre = "Air",
                 Imagen = "Assets/air.png" ,
-                Explicacion = "Tornado",
+                Explicacion = "Tornado: You can move over an enemy's character",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=0,
              },
@@ -86,7 +86,7 @@ namespace WarOfFae
                 Id = 1,
                 Nombre = "Water",
                 Imagen = "Assets/water.png" ,
-                Explicacion = "Tsunami",
+                Explicacion = "Tsunami: You can walk on water",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=0,
              },
@@ -95,7 +95,7 @@ namespace WarOfFae
                 Id = 2,
                 Nombre = "Fire",
                 Imagen = "Assets/fire.png" ,
-                Explicacion = "Magma",
+                Explicacion = "Magma: You can burn a stronger enemy´s character",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=0,
              },
@@ -104,7 +104,7 @@ namespace WarOfFae
                 Id = 3,
                 Nombre = "Earth",
                 Imagen = "Assets/earth.png" ,
-                Explicacion = "Earthquake",
+                Explicacion = "Earthquake: You can move to the other map end",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=0,
              },
