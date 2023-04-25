@@ -182,12 +182,7 @@ namespace WarOfFae
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
-            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
-            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
-            info p; p.personajesP = matrizPersonajes; p.powerupsP = ListaPowerUpsElegidos;
-            Frame.Navigate(typeof(InGame), p);
-            /*if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
+            if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
             {
                 ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
@@ -206,7 +201,7 @@ namespace WarOfFae
                     "      - Chosen all the necesary power ups\n" +
                     "      - Placed all your troops on the map");
                 await messageDialog.ShowAsync();
-            }*/
+            }
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -348,7 +343,7 @@ namespace WarOfFae
                     var dlg = new ContentDialog()
                     {
                         Title = "TSUNAMI",
-                        Content = "Descripción tu wapa del power up de awita",
+                        Content = "You can walk on water ",
                         PrimaryButtonText = "Ok"
 
                     };
@@ -363,7 +358,7 @@ namespace WarOfFae
                     var dlg1 = new ContentDialog()
                     {
                         Title = "TORNADO",
-                        Content = "Descripción tu wapa del power up de aire",
+                        Content = "You can move over an enemy's character",
                         PrimaryButtonText = "Ok"
 
                     };
@@ -378,7 +373,7 @@ namespace WarOfFae
                     var dlg2 = new ContentDialog()
                     {
                         Title = "EARTHQUAKE",
-                        Content = "Descripción tu wapa del power up de tierra",
+                        Content = "You can move to the other map end",
                         PrimaryButtonText = "Ok"
 
                     };
@@ -392,8 +387,8 @@ namespace WarOfFae
                 case "MAGMA":
                     var dlg3 = new ContentDialog()
                     {
-                        Title = "EARTHQUAKE",
-                        Content = "Descripción tu wapa del power up de fuego",
+                        Title = "MAGMA",
+                        Content = "You can burn a stronger enemy´s character",
                         PrimaryButtonText = "Ok"
 
                     };
@@ -493,7 +488,7 @@ namespace WarOfFae
                                 errorSound.AutoPlay = false;
                                 errorSound.Source = MediaSource.CreateFromStorageFile(file);
                                 errorSound.Play();
-                                var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
+                                var messageDialog2 = new MessageDialog("You don´t have any of these characters left");
                                 await messageDialog2.ShowAsync();
                             }
                         }
@@ -653,7 +648,7 @@ namespace WarOfFae
                         errorSound.AutoPlay = false;
                         errorSound.Source = MediaSource.CreateFromStorageFile(file);
                         errorSound.Play();
-                        var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
+                        var messageDialog2 = new MessageDialog("You don´t have any of these characters left");
                         await messageDialog2.ShowAsync();
                     }
                 }

@@ -187,5 +187,22 @@ namespace WarOfFae
                 }
             }
         }
+
+        private async void PowerUp_OnClick(object sender, ItemClickEventArgs e)
+        {
+            ViewPowerUp Item = e.ClickedItem as ViewPowerUp;
+            var dlg = new ContentDialog()
+            {
+                Title = "ACTIVITY",
+                Content = "You used the "+Item.Nombre+" powerup",
+                PrimaryButtonText = "Continue"
+
+            };
+
+            SolidColorBrush color = new SolidColorBrush();
+            color.Color = Windows.UI.Colors.Pink;
+            dlg.Background = color;
+            await dlg.ShowAsync();
+        }
     }
 }

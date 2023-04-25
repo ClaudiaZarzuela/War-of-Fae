@@ -44,7 +44,7 @@
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                     </Border.Background>
-                    <GridView IsTabStop="True" TabIndex="2" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"/>
+                    <GridView IsTabStop="True" IsItemClickEnabled="True" TabIndex="2" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5,5,5,5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" ItemClick="PowerUp_OnClick"/>
 
                 </Border>
 
