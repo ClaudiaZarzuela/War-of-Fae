@@ -32,7 +32,7 @@ namespace WarOfFae
         public event PropertyChangedEventHandler PropertyChanged;
         string LanguageImage = "Assets/UK.png";
         MediaPlayer backgroundSound;
-        int volumeMusic = 50/100;
+        double volumeMusic = 100;
 
         public Options()
         {
@@ -42,23 +42,35 @@ namespace WarOfFae
 
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e?.Parameter is double music)
+            {
+                Music = music.ToString();
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
+                volumeMusic = music;
+                backgroundSound.Volume = (double)music / 100;
+                MusicSlider.Value = music;
+            }
+           
+            base.OnNavigatedTo(e);
+        }
         private async void startMusic()
         {
             Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("backgroundMusic.mp3");
+            Windows.Storage.StorageFile file = await folder.GetFileAsync("mainMenuMusic.wav");
             backgroundSound.AutoPlay = true;
             backgroundSound.IsLoopingEnabled = true;
             backgroundSound.Source = MediaSource.CreateFromStorageFile(file);
-            backgroundSound.Volume = (double)0.5;
-         
+            backgroundSound.Volume = (double)volumeMusic / 100;
+
             backgroundSound.Play();
         }
         private void Back_Boton_Click(object sender, RoutedEventArgs e)
         {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-            }
+            backgroundSound.Pause();
+            Frame.Navigate(typeof(MainPage), volumeMusic);
+            
         }
 
         private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -69,7 +81,6 @@ namespace WarOfFae
             if (backgroundSound != null)
                 backgroundSound.Volume = (double)volumeMusic / 100;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(backgroundSound.Volume)));
         }
         private void Slider2_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {

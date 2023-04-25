@@ -27,15 +27,25 @@ namespace WarOfFae
     {
         MediaPlayer player;
         MediaPlayer music;
-       // MediaPlayer music;
+        double volumeMusic = 100;
+
         public MainPage()
         {
             this.InitializeComponent();
             player = new MediaPlayer();
             music = new MediaPlayer();
-            //startMusic();
+            startMusic();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e?.Parameter is double music)
+            {
+                volumeMusic = music;
+            }
+            else volumeMusic = (double)100;
+            base.OnNavigatedTo(e);
+        }
         private async void startMusic()
         {
             Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
@@ -43,6 +53,7 @@ namespace WarOfFae
             music.AutoPlay = true;
             music.IsLoopingEnabled = true;
             music.Source = MediaSource.CreateFromStorageFile(file);
+            music.Volume = (double)volumeMusic / 100;
             music.Play();
         }
         private async void Solo_Button(object sender, RoutedEventArgs e)
@@ -70,7 +81,7 @@ namespace WarOfFae
 
         private void Ajustes_Boton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Options));
+            Frame.Navigate(typeof(Options),volumeMusic);
             music.Pause();
         }
     }

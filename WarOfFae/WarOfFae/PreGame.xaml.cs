@@ -56,7 +56,18 @@ namespace WarOfFae
             public double y;
             public Image image;
             public bool hasImage;
+            public ContentControl c;
         }
+
+        public struct PersonajeSelecionado
+        {
+            public BitmapImage image;
+            public bool esDelGridView;
+            public int i;
+            public int j;
+        }
+        PersonajeSelecionado pS = new PersonajeSelecionado();
+       
         personajeEnMapa[,] matrizPersonajes = new personajeEnMapa[10, 3];
         public struct info 
         { 
@@ -70,6 +81,7 @@ namespace WarOfFae
             errorSound = new MediaPlayer();
             backgroundSound = new MediaPlayer();
             buttonSound = new MediaPlayer();
+            pS.image = null;
             //startMusic();
             double w = Mi_Mapa.ActualWidth;
             double h = Mi_Mapa.ActualHeight;
@@ -77,11 +89,16 @@ namespace WarOfFae
             {
                 for (int j = 0; j < matrizPersonajes.GetLength(1); j++)
                 {
+                    ContentControl content = new ContentControl();
+                    content.IsTabStop = true;
+                    content.UseSystemFocusVisuals = true;
+                    //content.KeyDown += 
                     double x = (w / 10) * i;
                     double y = (h / 3) * j;
                     Image im = new Image();
                     string s = System.IO.Directory.GetCurrentDirectory() + '\\' + "Assets\\StoreLogo.png";
                     im.Source = new BitmapImage(new Uri(s));
+                    content.Content = im;
                     personajeEnMapa p = new personajeEnMapa();
                     p.i = i;
                     p.j = j;
@@ -89,12 +106,14 @@ namespace WarOfFae
                     p.y = y;
                     p.image = im;
                     p.hasImage = false;
+                    p.c = content;
                     matrizPersonajes[i, j] = p;
-                    Mi_Mapa.Children.Add(matrizPersonajes[i, j].image);
-                    matrizPersonajes[i, j].image.SetValue(Canvas.TopProperty, p.y);
-                    matrizPersonajes[i, j].image.SetValue(Canvas.LeftProperty, p.x);
-                    matrizPersonajes[i, j].image.SetValue(Canvas.WidthProperty, w / 10);
-                    matrizPersonajes[i, j].image.SetValue(Canvas.HeightProperty, h / 3);
+                    Mi_Mapa.Children.Add(matrizPersonajes[i, j].c);
+                    matrizPersonajes[i, j].c.SetValue(Canvas.TopProperty, p.y);
+                    matrizPersonajes[i, j].c.SetValue(Canvas.LeftProperty, p.x);
+                    matrizPersonajes[i, j].c.SetValue(Canvas.WidthProperty, w / 10);
+                    matrizPersonajes[i, j].c.SetValue(Canvas.HeightProperty, h / 3);
+                    matrizPersonajes[i, j].c.KeyDown += add_change_ItemInMap;
                 }
             }
 
@@ -422,14 +441,126 @@ namespace WarOfFae
             
         }
 
+        private async void add_change_ItemInMap(object sender, KeyRoutedEventArgs e)
+        {
+            if(e.Key == Windows.System.VirtualKey.Enter || e.OriginalKey == Windows.System.VirtualKey.GamepadA)
+            {
+
+                ContentControl item = sender as ContentControl;
+                if (pS.image != null)
+                {
+                    if (pS.esDelGridView)
+                    {
+                        int i = 0;
+                        int j = 0;
+                        bool founded = false;
+                        while(i < matrizPersonajes.GetLength(0) && !founded)
+                        {
+                            j = 0;
+                            while (j < matrizPersonajes.GetLength(1) && !founded)
+                            {
+                                if (matrizPersonajes[i, j].c == item) founded = true;
+                                else ++j;
+                            }
+                            if(!founded)++i;
+                        }
+                        if (!matrizPersonajes[i, j].hasImage)
+                        {
+                            if (CambiarNumeroPersonaje(GridViewPersonajes.SelectedIndex))
+                            {
+                                matrizPersonajes[i, j].image.Source = pS.image;
+                                pS.image = null;
+                                matrizPersonajes[i, j].hasImage = true;
+                                matrizPersonajes[i, j].image.CanDrag = true;
+                                matrizPersonajes[i, j].image.DragStarting += Mi_Mapa_DragStarting;
+
+                            }
+                            else
+                            {
+                                Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                                Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                                errorSound.AutoPlay = false;
+                                errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                                errorSound.Play();
+                                var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
+                                await messageDialog2.ShowAsync();
+                            }
+
+
+                        }
+                        GridViewItem g = GridViewPersonajes.ContainerFromIndex(GridViewPersonajes.SelectedIndex) as GridViewItem;
+                        g.Focus(FocusState.Keyboard);
+
+                    }
+                    else
+                    {
+                        int i = 0;
+                        int j = 0;
+                        bool founded = false;
+                        while (i < matrizPersonajes.GetLength(0) && !founded)
+                        {
+                            j = 0;
+                            while (j < matrizPersonajes.GetLength(1) && !founded)
+                            {
+                                if (matrizPersonajes[i, j].c == item) founded = true;
+                                else ++j;
+                            }
+                            if (!founded) ++i;
+                        }
+                        if (founded)
+                        {
+                            BitmapImage aux = (BitmapImage)matrizPersonajes[i, j].image.Source;
+                            matrizPersonajes[i, j].image.Source = pS.image;
+                            matrizPersonajes[pS.i, pS.j].image.Source = aux;
+                            pS.esDelGridView = false;
+                            pS.image = null;
+                        }
+                    }
+                }
+                else
+                {
+                  
+                    int i = 0;
+                    int j = 0;
+                    bool founded = false;
+                    while (i < matrizPersonajes.GetLength(0) && !founded)
+                    {
+                        j = 0;
+                        while (j < matrizPersonajes.GetLength(1) && !founded)
+                        {
+                            if (matrizPersonajes[i, j].c == item) founded = true;
+                            else ++j;
+                        }
+                        if (!founded) ++i;
+                    }
+                    if (founded)
+                    {
+                        pS.image = (BitmapImage)matrizPersonajes[i, j].image.Source;
+                        pS.esDelGridView = false;
+                        pS.i = i;
+                        pS.j = j;
+                    }
+                }
+            }
+            else if (e.Key == Windows.System.VirtualKey.Escape || e.OriginalKey == Windows.System.VirtualKey.GamepadB)
+            {
+                GridViewItem g = GridViewPersonajes.ContainerFromIndex(GridViewPersonajes.SelectedIndex) as GridViewItem;
+                g.Focus(FocusState.Keyboard);
+            }
+
+        }
         private void GridViewPersonajes_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewPersonajes o = e.ClickedItem as ViewPersonajes;
-          
+            string name = o.Id.ToString();
+            pS.esDelGridView = true;
+            pS.image = (BitmapImage)o.Img.Source;
             Imagen_Personaje.Source = o.Img.Source;
             Puntos.Text = o.Nombre;
             Descripcion1.Text = o.Explicacion1;
             Descripcion2.Text = o.Explicacion2;
+            ContentControl g = Mi_Mapa.Children[0] as ContentControl;
+            g.Focus(FocusState.Keyboard);
         }
 
         private async void GridViewPersonajes_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
