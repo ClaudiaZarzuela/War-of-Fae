@@ -47,6 +47,8 @@ namespace WarOfFae
         bool pressedPowerUp2 = false; int pressedPowerUp2Id =1;
         int pressedEl = 1; //ids: aire agua fuego tierra
         int numPersonajesRestantes = 30;
+        double volumeMusic = 100;
+
 
         public struct personajeEnMapa
         {
@@ -84,7 +86,7 @@ namespace WarOfFae
             backgroundSound = new MediaPlayer();
             buttonSound = new MediaPlayer();
             pS.image = null;
-            //startMusic();
+            startMusic();
             double w = Mi_Mapa.ActualWidth;
             double h = Mi_Mapa.ActualHeight;
             for (int i = 0; i < matrizPersonajes.GetLength(0); i++)
@@ -129,8 +131,10 @@ namespace WarOfFae
             backgroundSound.AutoPlay = true;
             backgroundSound.IsLoopingEnabled = true;
             backgroundSound.Source = MediaSource.CreateFromStorageFile(file);
+            backgroundSound.Volume = (double)volumeMusic / 100;
             backgroundSound.Play();
         }
+      
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Cosntruye las listas de ModelView a partir de la lista Modelo 
@@ -168,12 +172,17 @@ namespace WarOfFae
                 }
 
             }
+            if (e?.Parameter is double music)
+            {
+                volumeMusic = music;
+            }
             base.OnNavigatedTo(e);
         }
         
 
         private void Back_Boton_Click(object sender, RoutedEventArgs e)
         {
+            backgroundSound.Pause();
             if (Frame.CanGoBack)
             {
                 Frame.GoBack();
@@ -205,6 +214,7 @@ namespace WarOfFae
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
+            backgroundSound.Pause();
             Frame.Navigate(typeof(OptionsInGame));
         }
 
