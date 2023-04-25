@@ -57,6 +57,7 @@ namespace WarOfFae
             public Image image;
             public bool hasImage;
             public ContentControl c;
+            public int id;
         }
 
         public struct PersonajeSelecionado
@@ -65,6 +66,7 @@ namespace WarOfFae
             public bool esDelGridView;
             public int i;
             public int j;
+            public int id;
         }
         PersonajeSelecionado pS = new PersonajeSelecionado();
        
@@ -104,6 +106,7 @@ namespace WarOfFae
                     p.j = j;
                     p.x = x;
                     p.y = y;
+                    p.id =-1;
                     p.image = im;
                     p.hasImage = false;
                     p.c = content;
@@ -179,7 +182,12 @@ namespace WarOfFae
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
+            ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
+            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
+            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
+            info p; p.personajesP = matrizPersonajes; p.powerupsP = ListaPowerUpsElegidos;
+            Frame.Navigate(typeof(InGame), p);
+            /*if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
             {
                 ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
@@ -198,7 +206,7 @@ namespace WarOfFae
                     "      - Chosen all the necesary power ups\n" +
                     "      - Placed all your troops on the map");
                 await messageDialog.ShowAsync();
-            }
+            }*/
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -470,6 +478,7 @@ namespace WarOfFae
                             {
                                 matrizPersonajes[i, j].image.Source = pS.image;
                                 pS.image = null;
+                                matrizPersonajes[i, j].id = pS.id;
                                 matrizPersonajes[i, j].hasImage = true;
                                 matrizPersonajes[i, j].image.CanDrag = true;
                                 matrizPersonajes[i, j].image.DragStarting += Mi_Mapa_DragStarting;
@@ -511,9 +520,11 @@ namespace WarOfFae
                         {
                             BitmapImage aux = (BitmapImage)matrizPersonajes[i, j].image.Source;
                             matrizPersonajes[i, j].image.Source = pS.image;
+                            matrizPersonajes[i, j].id = pS.id;
                             matrizPersonajes[pS.i, pS.j].image.Source = aux;
                             pS.esDelGridView = false;
                             pS.image = null;
+                            pS.id = -1;
                         }
                     }
                 }
@@ -536,6 +547,7 @@ namespace WarOfFae
                     if (founded)
                     {
                         pS.image = (BitmapImage)matrizPersonajes[i, j].image.Source;
+                        pS.id = matrizPersonajes[i, j].id;
                         pS.esDelGridView = false;
                         pS.i = i;
                         pS.j = j;
@@ -555,6 +567,7 @@ namespace WarOfFae
             string name = o.Id.ToString();
             pS.esDelGridView = true;
             pS.image = (BitmapImage)o.Img.Source;
+            //pS.id = o.Id;
             Imagen_Personaje.Source = o.Img.Source;
             Puntos.Text = o.Nombre;
             Descripcion1.Text = o.Explicacion1;
@@ -617,6 +630,7 @@ namespace WarOfFae
                     if (CambiarNumeroPersonaje(int.Parse(name[1])))
                     {
                         matrizPersonajes[(int)column, (int)row].image.Source = O.Img.Source;
+                        matrizPersonajes[(int)column, (int)row].id = O.Id;
                         matrizPersonajes[(int)column, (int)row].hasImage = true;
                         matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.WidthProperty, w / 10);
                         matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.HeightProperty, h / 3);
@@ -652,6 +666,7 @@ namespace WarOfFae
                 int name1 = int.Parse(name[1]);
                 int name2 = int.Parse(name[2]);
                 aux.image = matrizPersonajes[name1, name2].image;
+                aux.id = matrizPersonajes[name1, name2].id;
                 BitmapImage b = (BitmapImage)matrizPersonajes[name1, name2].image.Source;
                 aux.image.Source = matrizPersonajes[name1, name2].image.Source;
                 aux.hasImage = matrizPersonajes[name1, name2].hasImage;
@@ -660,6 +675,7 @@ namespace WarOfFae
                 matrizPersonajes[name1, name2].image.Source = matrizPersonajes[(int)column, (int)row].image.Source;
                 matrizPersonajes[(int)column, (int)row].image.Source = b;
                 matrizPersonajes[(int)column, (int)row].hasImage = aux.hasImage;
+                matrizPersonajes[(int)column, (int)row].id= aux.id;
 
                 if (!matrizPersonajes[name1, name2].hasImage)
                 {

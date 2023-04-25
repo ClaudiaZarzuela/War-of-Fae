@@ -21,91 +21,91 @@
         </DataTemplate>
     </Page.Resources>
     <Viewbox Stretch="Fill">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="317*" />
-            <ColumnDefinition Width="700*" />
-            <ColumnDefinition Width="483*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/MainMenuBackground.png"></ImageBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="317*" />
+                <ColumnDefinition Width="700*" />
+                <ColumnDefinition Width="483*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
                 <Button x:Name="Ajustes_Boton"  IsTabStop="True" TabIndex="2" Click="Ajustes_OnClick" Height="100" Width="100" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="0" Margin="10"  >
-                <Button.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </Button.Background>
-                <Image Source="/Assets/Settings.png" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,1,0,-9" Width="79"/>
-            </Button>
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                    <Image Source="/Assets/Settings.png" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,1,0,-9" Width="79"/>
+                </Button>
                 <Border   Height="280" Width="93" >
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                     </Border.Background>
-                    <GridView IsTabStop="True" TabIndex="0" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" SelectionChanged="ImageGridView_SelectionChanged"  />
+                    <GridView IsTabStop="True" TabIndex="2" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}"/>
 
                 </Border>
-            
-            <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
-                <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
-                    <Image  Name="Imagen_Personaje" Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
-                    <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
-                        <StackPanel>
-                            <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
-                            <TextBlock x:Name="Descripcion1" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                            <TextBlock x:Name="Descripcion2" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Viewbox>
-            <Border  Height="48" Width="93" Margin="20">
-                <Border.Background>
-                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
-                </Border.Background>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="{x:Bind Turn}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        <TextBlock Text="Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                </StackPanel>
-            </Border>
 
-        </StackPanel>
-            <Border Height="457" Width="555" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="1"  Margin="2,0,0,0">
+                <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
+                        <Image  Name="Imagen_Personaje" Source="Assets/banshee.png" Width="190" Height="200" Margin="0, 20"/>
+                        <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
+                            <StackPanel>
+                                <TextBlock x:Name="Puntos" Text="Puntos: 1" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                                <TextBlock x:Name="Descripcion1" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                                <TextBlock x:Name="Descripcion2" Text="can kill THE GOVERNOR" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Viewbox>
+                <Border  Height="71" Width="142" Margin="20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="{x:Bind Turn, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text=" Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+            <Border Height="457"  Width="555" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" IsTapEnabled="True">
                 <Canvas>
                     <Canvas.Background>
                         <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
                     </Canvas.Background>
-                    <Canvas Name="Mi_Mapa" DragOver="MiCanvas_DragOver" Drop="MiCanvas_Drop" AllowDrop="True" Margin="0,272" Height="185" Width="560"></Canvas>
+                    <Canvas Name="Mi_Mapa"  Margin="0,272" Height="185" Width="560" TabFocusNavigation="Once" XYFocusKeyboardNavigation="Enabled" ></Canvas>
 
                 </Canvas>
             </Border>
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
                 <TextBlock Text="Enemy lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
-            <Image Source="Assets/Dead1.png" Margin="10"></Image>
+                <Image Source="Assets/Dead1.png" Margin="10"></Image>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Border  Height="48" Width="93">
-                <Border.Background>
-                    <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
-                </Border.Background>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border  Height="48" Width="93">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" Text="Money:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             <TextBlock FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" Text="50" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                </Border>
-                <Border  Height="48" Width="93" Margin="20">
-                    <Border.Background>
-                        <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
-                    </Border.Background>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        </StackPanel>
+                    </Border>
+                    <Border  Height="48" Width="93" Margin="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Text="Time:" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock Text="60" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
+                            <TextBlock Text="{x:Bind Time, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
                 <TextBlock Text="You lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
-            <Image Source="Assets/Dead2.png" Margin="10"></Image>
-        </StackPanel>
-    </Grid>
+                <Image Source="Assets/Dead2.png" Margin="10"></Image>
+            </StackPanel>
+        </Grid>
     </Viewbox>
 </Page>
