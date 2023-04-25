@@ -219,14 +219,14 @@ namespace WarOfFae
 
             if(PowerUp1.Content.ToString() == "Empty" || pressedPowerUp1)
             {
-                if (o.Explicacion.ToString() != PowerUp2.Content.ToString())
+                if (o.Nombre.ToString() != PowerUp2.Content.ToString())
                 {
                      Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
                      Windows.Storage.StorageFile file = await folder.GetFileAsync("buttonSound.mp3");
                      buttonSound.AutoPlay = false;
                      buttonSound.Source = MediaSource.CreateFromStorageFile(file);
                      buttonSound.Play();
-                     PowerUp1.Content = o.Explicacion.ToString();
+                     PowerUp1.Content = o.Nombre.ToString();
                      PowerUp1.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
                      PowerUp1.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
                      pressedPowerUp1Id = o.Id;
@@ -253,7 +253,7 @@ namespace WarOfFae
                     buttonSound.AutoPlay = false;
                     buttonSound.Source = MediaSource.CreateFromStorageFile(file);
                     buttonSound.Play();
-                    PowerUp2.Content = o.Explicacion.ToString();
+                    PowerUp2.Content = o.Nombre.ToString();
                     PowerUp2.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
                     PowerUp2.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
                     pressedPowerUp2Id = o.Id;
