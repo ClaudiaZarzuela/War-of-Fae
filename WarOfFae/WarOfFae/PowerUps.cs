@@ -29,18 +29,18 @@ namespace WarOfFae
             new PowerUps()
             {
                 Id = 0,
-                Nombre = "Dron2",
+                Nombre = "Unbreakable Shield",
                 Imagen = "Assets/escudo.png" ,
-                Explicacion = "Unbreakable Shield",
+                Explicacion = "Stops every attack to one character from the enemy for 2 turns",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=10,
              },
              new PowerUps()
             {
                 Id = 1,
-                Nombre = "Dron2",
+                Nombre = "Healing Power",
                 Imagen = "Assets/corazon.png" ,
-                 Explicacion = "Healing Power",
+                 Explicacion = "Gives you the ability to bring back a member of your troops",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=20,
 
@@ -48,9 +48,9 @@ namespace WarOfFae
               new PowerUps()
             {
                 Id = 2,
-                Nombre = "Dron2",
+                Nombre = "Super Speed",
                 Imagen = "Assets/speed.png",
-                 Explicacion = "Super Speed",
+                 Explicacion = "You can move a character two squares at a time for two turns",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=30,
 
@@ -58,9 +58,9 @@ namespace WarOfFae
                new PowerUps()
             {
                 Id = 3,
-                Nombre = "Dron2",
+                Nombre = "HeartStopper",
                 Imagen ="Assets/stop.png" ,
-                 Explicacion = "HeartStopper",
+                 Explicacion = "You can kill an enemy diagonally",
                 Estado = PowerUps.estados.Aterrizado,
                 Precio=40,
 

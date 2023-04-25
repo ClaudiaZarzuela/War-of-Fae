@@ -26,106 +26,106 @@ namespace WarOfFae
            new Personajes()
            {
                Id = 0,
-               Nombre = "Puntos: 1",
+               Nombre = "Banshee",
                Imagen ="Assets/Personaje 1.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 1",
+               Explicacion1 = "Strength: 1",
+               Explicacion2 = "can kill the governor",
 
            },
             new Personajes()
            {
                Id = 1,
-               Nombre = "Puntos: 2",
-               Imagen ="Assets/Personaje 2.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 2",
+               Nombre = "Fae",
+               Imagen ="Assets/Personaje 4.png" ,
+               Explicacion1 = "Strength: 2",
+               Explicacion2 = "",
 
            },
              new Personajes()
            {
                Id = 2,
-               Nombre = "Puntos: 3",
+               Nombre = "Engineer",
                Imagen ="Assets/Personaje 3.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 3",
+               Explicacion1 = "Strength: 3",
+               Explicacion2 = "can deactivate bombs",
 
            },
               new Personajes()
            {
                Id = 3,
-               Nombre = "Puntos: 4",
-               Imagen ="Assets/Personaje 4.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 4",
+               Nombre = "Archer",
+               Imagen ="Assets/Personaje 2.png" ,
+               Explicacion1 = "Strength: 4",
+               Explicacion2 = "",
 
            },
                new Personajes()
            {
                Id = 4,
-               Nombre = "Puntos: 5",
+               Nombre = "Elf",
                Imagen ="Assets/Personaje 5.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 5",
+               Explicacion1 = "Strength: 5",
+               Explicacion2 = "",
 
            },
                 new Personajes()
            {
                Id = 5,
-               Nombre = "Puntos: 6",
-               Imagen ="Assets/Personaje 6.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 6",
+               Nombre = "Witch",
+               Imagen ="Assets/Personaje 12.png" ,
+               Explicacion1 = "Strength: 6",
+               Explicacion2 = "",
            },
                  new Personajes()
            {
                Id = 6,
-               Nombre = "Puntos: 7",
-               Imagen ="Assets/Personaje 7.png" ,
-              Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 7",
+               Nombre = "Gorgon",
+               Imagen ="Assets/Personaje 6.png" ,
+              Explicacion1 = "Strength: 7",
+               Explicacion2 = "",
 
            },
                   new Personajes()
            {
                Id = 7,
-               Nombre = "Puntos: 8",
-               Imagen ="Assets/Personaje 8.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 8",
+               Nombre = "Ogre",
+               Imagen ="Assets/Personaje 10.png" ,
+               Explicacion1 = "Strength: 8",
+               Explicacion2 = "",
 
            },
                     new Personajes()
            {
                Id = 8,
-               Nombre = "Puntos: 9",
-               Imagen ="Assets/Personaje 9.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 9",
+               Nombre = "Cazador",
+               Imagen ="Assets/Personaje 8.png" ,
+               Explicacion1 = "Strength: 9",
+               Explicacion2 = "",
            },
                    new Personajes()
            {
                Id = 9,
-               Nombre = "Puntos: 10",
-               Imagen ="Assets/Personaje 10.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 10",
+               Nombre = "The Governor",
+               Imagen ="Assets/Personaje 11.png" ,
+               Explicacion1 = "can kill everyone",
+               Explicacion2 = "except the Banshee",
 
            },
                     new Personajes()
            {
                Id = 10,
-               Nombre = "Puntos: 11",
-               Imagen ="Assets/Personaje 11.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 11",
+               Nombre = "Bomb",
+               Imagen ="Assets/Personaje 7.png" ,
+               Explicacion1 = "can kill everyone except ",
+               Explicacion2 = "the Engineer, cannot move",
            },
                      new Personajes()
            {
                Id = 11,
-               Nombre = "Puntos: 12",
-               Imagen ="Assets/Personaje 12.png" ,
-               Explicacion1 = "Tetxo chuli sobre ",
-               Explicacion2 = "el Persoanje 12",
+               Nombre = "Dragon Egg",
+               Imagen ="Assets/Personaje 9.png" ,
+               Explicacion1 = "Once captured you win.",
+               Explicacion2 = "Cannot move",
 
            },
         };
