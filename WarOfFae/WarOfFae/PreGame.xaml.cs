@@ -464,10 +464,12 @@ namespace WarOfFae
                             {
                                 matrizPersonajes[i, j].image.Source = pS.image;
                                 pS.image = null;
+                                pS.esDelGridView = false;
+                                pS.i = 0;
+                                pS.j = 0;
                                 matrizPersonajes[i, j].hasImage = true;
                                 matrizPersonajes[i, j].image.CanDrag = true;
                                 matrizPersonajes[i, j].image.DragStarting += Mi_Mapa_DragStarting;
-
                             }
                             else
                             {
@@ -479,11 +481,9 @@ namespace WarOfFae
                                 var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
                                 await messageDialog2.ShowAsync();
                             }
-
-
                         }
-                        GridViewItem g = GridViewPersonajes.ContainerFromIndex(GridViewPersonajes.SelectedIndex) as GridViewItem;
-                        g.Focus(FocusState.Keyboard);
+                        //GridViewItem g = GridViewPersonajes.ContainerFromIndex(GridViewPersonajes.SelectedIndex) as GridViewItem;
+                        //g.Focus(FocusState.Keyboard);
 
                     }
                     else
@@ -501,19 +501,20 @@ namespace WarOfFae
                             }
                             if (!founded) ++i;
                         }
-                        if (founded)
+                        if (founded && matrizPersonajes[i, j].hasImage)
                         {
                             BitmapImage aux = (BitmapImage)matrizPersonajes[i, j].image.Source;
                             matrizPersonajes[i, j].image.Source = pS.image;
                             matrizPersonajes[pS.i, pS.j].image.Source = aux;
                             pS.esDelGridView = false;
                             pS.image = null;
+                            pS.i = 0;
+                            pS.j = 0;
                         }
                     }
                 }
                 else
                 {
-                  
                     int i = 0;
                     int j = 0;
                     bool founded = false;
@@ -527,12 +528,19 @@ namespace WarOfFae
                         }
                         if (!founded) ++i;
                     }
-                    if (founded)
+                    if (founded && matrizPersonajes[i, j].hasImage)
                     {
                         pS.image = (BitmapImage)matrizPersonajes[i, j].image.Source;
                         pS.esDelGridView = false;
                         pS.i = i;
                         pS.j = j;
+                    }
+                    else
+                    {
+                        pS.esDelGridView = false;
+                        pS.image = null;
+                        pS.i = 0;
+                        pS.j = 0;
                     }
                 }
             }
@@ -658,8 +666,12 @@ namespace WarOfFae
                 if (!matrizPersonajes[name1, name2].hasImage)
                 {
                     matrizPersonajes[name1, name2].image.CanDrag = false;
+                    matrizPersonajes[name1, name2].image.DragStarting -= Mi_Mapa_DragStarting;
+                    matrizPersonajes[name1, name2].hasImage = false;
                     matrizPersonajes[(int)column, (int)row].image.CanDrag = true;
+                    matrizPersonajes[(int)column, (int)row].hasImage = true;
                     matrizPersonajes[(int)column, (int)row].image.DragStarting += Mi_Mapa_DragStarting;
+
                 }
               
              

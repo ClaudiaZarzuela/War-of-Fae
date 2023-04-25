@@ -73,18 +73,18 @@
                           <GridView Name="GridViewPersonajes" TabIndex="5" ItemsSource= "{x:Bind ListaPersonajes}"  ItemTemplate="{StaticResource PersonajeView_DefaultItemTemplate}" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White" IsItemClickEnabled="True" ItemClick="GridViewPersonajes_ItemClick" CanDragItems="True" DragItemsStarting="GridViewPersonajes_DragItemsStarting"></GridView>
                         </Border>
                         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0, -10, -2, 0" >
-                            <TextBlock x:Name="P0" Text="0" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P1" Text="1" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P2" Text="2" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P3" Text="3" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P4" Text="4" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P5" Text="5" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P6" Text="6" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P7" Text="7" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P8" Text="8" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P9" Text="9" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P10" Text="10" Style="{StaticResource Text_Num}"></TextBlock>
-                            <TextBlock x:Name="P11" Text="11" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P0" Text="1" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P1" Text="6" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P2" Text="4" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P3" Text="2" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P4" Text="2" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P5" Text="3" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P6" Text="2" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P7" Text="2" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P8" Text="1" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P9" Text="1" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P10" Text="5" Style="{StaticResource Text_Num}"></TextBlock>
+                            <TextBlock x:Name="P11" Text="1" Style="{StaticResource Text_Num}"></TextBlock>
                         </StackPanel>
                     </StackPanel>
 
