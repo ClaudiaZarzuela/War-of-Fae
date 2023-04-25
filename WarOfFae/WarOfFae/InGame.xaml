@@ -71,27 +71,12 @@
             </Border>
 
         </StackPanel>
-            <Border Height="457" Width="555" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" >
+            <Border Height="457" Width="555" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="1"  Margin="2,0,0,0">
                 <Canvas>
                     <Canvas.Background>
                         <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
                     </Canvas.Background>
-                    <GridView ItemsSource="1234567890ABCDEFGHIJK123456789" TabIndex="6" Margin="0,272" Height="185" Width="560" Name="GridViewMapa" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" IsItemClickEnabled="True">
-                        <GridView.ItemTemplate>
-                            <DataTemplate>
-                                <Border  Height="56" Width="51.5" Margin="0.5,2,0,0" >
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="Assets/StoreLogo.png" Stretch="UniformToFill"></ImageBrush>
-                                    </Border.Background>
-                                </Border>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                        <GridView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <ItemsWrapGrid MaximumRowsOrColumns="10" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </GridView.ItemsPanel>
-                    </GridView>
+                    <Canvas Name="Mi_Mapa" DragOver="MiCanvas_DragOver" Drop="MiCanvas_Drop" AllowDrop="True" Margin="0,272" Height="185" Width="560"></Canvas>
 
                 </Canvas>
             </Border>

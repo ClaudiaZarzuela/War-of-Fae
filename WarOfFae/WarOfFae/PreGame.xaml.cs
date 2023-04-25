@@ -58,6 +58,11 @@ namespace WarOfFae
             public bool hasImage;
         }
         personajeEnMapa[,] matrizPersonajes = new personajeEnMapa[10, 3];
+        public struct info 
+        { 
+            public personajeEnMapa[,] personajesP; 
+            public ObservableCollection<ViewPowerUp>powerupsP ; 
+        }
 
         public PreGame()
         {
@@ -160,7 +165,8 @@ namespace WarOfFae
                 ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
-                Frame.Navigate(typeof(InGame), ListaPowerUpsElegidos);
+                info p; p.personajesP = matrizPersonajes; p.powerupsP = ListaPowerUpsElegidos;
+                Frame.Navigate(typeof(InGame), p);
             }
             else
             {
