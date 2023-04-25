@@ -34,6 +34,7 @@ namespace WarOfFae
     {
         MediaPlayer errorSound;
         MediaPlayer backgroundSound;
+        MediaPlayer buttonSound;
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
         public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
@@ -45,6 +46,7 @@ namespace WarOfFae
         bool pressedPowerUp1 = false; int pressedPowerUp1Id= 0;
         bool pressedPowerUp2 = false; int pressedPowerUp2Id =1;
         int pressedEl = 1; //ids: aire agua fuego tierra
+        int numPersonajesRestantes = 30;
 
         public struct personajeEnMapa
         {
@@ -62,6 +64,7 @@ namespace WarOfFae
             this.InitializeComponent();
             errorSound = new MediaPlayer();
             backgroundSound = new MediaPlayer();
+            buttonSound = new MediaPlayer();
             //startMusic();
             double w = Mi_Mapa.ActualWidth;
             double h = Mi_Mapa.ActualHeight;
@@ -138,9 +141,6 @@ namespace WarOfFae
                 }
 
             }
-      
-
-
             base.OnNavigatedTo(e);
         }
         
@@ -153,14 +153,27 @@ namespace WarOfFae
             }
         }
 
-        private void StartButton_Click(object sender, RoutedEventArgs e)
+        private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
-            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
-            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
-
-
-            Frame.Navigate(typeof(InGame), ListaPowerUpsElegidos);
+            if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
+            {
+                ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
+                ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
+                ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
+                Frame.Navigate(typeof(InGame), ListaPowerUpsElegidos);
+            }
+            else
+            {
+                Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                errorSound.AutoPlay = false;
+                errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                errorSound.Play();
+                var messageDialog = new MessageDialog("You are not ready to start the match! Try checking if you have:\n" +
+                    "      - Chosen all the necesary power ups\n" +
+                    "      - Placed all your troops on the map");
+                await messageDialog.ShowAsync();
+            }
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -175,6 +188,11 @@ namespace WarOfFae
             {
                 if (o.Explicacion.ToString() != PowerUp2.Content.ToString())
                 {
+                     Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                     Windows.Storage.StorageFile file = await folder.GetFileAsync("buttonSound.mp3");
+                     buttonSound.AutoPlay = false;
+                     buttonSound.Source = MediaSource.CreateFromStorageFile(file);
+                     buttonSound.Play();
                      PowerUp1.Content = o.Explicacion.ToString();
                      PowerUp1.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
                      PowerUp1.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
@@ -197,6 +215,11 @@ namespace WarOfFae
             {
                 if (o.Explicacion.ToString() != PowerUp1.Content.ToString())
                 {
+                    Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                    Windows.Storage.StorageFile file = await folder.GetFileAsync("buttonSound.mp3");
+                    buttonSound.AutoPlay = false;
+                    buttonSound.Source = MediaSource.CreateFromStorageFile(file);
+                    buttonSound.Play();
                     PowerUp2.Content = o.Explicacion.ToString();
                     PowerUp2.Background = new SolidColorBrush(Windows.UI.Colors.Thistle);
                     PowerUp2.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
@@ -289,20 +312,64 @@ namespace WarOfFae
             switch (h.Content.ToString())
             {
                 case "TSUNAMI":
-                    var messageDialog = new MessageDialog("Descripción tu wapa del power up de awita");
-                    await messageDialog.ShowAsync();
+                    var dlg = new ContentDialog()
+                    {
+                        Title = "TSUNAMI",
+                        Content = "Descripción tu wapa del power up de awita",
+                        PrimaryButtonText = "Ok"
+
+                    };
+
+                    SolidColorBrush color = new SolidColorBrush();
+                    color.Color = Windows.UI.Colors.LightBlue;
+                    dlg.Background = color;
+                    await dlg.ShowAsync();
+                  
                     break;
                 case "TORNADO":
-                    var messageDialog1 = new MessageDialog("Descripción tu wapa del power up de aire");
-                    await messageDialog1.ShowAsync();
+                    var dlg1 = new ContentDialog()
+                    {
+                        Title = "TORNADO",
+                        Content = "Descripción tu wapa del power up de aire",
+                        PrimaryButtonText = "Ok"
+
+                    };
+
+                    SolidColorBrush color1 = new SolidColorBrush();
+                    color1.Color = Windows.UI.Colors.Yellow;
+                    dlg1.Background = color1;
+                    await dlg1.ShowAsync();
+                    
                     break;
                 case "EARTHQUAKE":
-                    var messageDialog2 = new MessageDialog("Descripción tu wapa del power up de tierra");
-                    await messageDialog2.ShowAsync();
+                    var dlg2 = new ContentDialog()
+                    {
+                        Title = "EARTHQUAKE",
+                        Content = "Descripción tu wapa del power up de tierra",
+                        PrimaryButtonText = "Ok"
+
+                    };
+
+                    SolidColorBrush color2 = new SolidColorBrush();
+                    color2.Color = Windows.UI.Colors.LightGreen;
+                    dlg2.Background = color2;
+                    await dlg2.ShowAsync();
+                  
                     break;
                 case "MAGMA":
-                    var messageDialog3 = new MessageDialog("Descripción tu wapa del power up de fuego");
-                    await messageDialog3.ShowAsync();
+                    var dlg3 = new ContentDialog()
+                    {
+                        Title = "EARTHQUAKE",
+                        Content = "Descripción tu wapa del power up de fuego",
+                        PrimaryButtonText = "Ok"
+
+                    };
+
+                    SolidColorBrush color3 = new SolidColorBrush();
+                    color3.Color = Windows.UI.Colors.OrangeRed;
+                    dlg3.Background = color3;
+                    await dlg3.ShowAsync();
+                   
                     break;
             }
        
@@ -363,25 +430,12 @@ namespace WarOfFae
         {
             ViewPersonajes Item = e.Items[0] as ViewPersonajes; 
             e.Data.SetText("0_"+Item.Id.ToString());
+            e.Data.RequestedOperation = DataPackageOperation.Move;
+            Imagen_Personaje.Source = Item.Img.Source;
+            Puntos.Text = Item.Nombre;
+            Descripcion1.Text = Item.Explicacion1;
+            Descripcion2.Text = Item.Explicacion2;
 
-            if (CambiarNumeroPersonaje(Item.Id))
-            {
-                e.Data.RequestedOperation = DataPackageOperation.Move;
-                Imagen_Personaje.Source = Item.Img.Source;
-                Puntos.Text = Item.Nombre;
-                Descripcion1.Text = Item.Explicacion1;
-                Descripcion2.Text = Item.Explicacion2;
-            }
-            else
-            {
-                Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-                Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
-                errorSound.AutoPlay = false;
-                errorSound.Source = MediaSource.CreateFromStorageFile(file);
-                errorSound.Play();
-                var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
-                await messageDialog2.ShowAsync();
-            }
         }
 
         private void Mi_Mapa_DragStarting(object sender, DragStartingEventArgs e)
@@ -423,13 +477,26 @@ namespace WarOfFae
 
                 if (!matrizPersonajes[(int)column, (int)row].hasImage)
                 {
-                    matrizPersonajes[(int)column, (int)row].image.Source = O.Img.Source;
-                    matrizPersonajes[(int)column, (int)row].hasImage = true;
-                    matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.WidthProperty, w / 10);
-                    matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.HeightProperty, h / 3);
-                    matrizPersonajes[(int)column, (int)row].image.CanDrag = true;
-                    matrizPersonajes[(int)column, (int)row].image.DragStarting += Mi_Mapa_DragStarting;
+                    if (CambiarNumeroPersonaje(int.Parse(name[1])))
+                    {
+                        matrizPersonajes[(int)column, (int)row].image.Source = O.Img.Source;
+                        matrizPersonajes[(int)column, (int)row].hasImage = true;
+                        matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.WidthProperty, w / 10);
+                        matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.HeightProperty, h / 3);
+                        matrizPersonajes[(int)column, (int)row].image.CanDrag = true;
+                        matrizPersonajes[(int)column, (int)row].image.DragStarting += Mi_Mapa_DragStarting;
 
+                    }
+                    else
+                    {
+                        Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                        Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                        errorSound.AutoPlay = false;
+                        errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                        errorSound.Play();
+                        var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
+                        await messageDialog2.ShowAsync();
+                    }
                 }
             }
             else
@@ -488,9 +555,17 @@ namespace WarOfFae
                 case 11: p =P11 ; break;
             }
             if(p.Text == "0") sePuede = false;
-            --num;
-            if(num >0)
-                p.Text = num.ToString();
+            else
+            {
+                int n = int.Parse(p.Text);
+                --n;
+                if (n >= 0)
+                {
+                    --numPersonajesRestantes;
+                    p.Text = n.ToString();
+                }
+
+            }
             return sePuede;
         }
     }
