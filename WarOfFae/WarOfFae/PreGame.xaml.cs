@@ -18,23 +18,26 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.Media.Playback;
+using Windows.Media.Core;
+using Point = Windows.Foundation.Point;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace WarOfFae
 {
+
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
     public sealed partial class PreGame : Page, INotifyPropertyChanged
     {
+        MediaPlayer errorSound;
+        MediaPlayer backgroundSound;
+        public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
         public ObservableCollection<ViewPersonajes> ListaPersonajes { get; } = new ObservableCollection<ViewPersonajes>();
         public ObservableCollection<ViewMapaPersonajes> ListaPersonajesMapa { get; } = new ObservableCollection<ViewMapaPersonajes>();
-        public event PropertyChangedEventHandler PropertyChanged;
-        
-
-
         public ObservableCollection<ViewPowerUp> ListaPowerUpsElegidos { get; }=new ObservableCollection<ViewPowerUp>();
         public ObservableCollection<ViewPowerUp> ListaPowerUpsElems { get; } = new ObservableCollection<ViewPowerUp>();
 
@@ -43,11 +46,61 @@ namespace WarOfFae
         bool pressedPowerUp2 = false; int pressedPowerUp2Id =1;
         int pressedEl = 1; //ids: aire agua fuego tierra
 
+        public struct personajeEnMapa
+        {
+            public int i;
+            public int j;
+            public double x;
+            public double y;
+            public Image image;
+            public bool hasImage;
+        }
+        personajeEnMapa[,] matrizPersonajes = new personajeEnMapa[10, 3];
+
         public PreGame()
         {
             this.InitializeComponent();
-        }
+            errorSound = new MediaPlayer();
+            backgroundSound = new MediaPlayer();
+            //startMusic();
+            double w = Mi_Mapa.ActualWidth;
+            double h = Mi_Mapa.ActualHeight;
+            for (int i = 0; i < matrizPersonajes.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrizPersonajes.GetLength(1); j++)
+                {
+                    double x = (w / 10) * i;
+                    double y = (h / 3) * j;
+                    Image im = new Image();
+                    string s = System.IO.Directory.GetCurrentDirectory() + '\\' + "Assets\\StoreLogo.png";
+                    im.Source = new BitmapImage(new Uri(s));
+                    personajeEnMapa p = new personajeEnMapa();
+                    p.i = i;
+                    p.j = j;
+                    p.x = x;
+                    p.y = y;
+                    p.image = im;
+                    p.hasImage = false;
+                    matrizPersonajes[i, j] = p;
+                    Mi_Mapa.Children.Add(matrizPersonajes[i, j].image);
+                    matrizPersonajes[i, j].image.SetValue(Canvas.TopProperty, p.y);
+                    matrizPersonajes[i, j].image.SetValue(Canvas.LeftProperty, p.x);
+                    matrizPersonajes[i, j].image.SetValue(Canvas.WidthProperty, w / 10);
+                    matrizPersonajes[i, j].image.SetValue(Canvas.HeightProperty, h / 3);
+                }
+            }
 
+
+        }
+        private async void startMusic()
+        {
+            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            Windows.Storage.StorageFile file = await folder.GetFileAsync("backgroundMusic.mp3");
+            backgroundSound.AutoPlay = true;
+            backgroundSound.IsLoopingEnabled = true;
+            backgroundSound.Source = MediaSource.CreateFromStorageFile(file);
+            backgroundSound.Play();
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Cosntruye las listas de ModelView a partir de la lista Modelo 
@@ -129,6 +182,11 @@ namespace WarOfFae
                 }
                 else
                 {
+                    Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                    Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                    errorSound.AutoPlay = false;
+                    errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                    errorSound.Play();
                     var messageDialog = new MessageDialog("Power Up already chosen");
                     await messageDialog.ShowAsync();
                 }
@@ -146,6 +204,11 @@ namespace WarOfFae
                 }
                 else
                 {
+                    Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                    Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                    errorSound.AutoPlay = false;
+                    errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                    errorSound.Play();
                     var messageDialog = new MessageDialog("Power Up already chosen");
                     await messageDialog.ShowAsync();
                 }
@@ -299,7 +362,7 @@ namespace WarOfFae
         private async void GridViewPersonajes_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
             ViewPersonajes Item = e.Items[0] as ViewPersonajes; 
-            e.Data.SetText(Item.Id.ToString());
+            e.Data.SetText("0_"+Item.Id.ToString());
 
             if (CambiarNumeroPersonaje(Item.Id))
             {
@@ -311,11 +374,30 @@ namespace WarOfFae
             }
             else
             {
+                Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                errorSound.AutoPlay = false;
+                errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                errorSound.Play();
                 var messageDialog2 = new MessageDialog("No te quedan personajes de este tipo.");
                 await messageDialog2.ShowAsync();
             }
         }
 
+        private void Mi_Mapa_DragStarting(object sender, DragStartingEventArgs e)
+        {
+            double w = Mi_Mapa.ActualWidth;
+            double h = Mi_Mapa.ActualHeight;
+            Point p = e.GetPosition(Mi_Mapa);
+            double y = h / 3;
+            double x = w / 10;
+            double column = p.X / x;
+            double row = p.Y / y;
+            if (column >= 10) column = 9;
+            if (row >= 3) row = 2;
+
+            e.Data.SetText("1_" + ((int)column).ToString() + "_" + ((int)row).ToString());
+        }
         private void MiCanvas_DragOver(object sender, DragEventArgs e)
         {
             e.AcceptedOperation = DataPackageOperation.Move;
@@ -323,15 +405,68 @@ namespace WarOfFae
 
         private async void MiCanvas_Drop(object sender, DragEventArgs e)
         {
-            
             var id = await e.DataView.GetTextAsync();
-            ViewPersonajes O = ListaPersonajes.ElementAt(Int32.Parse(id)) as ViewPersonajes;
-            ViewMapaPersonajes U = ListaPersonajesMapa.ElementAt(Int32.Parse(id)) as ViewMapaPersonajes;
-            U.Imagen = O.Imagen;
-            Windows.UI.Xaml.Controls.Border o = e.OriginalSource as Windows.UI.Xaml.Controls.Border;
-            ImageBrush u = o.Background as ImageBrush;
-            u.ImageSource = O.Img.Source;
-            
+            string[] name = id.Split('_',StringSplitOptions.RemoveEmptyEntries);
+            if (name[0] == "0")
+            {
+                ViewPersonajes O = ListaPersonajes.ElementAt(Int32.Parse(name[1])) as ViewPersonajes;
+
+                double w = Mi_Mapa.ActualWidth;
+                double h = Mi_Mapa.ActualHeight;
+                Point p = e.GetPosition(Mi_Mapa);
+                double y = h / 3;
+                double x = w / 10;
+                double column =  p.X / x;
+                double row = p.Y / y;
+                if (column >= 10) column = 9;
+                if (row >= 3) row = 2;
+
+                if (!matrizPersonajes[(int)column, (int)row].hasImage)
+                {
+                    matrizPersonajes[(int)column, (int)row].image.Source = O.Img.Source;
+                    matrizPersonajes[(int)column, (int)row].hasImage = true;
+                    matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.WidthProperty, w / 10);
+                    matrizPersonajes[(int)column, (int)row].image.SetValue(Canvas.HeightProperty, h / 3);
+                    matrizPersonajes[(int)column, (int)row].image.CanDrag = true;
+                    matrizPersonajes[(int)column, (int)row].image.DragStarting += Mi_Mapa_DragStarting;
+
+                }
+            }
+            else
+            {
+                double w = Mi_Mapa.ActualWidth;
+                double h = Mi_Mapa.ActualHeight;
+                Point p = e.GetPosition(Mi_Mapa);
+                double y = h / 3;
+                double x = w / 10;
+                double column = p.X / x;
+                double row = p.Y / y;
+                if (column >= 10) column = 9;
+                if (row >= 3) row = 2;
+
+                personajeEnMapa aux;
+                int name1 = int.Parse(name[1]);
+                int name2 = int.Parse(name[2]);
+                aux.image = matrizPersonajes[name1, name2].image;
+                BitmapImage b = (BitmapImage)matrizPersonajes[name1, name2].image.Source;
+                aux.image.Source = matrizPersonajes[name1, name2].image.Source;
+                aux.hasImage = matrizPersonajes[name1, name2].hasImage;
+
+                matrizPersonajes[name1, name2].hasImage = matrizPersonajes[(int)column, (int)row].hasImage;
+                matrizPersonajes[name1, name2].image.Source = matrizPersonajes[(int)column, (int)row].image.Source;
+                matrizPersonajes[(int)column, (int)row].image.Source = b;
+                matrizPersonajes[(int)column, (int)row].hasImage = aux.hasImage;
+
+                if (!matrizPersonajes[name1, name2].hasImage)
+                {
+                    matrizPersonajes[name1, name2].image.CanDrag = false;
+                    matrizPersonajes[(int)column, (int)row].image.CanDrag = true;
+                    matrizPersonajes[(int)column, (int)row].image.DragStarting += Mi_Mapa_DragStarting;
+                }
+              
+             
+            }
+
         }
         private bool CambiarNumeroPersonaje(int num)
         {

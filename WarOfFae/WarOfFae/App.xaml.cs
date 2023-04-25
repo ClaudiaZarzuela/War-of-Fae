@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Media.Playback;
+using Windows.Media.Core;
+
 
 namespace WarOfFae
 {
@@ -26,6 +29,8 @@ namespace WarOfFae
         /// Inicializa el objeto de aplicación Singleton. Esta es la primera línea de código creado
         /// ejecutado y, como tal, es el equivalente lógico de main() o WinMain().
         /// </summary>
+        /// 
+
         public App()
         {
             this.InitializeComponent();

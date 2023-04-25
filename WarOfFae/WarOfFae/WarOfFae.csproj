@@ -122,6 +122,9 @@
     <Compile Include="InGame.xaml.cs">
       <DependentUpon>InGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IntroVideo.xaml.cs">
+      <DependentUpon>IntroVideo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Inventory.xaml.cs">
       <DependentUpon>Inventory.xaml</DependentUpon>
     </Compile>
@@ -154,10 +157,12 @@
     <Content Include="Assets\air.png" />
     <Content Include="Assets\Ajustes.png" />
     <Content Include="Assets\back.png" />
+    <Content Include="Assets\backgroundMusic.mp3" />
     <Content Include="Assets\banshee.png" />
     <Content Include="Assets\Back .png" />
     <Content Include="Assets\Back2.png" />
     <Content Include="Assets\Banshee.png" />
+    <Content Include="Assets\buttonSound.mp3" />
     <Content Include="Assets\Cartel2.png" />
     <Content Include="Assets\CartelDuo.png" />
     <Content Include="Assets\CartelInventario.png" />
@@ -169,6 +174,7 @@
     <Content Include="Assets\Dead2.png" />
     <Content Include="Assets\dragon.png" />
     <Content Include="Assets\earth.png" />
+    <Content Include="Assets\error.wav" />
     <Content Include="Assets\escudo.png" />
     <Content Include="Assets\fire.png" />
     <Content Include="Assets\Fondo Completo.png" />
@@ -182,7 +188,9 @@
     <Content Include="Assets\Huevos.png" />
     <Content Include="Assets\InfoCard.png" />
     <Content Include="Assets\InGameBackground.png" />
+    <Content Include="Assets\intro.mp4" />
     <Content Include="Assets\MainMenuBackGround.png" />
+    <Content Include="Assets\mainMenuMusic.wav" />
     <Content Include="Assets\MAP.png" />
     <Content Include="Assets\mapa.png" />
     <Content Include="Assets\Panel.png" />
@@ -228,6 +236,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="InGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IntroVideo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
