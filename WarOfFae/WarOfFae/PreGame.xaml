@@ -64,7 +64,7 @@
                             <Canvas.Background>
                                 <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
                             </Canvas.Background>
-                            <Canvas Name="Mi_Mapa" DragOver="MiCanvas_DragOver" Drop="MiCanvas_Drop" AllowDrop="True" Margin="0,272" Height="185" Width="560"></Canvas>
+                            <Canvas Name="Mi_Mapa" DragOver="MiCanvas_DragOver" Drop="MiCanvas_Drop" AllowDrop="True" Margin="0,272" Height="185" Width="560" TabFocusNavigation="Once" XYFocusKeyboardNavigation="Enabled" ></Canvas>
                            
                         </Canvas>
                     </Border>
