@@ -49,27 +49,29 @@
                     <GridView IsTabStop="True" IsItemClickEnabled="True" TabIndex="2" ScrollViewer.VerticalScrollBarVisibility="Disabled"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="5,5,5,5" x:Name="ImageGridView" Grid.Row="1"  BorderThickness="3" ItemsSource= "{x:Bind ListaPowerUpsElegidos}"  ItemTemplate="{StaticResource ImageGridView_DefaultItemTemplate}" ItemClick="PowerUp_OnClick"/>
 
                 </Border>
-
-                <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="30, 0, 20, 0" >
-                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="330" Grid.Row="1" HorizontalAlignment="Left" Width="200">
-                        <Image  Name="Imagen_Personaje" Source="Assets/Personaje 1.png" Width="190" Height="200" Margin="0, 20"/>
-                        <Border Background="Thistle" Width="200" Height="100" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
-                            <StackPanel>
-                                <TextBlock x:Name="Puntos" Text="Banshee" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
-                                <TextBlock x:Name="Descripcion1" Text="Strength: 1" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                                <TextBlock x:Name="Descripcion2" Text="can kill The Governor" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </Viewbox>
+                <Border  Height="250" VerticalAlignment="Center" Width="150" Background="MediumPurple" BorderThickness="4" BorderBrush="DarkBlue" Margin="10,40,10,0" >
+                    <Viewbox Grid.Column="2" VerticalAlignment="Center"  Grid.Row="1" HorizontalAlignment="Center" Margin="10">
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" Height="286" Grid.Row="1" HorizontalAlignment="Left" Width="173">
+                            <Image  Name="Imagen_Personaje" Source="Assets/Personaje 1.png" Width="159" Height="182" Margin="0, 0, 0, 10"/>
+                            <Border Background="Thistle" Width="161" Height="102" BorderBrush="DarkBlue" BorderThickness="2" Margin="0, -10">
+                                <StackPanel>
+                                    <TextBlock x:Name="Puntos" Text="Banshee" FontSize="25" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"  Margin="0, 5"></TextBlock>
+                                    <TextBlock x:Name="Descripcion1" Text="Strength: 1" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                                    <TextBlock x:Name="Descripcion2" Text="can kill The Governor" FontSize="17" Foreground="DarkBlue" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Curlz MT"></TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Viewbox>
+                </Border>
             </StackPanel>
-           
+
             <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0" ></Rectangle>
             <Image Name="Flecha" Source="Assets/Back2.png"  Width="150" VerticalAlignment="Bottom" Margin="0,70" Opacity="0">
                 <Image.RenderTransform>
                     <CompositeTransform Rotation="-0.591"/>
                 </Image.RenderTransform>
             </Image>
+            
             <Border  Height="71" Width="142" Margin="20" VerticalAlignment="Bottom">
                 <Border.Background>
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
@@ -105,7 +107,7 @@
                         </StackPanel>
 
                     </Border>
-                   
+
                     <Border  Height="70" Width="150" Margin="10">
                         <Border.Background>
                             <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
