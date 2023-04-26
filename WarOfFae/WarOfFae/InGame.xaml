@@ -64,7 +64,7 @@
                 </Viewbox>
             </StackPanel>
            
-            <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0"></Rectangle>
+            <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0" ></Rectangle>
             <Image Name="Flecha" Source="Assets/Back2.png"  Width="150" VerticalAlignment="Bottom" Margin="0,70" Opacity="0">
                 <Image.RenderTransform>
                     <CompositeTransform Rotation="-0.591"/>
@@ -87,7 +87,7 @@
                     <Canvas.Background>
                         <ImageBrush ImageSource="Assets/mapa.png"></ImageBrush>
                     </Canvas.Background>
-                    <Canvas Name="Mi_Mapa"  Margin="0,272" Height="185" Width="560" TabFocusNavigation="Once" XYFocusKeyboardNavigation="Enabled" ></Canvas>
+                    <Canvas Name="Mi_Mapa"  Margin="0,272" Height="185" Width="560" TabFocusNavigation="Local" XYFocusKeyboardNavigation="Enabled" ></Canvas>
 
                 </Canvas>
             </Border>

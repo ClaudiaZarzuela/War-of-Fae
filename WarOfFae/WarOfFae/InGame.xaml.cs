@@ -50,12 +50,17 @@ namespace WarOfFae
 
 
         //Mapa
-        WarOfFae.PreGame.personajeEnMapa[,] matrizPersonajes = new WarOfFae.PreGame.personajeEnMapa[10, 3]; 
+        WarOfFae.PreGame.personajeEnMapa[,] matrizPersonajes = new WarOfFae.PreGame.personajeEnMapa[10, 3];
 
+        //Rectangulos 
+        double tamR1;
 
         public InGame()
         {
             this.InitializeComponent();
+            //tam rec
+            tamR1 = Rectangulo1.Width;
+            Rectangulo1.Width = 0;
             //turno
             turn = new string [2];turn[0]="Your "; turn[1] = "Enemy's ";
             Turn = turn[0];
@@ -112,6 +117,7 @@ namespace WarOfFae
                 if (Stopwatch_timer.Elapsed.Seconds >= 30) 
                 {
                     Flecha.Opacity = 1;
+                    Rectangulo1.Width = tamR1;
                     Rectangulo1.Opacity = 0.7;
                     Rectangulo2.Opacity = 0.7;
                     Rectangulo3.Opacity = 0.7;
@@ -128,6 +134,7 @@ namespace WarOfFae
                 if (Stopwatch_timerRect.Elapsed.Seconds >= 32)
                 {
                     Flecha.Opacity = 0;
+                    Rectangulo1.Width = 0;
                     Rectangulo1.Opacity = 0;
                     Rectangulo2.Opacity = 0;
                     Rectangulo3.Opacity = 0;
@@ -202,18 +209,14 @@ namespace WarOfFae
                         Puntos.Text = ListaPersonajes[i].Nombre;
                         Descripcion1.Text = ListaPersonajes[i].Explicacion1;
                         Descripcion2.Text = ListaPersonajes[i].Explicacion2;
-                        //esto no se
                         ContentControl g = Mi_Mapa.Children[0] as ContentControl;
                         g.Focus(FocusState.Keyboard);
                     }
-                    /*
-                    BitmapImage aux = (BitmapImage).image.Source;
-                    matrizPersonajes[i, j].image.Source = pS.image;
-                    matrizPersonajes[pS.i, pS.j].image.Source = aux;
-                    pS.esDelGridView = false;
-                    pS.image = null;
-                    */
                 }
+            }
+            else if (e.Key == Windows.System.VirtualKey.Escape || e.OriginalKey == Windows.System.VirtualKey.GamepadB)
+            {
+                Ajustes_Boton.Focus(FocusState.Keyboard);
             }
         }
 
