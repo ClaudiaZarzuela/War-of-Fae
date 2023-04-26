@@ -33,7 +33,6 @@ namespace WarOfFae
     public sealed partial class PreGame : Page, INotifyPropertyChanged
     {
         MediaPlayer errorSound;
-        MediaPlayer backgroundSound;
         MediaPlayer buttonSound;
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<ViewPowerUp> ListaPowerUps { get; } = new ObservableCollection<ViewPowerUp>();
@@ -47,8 +46,6 @@ namespace WarOfFae
         bool pressedPowerUp2 = false; int pressedPowerUp2Id =1;
         int pressedEl = 1; //ids: aire agua fuego tierra
         int numPersonajesRestantes = 30;
-        double volumeMusic = 100;
-
 
         public struct personajeEnMapa
         {
@@ -76,17 +73,15 @@ namespace WarOfFae
         public struct info 
         { 
             public personajeEnMapa[,] personajesP; 
-            public ObservableCollection<ViewPowerUp>powerupsP ; 
+            public ObservableCollection<ViewPowerUp>powerupsP ;
         }
 
         public PreGame()
         {
             this.InitializeComponent();
             errorSound = new MediaPlayer();
-            backgroundSound = new MediaPlayer();
             buttonSound = new MediaPlayer();
             pS.image = null;
-            startMusic();
             double w = Mi_Mapa.ActualWidth;
             double h = Mi_Mapa.ActualHeight;
             for (int i = 0; i < matrizPersonajes.GetLength(0); i++)
@@ -123,16 +118,6 @@ namespace WarOfFae
             }
 
 
-        }
-        private async void startMusic()
-        {
-            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("backgroundMusic.mp3");
-            backgroundSound.AutoPlay = true;
-            backgroundSound.IsLoopingEnabled = true;
-            backgroundSound.Source = MediaSource.CreateFromStorageFile(file);
-            backgroundSound.Volume = (double)volumeMusic / 100;
-            backgroundSound.Play();
         }
       
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -172,49 +157,42 @@ namespace WarOfFae
                 }
 
             }
-            if (e?.Parameter is double music)
-            {
-                volumeMusic = music;
-            }
             base.OnNavigatedTo(e);
         }
         
 
         private void Back_Boton_Click(object sender, RoutedEventArgs e)
         {
-            backgroundSound.Pause();
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-            }
+            
+            Frame.Navigate(typeof(MainPage));
         }
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
-            {
                 ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
                 info p; p.personajesP = matrizPersonajes; p.powerupsP = ListaPowerUpsElegidos;
+                //backgroundSound.Pause();
                 Frame.Navigate(typeof(InGame), p);
-            }
-            else
-            {
-                Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-                Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
-                errorSound.AutoPlay = false;
-                errorSound.Source = MediaSource.CreateFromStorageFile(file);
-                errorSound.Play();
-                var messageDialog = new MessageDialog("You are not ready to start the match! Try checking if you have:\n" +
-                    "      - Chosen all the necesary power ups\n" +
-                    "      - Placed all your troops on the map");
-                await messageDialog.ShowAsync();
-            }
+            //if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
+            //{
+            //}
+            //else
+            //{
+            //    Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            //    Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+            //    errorSound.AutoPlay = false;
+            //    errorSound.Source = MediaSource.CreateFromStorageFile(file);
+            //    errorSound.Play();
+            //    var messageDialog = new MessageDialog("You are not ready to start the match! Try checking if you have:\n" +
+            //        "      - Chosen all the necesary power ups\n" +
+            //        "      - Placed all your troops on the map");
+            //    await messageDialog.ShowAsync();
+            //}
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
-            backgroundSound.Pause();
             Frame.Navigate(typeof(OptionsInGame));
         }
 
@@ -502,9 +480,6 @@ namespace WarOfFae
                                 await messageDialog2.ShowAsync();
                             }
                         }
-                        //GridViewItem g = GridViewPersonajes.ContainerFromIndex(GridViewPersonajes.SelectedIndex) as GridViewItem;
-                        //g.Focus(FocusState.Keyboard);
-
                     }
                     else
                     {
@@ -684,24 +659,15 @@ namespace WarOfFae
                 aux.image.Source = matrizPersonajes[name1, name2].image.Source;
                 aux.hasImage = matrizPersonajes[name1, name2].hasImage;
 
-                matrizPersonajes[name1, name2].hasImage = matrizPersonajes[(int)column, (int)row].hasImage;
-                matrizPersonajes[name1, name2].image.Source = matrizPersonajes[(int)column, (int)row].image.Source;
-                matrizPersonajes[(int)column, (int)row].image.Source = b;
-                matrizPersonajes[(int)column, (int)row].hasImage = aux.hasImage;
-                matrizPersonajes[(int)column, (int)row].id= aux.id;
-
-                if (!matrizPersonajes[name1, name2].hasImage)
+                if (matrizPersonajes[(int)column, (int)row].hasImage)
                 {
-                    matrizPersonajes[name1, name2].image.CanDrag = false;
-                    matrizPersonajes[name1, name2].image.DragStarting -= Mi_Mapa_DragStarting;
-                    matrizPersonajes[name1, name2].hasImage = false;
-                    matrizPersonajes[(int)column, (int)row].image.CanDrag = true;
-                    matrizPersonajes[(int)column, (int)row].hasImage = true;
-                    matrizPersonajes[(int)column, (int)row].image.DragStarting += Mi_Mapa_DragStarting;
+                    matrizPersonajes[name1, name2].hasImage = matrizPersonajes[(int)column, (int)row].hasImage;
+                    matrizPersonajes[name1, name2].image.Source = matrizPersonajes[(int)column, (int)row].image.Source;
+                    matrizPersonajes[(int)column, (int)row].image.Source = b;
+                    matrizPersonajes[(int)column, (int)row].hasImage = aux.hasImage;
+                    matrizPersonajes[(int)column, (int)row].id= aux.id;
 
                 }
-              
-             
             }
 
         }

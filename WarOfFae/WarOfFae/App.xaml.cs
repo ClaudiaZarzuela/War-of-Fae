@@ -30,13 +30,29 @@ namespace WarOfFae
         /// ejecutado y, como tal, es el equivalente lógico de main() o WinMain().
         /// </summary>
         /// 
-
+        static public MediaPlayer backgroundSound { get; set; }
+        static public double volumeMusic { get; set; }
         public App()
         {
             this.InitializeComponent();
+            volumeMusic = 100;
+            backgroundSound = new MediaPlayer();
             this.Suspending += OnSuspending;
-        }
+            startMusic();
 
+        }
+        private async void startMusic()
+        {
+            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            Windows.Storage.StorageFile file = await folder.GetFileAsync("mainMenuMusic.wav");
+            backgroundSound.AutoPlay = true;
+            backgroundSound.IsLoopingEnabled = true;
+            backgroundSound.Source = MediaSource.CreateFromStorageFile(file);
+            backgroundSound.Volume = (double)volumeMusic / 100;
+            backgroundSound.Play();
+
+            
+        }
         /// <summary>
         /// Se invoca cuando la aplicación la inicia normalmente el usuario final. Se usarán otros puntos
         /// de entrada cuando la aplicación se inicie para abrir un archivo específico, por ejemplo.
@@ -71,7 +87,7 @@ namespace WarOfFae
                     // Cuando no se restaura la pila de navegación, navegar a la primera página,
                     // configurando la nueva página pasándole la información requerida como
                     //parámetro de navegación
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(IntroVideo), e.Arguments);
                 }
                 // Asegurarse de que la ventana actual está activa.
                 Window.Current.Activate();

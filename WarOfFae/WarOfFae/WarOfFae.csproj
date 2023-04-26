@@ -170,7 +170,9 @@
     <Content Include="Assets\CartelPrincipalOpciones.png" />
     <Content Include="Assets\CartelSolo.png" />
     <Content Include="Assets\corazon.png" />
+    <Content Include="Assets\Dead1.2.png" />
     <Content Include="Assets\Dead1.png" />
+    <Content Include="Assets\Dead2.2.png" />
     <Content Include="Assets\Dead2.png" />
     <Content Include="Assets\dragon.png" />
     <Content Include="Assets\earth.png" />
@@ -189,6 +191,7 @@
     <Content Include="Assets\InfoCard.png" />
     <Content Include="Assets\InGameBackground.png" />
     <Content Include="Assets\intro.mp4" />
+    <Content Include="Assets\Inventory.png" />
     <Content Include="Assets\MainMenuBackGround.png" />
     <Content Include="Assets\mainMenuMusic.wav" />
     <Content Include="Assets\MAP.png" />

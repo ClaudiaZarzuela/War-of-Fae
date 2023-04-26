@@ -19,6 +19,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using static WarOfFae.PreGame;
+using Windows.Media.Playback;
+using Windows.Media.Core;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,6 +47,7 @@ namespace WarOfFae
         private Stopwatch Stopwatch_timer;
         private Stopwatch Stopwatch_timerRect;
         public event PropertyChangedEventHandler PropertyChanged;
+
 
         //Mapa
         WarOfFae.PreGame.personajeEnMapa[,] matrizPersonajes = new WarOfFae.PreGame.personajeEnMapa[10, 3]; 
@@ -137,6 +140,7 @@ namespace WarOfFae
             Stopwatch_timer = new Stopwatch(); Stopwatch_timer.Start();
             Stopwatch_timerRect = new Stopwatch(); Stopwatch_timerRect.Start();
         }
+      
 
         private void Ajustes_OnClick(object sender, RoutedEventArgs e)
         {
@@ -162,6 +166,7 @@ namespace WarOfFae
                     ListaPowerUpsElegidos.Add(pList[i]); 
                }
             }
+          
             base.OnNavigatedTo(e);
         }
        

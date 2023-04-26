@@ -63,17 +63,11 @@
                     </StackPanel>
                 </Viewbox>
             </StackPanel>
-<<<<<<< Updated upstream
-            <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0" Margin="0,0,0,116"></Rectangle>
-            <Image Name="Flecha" Source="Assets/Back2.png" RenderTransformOrigin="0.5,0.5" Width="150" VerticalAlignment="Bottom" Margin="0,125" Opacity="0">
-                <Image.RenderTransform>
-                    <CompositeTransform Rotation="1.148"/>
-=======
+           
             <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0"></Rectangle>
             <Image Name="Flecha" Source="Assets/Back2.png"  Width="150" VerticalAlignment="Bottom" Margin="0,70" Opacity="0">
                 <Image.RenderTransform>
                     <CompositeTransform Rotation="-0.591"/>
->>>>>>> Stashed changes
                 </Image.RenderTransform>
             </Image>
             <Border  Height="71" Width="142" Margin="20" VerticalAlignment="Bottom">
@@ -81,10 +75,13 @@
                     <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock Text="{x:Bind Turn, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    <TextBlock Text=" Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Style="{StaticResource Text}" Text="{x:Bind Turn, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <TextBlock Style="{StaticResource Text}" Text=" Turn!" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                 </StackPanel>
             </Border>
+            <Image VerticalAlignment="Top" Source="Assets/MAP.png" Width="300" Height="100"  Grid.Column="1" Margin="0,90,0,0"></Image>
+
+
             <Border Height="457"  Width="555" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" IsTapEnabled="True">
                 <Canvas>
                     <Canvas.Background>
@@ -95,30 +92,31 @@
                 </Canvas>
             </Border>
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBlock Text="Enemy lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
-                <Image Source="Assets/Dead1.png" Margin="10"></Image>
+                <!--<TextBlock Text="Enemy lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>-->
+                <Image Source="Assets/Dead1.2.png" Margin="10" Width="400"></Image>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Border  Height="48" Width="93">
+                    <Border Height="70" Width="150" >
                         <Border.Background>
                             <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                         </Border.Background>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" Text="Money:" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" Text="50" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource Text_Num}" Text="200" FontWeight="Bold" FontFamily="Curlz MT" FontSize="40"  Margin="25,0" VerticalAlignment="Center"></TextBlock>
+                            <Image Source="Assets/Money.png" Height="50" Width="60" Margin="-30,5,0,0"/>
                         </StackPanel>
+
                     </Border>
-                    <Border  Height="48" Width="93" Margin="20">
+                   
+                    <Border  Height="70" Width="150" Margin="10">
                         <Border.Background>
                             <ImageBrush ImageSource="Assets/Panel.png" Stretch="Fill"></ImageBrush>
                         </Border.Background>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock Text="Time:" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock Text="{x:Bind Time, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <TextBlock Style="{StaticResource Text}" Text="Time:" FontWeight="Bold" FontFamily="Curlz MT" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-20,0,0,0"></TextBlock>
+                            <TextBlock  Style="{StaticResource Text}" Text="{x:Bind Time, Mode=OneWay}" FontWeight="Bold" FontFamily="Curlz MT" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
                         </StackPanel>
                     </Border>
                 </StackPanel>
-                <TextBlock Text="You lost" FontWeight="Bold" FontFamily="Curlz MT" FontSize="20" HorizontalAlignment="Center"></TextBlock>
-                <Image Source="Assets/Dead2.png" Margin="10"></Image>
+                <Image Source="Assets/Dead2.2.png" Margin="10" Width="400"></Image>
             </StackPanel>
             <Rectangle Name="Rectangulo2" Fill="Black" Grid.Column="1" Opacity="0"></Rectangle>
             <Rectangle  Name="Rectangulo3" Fill="Black" Grid.Column="2" Opacity="0"></Rectangle>

@@ -31,56 +31,38 @@ namespace WarOfFae
         string Music2 = "50";
         public event PropertyChangedEventHandler PropertyChanged;
         string LanguageImage = "Assets/UK.png";
-        MediaPlayer backgroundSound;
-        double volumeMusic = 100;
+        bool ready = false;
 
         public Options()
         {
             this.InitializeComponent();
-            backgroundSound = new MediaPlayer();
-            startMusic();
-
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            if (e?.Parameter is double music)
-            {
-                Music = music.ToString();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
-                volumeMusic = music;
-                backgroundSound.Volume = (double)music / 100;
-                MusicSlider.Value = music;
-            }
-           
-            base.OnNavigatedTo(e);
-        }
-        private async void startMusic()
-        {
-            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("mainMenuMusic.wav");
-            backgroundSound.AutoPlay = true;
-            backgroundSound.IsLoopingEnabled = true;
-            backgroundSound.Source = MediaSource.CreateFromStorageFile(file);
-            backgroundSound.Volume = (double)volumeMusic / 100;
-
-            backgroundSound.Play();
+            double v = WarOfFae.App.backgroundSound.Volume;
+            double realV = v * 100;
+            string volume = (realV).ToString();
+            Music = volume;
+            MusicSlider.Value = realV;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
+            ready = true;
         }
         private void Back_Boton_Click(object sender, RoutedEventArgs e)
         {
-            backgroundSound.Pause();
-            Frame.Navigate(typeof(MainPage), volumeMusic);
+            if(Frame.CanGoBack)
+                Frame.GoBack();
             
         }
 
         private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            string msg = string.Format("{0}", e.NewValue);
-            Music = msg;
-            volumeMusic = int.Parse(msg);
-            if (backgroundSound != null)
-                backgroundSound.Volume = (double)volumeMusic / 100;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
+            if (ready)
+            {
+                string msg = string.Format("{0}", e.NewValue);
+                Music = msg;
+                double volume = ((double)int.Parse(msg)) / 100;
+                WarOfFae.App.backgroundSound.Volume = volume;
+                WarOfFae.App.volumeMusic = volume;
+               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Music)));
+
+            }
         }
         private void Slider2_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {

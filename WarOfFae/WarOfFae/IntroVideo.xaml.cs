@@ -25,11 +25,13 @@ namespace WarOfFae
         public IntroVideo()
         {
             this.InitializeComponent();
+            WarOfFae.App.backgroundSound.Pause();
         }
 
         private void MediaElement1_MediaEnded(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+            WarOfFae.App.backgroundSound.Play();
         }
     }
 }
