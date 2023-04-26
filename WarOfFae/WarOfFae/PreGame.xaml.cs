@@ -166,30 +166,50 @@ namespace WarOfFae
             
             Frame.Navigate(typeof(MainPage));
         }
+        
+        private void Start(Windows.UI.Xaml.Controls.ContentDialog sender, Windows.UI.Xaml.Controls.ContentDialogButtonClickEventArgs args)
+        {
+            ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
+            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
+            ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
+            info p; p.personajesP = matrizPersonajes; p.powerupsP = ListaPowerUpsElegidos;
+            Frame.Navigate(typeof(InGame), p);
+        }
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            if ((numPersonajesRestantes <= 0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
+            {
                 ListaPowerUpsElegidos.Add(ListaPowerUpsElems[pressedEl]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp1Id]);
                 ListaPowerUpsElegidos.Add(ListaPowerUps[pressedPowerUp2Id]);
                 info p; p.personajesP = matrizPersonajes; p.powerupsP = ListaPowerUpsElegidos;
-                //backgroundSound.Pause();
-                Frame.Navigate(typeof(InGame), p);
-            //if((numPersonajesRestantes<=0) && (PowerUp1.Content.ToString() != "Empty") && (PowerUp2.Content.ToString() != "Empty"))
-            //{
-            //}
-            //else
-            //{
-            //    Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-            //    Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
-            //    errorSound.AutoPlay = false;
-            //    errorSound.Source = MediaSource.CreateFromStorageFile(file);
-            //    errorSound.Play();
-            //    var messageDialog = new MessageDialog("You are not ready to start the match! Try checking if you have:\n" +
-            //        "      - Chosen all the necesary power ups\n" +
-            //        "      - Placed all your troops on the map");
-            //    await messageDialog.ShowAsync();
-            //}
+
+                var dlg1 = new ContentDialog()
+                {
+                    Title = "Start Match",
+                    Content = "Are you sure you want to start the match?",
+                    PrimaryButtonText = "Ready",
+                    SecondaryButtonText = "Back"
+                    
+                };
+                dlg1.PrimaryButtonClick += new Windows.Foundation.TypedEventHandler<Windows.UI.Xaml.Controls.ContentDialog, Windows.UI.Xaml.Controls.ContentDialogButtonClickEventArgs>(Start); 
+               
+               
+                await dlg1.ShowAsync();
+            }
+            else
+            {
+                Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+                Windows.Storage.StorageFile file = await folder.GetFileAsync("error.wav");
+                errorSound.AutoPlay = false;
+                errorSound.Source = MediaSource.CreateFromStorageFile(file);
+                errorSound.Play();
+                var messageDialog = new MessageDialog("You are not ready to start the match! Try checking if you have:\n" +
+                    "      - Chosen all the necesary power ups\n" +
+                    "      - Placed all your troops on the map");
+                await messageDialog.ShowAsync();
+            }
         }
         private void AjustesButton_Click(object sender, RoutedEventArgs e)
         {
