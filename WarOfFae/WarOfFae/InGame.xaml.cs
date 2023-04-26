@@ -109,9 +109,9 @@ namespace WarOfFae
                 if (Stopwatch_timer.Elapsed.Seconds >= 30) 
                 {
                     Flecha.Opacity = 1;
-                    Rectangulo1.Opacity = 0.5;
-                    Rectangulo2.Opacity = 0.5;
-                    Rectangulo3.Opacity = 0.5;
+                    Rectangulo1.Opacity = 0.7;
+                    Rectangulo2.Opacity = 0.7;
+                    Rectangulo3.Opacity = 0.7;
                     Stopwatch_timer.Restart(); 
                     if (Turn == turn[0]) { Turn = turn[1]; } 
                     else { Turn = turn[0]; }
@@ -122,7 +122,7 @@ namespace WarOfFae
             _timerRect.Tick += (sender, o) =>
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Time)));
-                if (Stopwatch_timerRect.Elapsed.Seconds >= 31)
+                if (Stopwatch_timerRect.Elapsed.Seconds >= 32)
                 {
                     Flecha.Opacity = 0;
                     Rectangulo1.Opacity = 0;

@@ -63,10 +63,17 @@
                     </StackPanel>
                 </Viewbox>
             </StackPanel>
+<<<<<<< Updated upstream
             <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0" Margin="0,0,0,116"></Rectangle>
             <Image Name="Flecha" Source="Assets/Back2.png" RenderTransformOrigin="0.5,0.5" Width="150" VerticalAlignment="Bottom" Margin="0,125" Opacity="0">
                 <Image.RenderTransform>
                     <CompositeTransform Rotation="1.148"/>
+=======
+            <Rectangle Name="Rectangulo1" Fill="Black" Grid.Column="0" Opacity="0"></Rectangle>
+            <Image Name="Flecha" Source="Assets/Back2.png"  Width="150" VerticalAlignment="Bottom" Margin="0,70" Opacity="0">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-0.591"/>
+>>>>>>> Stashed changes
                 </Image.RenderTransform>
             </Image>
             <Border  Height="71" Width="142" Margin="20" VerticalAlignment="Bottom">
